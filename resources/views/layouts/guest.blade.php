@@ -8,21 +8,21 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
     </head>
-    <body class="font-sans antialiased text-gray-900 text-sm bg-gray-background">
+    <body>
 
-        <x-navbar />
+        <div class="font-sans text-gray-900 antialiased bg-gray-100">
+            <x-navbar />
 
-        <main class="container mx-auto max-w-main">
+
             {{ $slot }}
-        </main>
-</body>
+        </div>
+    </body>
 </html>
