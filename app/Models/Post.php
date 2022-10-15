@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Category;
+use App\Models\PostImages;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -17,5 +18,9 @@ class Post extends Model
 
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+
+    public function images(){
+        return $this->hasMany(PostImages::class);
     }
 }
