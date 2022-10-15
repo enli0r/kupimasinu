@@ -13,11 +13,11 @@ class Post extends Model
     use HasFactory;
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'korisnik_id');
     }
 
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'kategorija_id');
     }
 
     public function images(){

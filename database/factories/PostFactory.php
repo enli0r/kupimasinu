@@ -26,7 +26,6 @@ class PostFactory extends Factory
         $postanski_broj = $mesta[$mesto];
 
         return [
-            'is_admin' => false,
             'korisnik_id' => 1,
             'kategorija_id' => rand(1,2),
             'naziv' => $this->faker->sentence,
