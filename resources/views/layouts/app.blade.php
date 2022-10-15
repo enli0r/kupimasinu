@@ -16,6 +16,9 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+        <!-- Livewire styles -->
+        @livewireStyles
+
     </head>
     <body class="font-sans antialiased text-gray-900 text-sm bg-gray-background">
 
@@ -24,5 +27,9 @@
         <main class="container mx-auto max-w-main">
             {{ $slot }}
         </main>
-</body>
+
+
+        <!-- Livewire scripts -->
+        @livewireScripts
+    </body>
 </html>

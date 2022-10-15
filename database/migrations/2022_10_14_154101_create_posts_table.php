@@ -15,6 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_admin')->default(0);
             $table->unsignedBigInteger('korisnik_id');
             $table->unsignedBigInteger('kategorija_id');
             $table->string('naziv');

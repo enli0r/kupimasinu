@@ -26,6 +26,7 @@ class PostFactory extends Factory
         $postanski_broj = $mesta[$mesto];
 
         return [
+            'is_admin' => false,
             'korisnik_id' => 1,
             'kategorija_id' => rand(1,2),
             'naziv' => $this->faker->sentence,
@@ -42,7 +43,6 @@ class PostFactory extends Factory
             'kontakt' => '06'.strval(rand(0,9)).strval(rand(0000001, 9999999)),
             'garantovanje_tacnosti' => true,
             'saglasnost' => true,
-            'is_admin' => false,
         ];
 
     }
