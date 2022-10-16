@@ -23,16 +23,19 @@ module.exports = {
       colors: {
         'gray-background' : '#f7f8fc',
         'half-transparent': 'rgba(0,0,0,0.5)',
+        'footer' : '#e4e4e4',
         
       },
 
       maxWidth: {
-          main: '62.5rem'
+          main: '62.5rem',
+          footer : '31.25rem',
       },
       
       spacing: {
           70: '17.5rem',
           55: '17rem',
+          100: '25rem',
           175: '43.75rem',
       },
       
@@ -54,9 +57,17 @@ module.exports = {
 
           'mdMin': '768px',
 
+          'custom' : {'max' : '839px'},
+
+          'customMin' : '840px',
+
           'lgMin': '1024px',
 
-          'xlMin': '1280px'
+          'xlMin': '1280px',
+
+          
+
+
       },
       borderRadius: {
           '2xl': '1rem'

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('homepage');
+Route::get('/', [PostController::class, 'index'])->name('homepage');
 
+Route::get('/oglasi/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 
 require __DIR__.'/auth.php';

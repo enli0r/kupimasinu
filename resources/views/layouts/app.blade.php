@@ -16,19 +16,29 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+        <!-- Alpine js -->
+        <script defer src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"></script>
+
+
         <!-- Livewire styles -->
         @livewireStyles
 
     </head>
-    <body class="font-sans antialiased text-gray-900 text-sm bg-gray-background">
+    <body class="font-sans antialiased text-gray-900 text-sm bg-gray-background ">
 
-        <x-navbar />
+        <div class="lg:mx-5">
+            <header class="max-w-main mx-auto mb-5">
+                <x-navbar />
+            </header>
+            
+    
+            <main class="container mx-auto max-w-main">
+                {{ $slot }}
+            </main>
+        </div>
 
-        <main class="container mx-auto max-w-main">
-            {{ $slot }}
-        </main>
-
-
+        <x-footer />
+        
         <!-- Livewire scripts -->
         @livewireScripts
     </body>
