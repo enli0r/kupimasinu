@@ -7,7 +7,16 @@
 
         <div class="flex gap-5 justify-start">
             <div class="w-64 shrink-0">
-                <img src="{{ $post->images()->first()->link }}" alt="" class="rounded-xl">
+                <img src="{{ $post->images()->first()->link }}" alt="" class="">
+
+                <div class="border py-2 bg-blue-500 text-white rounded-t-none rounded-xl mt-2">
+                    <div class="flex items-center justify-center">
+                        <img src="../public/images/white.png" alt="" class="w-6 h-6 ">
+                        <p class="font-semibold ml-1">{{ $post->user->name }}</p>
+                        <p class="ml-2">|</p>
+                        <p class="font-semibold ml-2">{{ $post->kontakt }}</p>
+                    </div>
+                </div>
             </div>
 
             <div class="flex flex-col gap-2 w-full">
@@ -52,15 +61,6 @@
             </div>
         </div>
         
-        <div class="border py-2 bg-blue-500 text-white rounded-t-none rounded-2xl mt-5">
-            <div class="flex items-center justify-center">
-                <img src="../public/images/white.png" alt="" class="w-6 h-6 ">
-                <p class="font-semibold ml-1">{{ $post->user->name }}</p>
-                <p class="ml-2">|</p>
-                <p class="font-semibold ml-2">{{ $post->kontakt }}</p>
-            </div>
-        </div>
-        
 
     </div>
 
@@ -71,7 +71,7 @@
         <div class="flex gap-3 mb-5">
             <div class="flex">
                 <div class="w-36 shrink-0">
-                    <img src="{{ $post->images()->first()->link }}" alt="" class="rounded-lg">
+                    <img src="{{ $post->images()->first()->link }}" alt="" class="">
                 </div>
             </div>
     
