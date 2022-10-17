@@ -5,7 +5,7 @@
             <div class="w-100 shrink-0">
                 <img src="{{ $post->images()->first()->link }}" class="w-full" alt="">
                 
-                <div class="border py-2 bg-blue-500 text-white rounded-t-none rounded-xl mt-2">
+                <div class="border py-2 bg-red-500 text-white rounded-t-none rounded-xl mt-2">
                     <div class="flex items-center justify-center">
                         <img src="../images/white.png" alt="" class="w-6 h-6 ">
                         <p class="font-semibold ml-1">{{ $post->user->name }}</p>
@@ -98,7 +98,7 @@
             <p>{{ $post->opis }}</p>
         </div>  
 
-        <div class="border py-2 bg-blue-500 text-white rounded-t-none rounded-2xl">
+        <div class="border py-2 bg-red-500 text-white rounded-t-none rounded-2xl">
             <div class="flex items-center justify-center">
                 <img src="../images/white.png" alt="" class="w-6 h-6 ">
                 <p class="font-semibold ml-1">{{ $post->user->name }}</p>

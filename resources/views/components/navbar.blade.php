@@ -1,6 +1,6 @@
 <div class="navbar flex justify-end font-semibold bg-white rounded-b-2xl border">
     @auth
-        <a href="{{ route('homepage') }}">Pocetna</a>
+        <a href="#">Pocetna</a>
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf

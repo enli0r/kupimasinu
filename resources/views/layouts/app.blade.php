@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
+        
         <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Styles -->
@@ -19,12 +20,11 @@
         <!-- Alpine js -->
         <script defer src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"></script>
 
-
         <!-- Livewire styles -->
         @livewireStyles
 
     </head>
-    <body class="font-sans antialiased text-gray-900 text-sm bg-gray-background ">
+    <body class="font-sans antialiased text-gray-900 text-sm  bg-gray-100">
 
         <div class="lg:mx-5">
             <header class="max-w-main mx-auto mb-5">

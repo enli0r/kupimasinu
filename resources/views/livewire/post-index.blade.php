@@ -1,15 +1,13 @@
-<div 
-    x-data="{showKontaktDesktop:false}"
->
+<div>
 
     <!--Post for desktop -->
-    <div class="border rounded-2xl p-5 bg-white hover:shadow-card md:hidden">
+    <div class="border rounded-2xl p-5 bg-white shadow-card md:hidden">
 
         <div class="flex gap-5 justify-start">
             <div class="w-64 shrink-0">
                 <img src="{{ $post->images()->first()->link }}" alt="" class="">
 
-                <div class="border py-2 bg-blue-500 text-white rounded-t-none rounded-xl mt-2">
+                <div class="border py-2 bg-red-500 text-white rounded-t-none rounded-xl mt-2">
                     <div class="flex items-center justify-center">
                         <img src="../public/images/white.png" alt="" class="w-6 h-6 ">
                         <p class="font-semibold ml-1">{{ $post->user->name }}</p>
@@ -46,9 +44,9 @@
                         </tr>
                     </table>
     
-                    <div class="border px-3 py-3 bg-blue-500 text-white rounded-2xl h-auto w-28 shrink-0 hidden">
+                    <div class="border px-3 py-3 bg-red-500 text-white rounded-2xl h-auto w-28 shrink-0 hidden">
                         <div class="flex flex-col items-center gap-1">
-                            <img src="../public/images/white.png" alt="" class="w-6 h-6 ">
+                            <img src="https://i.ibb.co/Kb1mp8Y/white.png" alt="" class="w-6 h-6 ">
                             <p class="font-semibold ">{{ $post->user->name }}</p>
                             <p class="font-semibold">{{ $post->kontakt }}</p>
                         </div>
@@ -66,7 +64,7 @@
 
 
     <!-- Post for mobile -->
-    <div class="border rounded-2xl p-5 bg-white flex flex-col justify-start relative hover:shadow-card mdMin:hidden">
+    <div class=" rounded-2xl p-5 bg-white flex flex-col justify-start relative shadow-card  mdMin:hidden">
 
         <div class="flex gap-3 mb-5">
             <div class="flex">
@@ -107,9 +105,9 @@
         </div>
 
 
-        <div class="flex justify-center items-center gap-2 hover:cursor-pointer rounded-t-none rounded-xl bg-blue-500 py-2 text-white font-semibold">
+        <div class="flex justify-center items-center gap-2 hover:cursor-pointer rounded-t-none rounded-xl bg-red-500 py-2 text-white font-semibold">
 
-            <img src="../public/images/white.png" alt="" class="w-6 h-6">
+            <img src="https://i.ibb.co/Kb1mp8Y/white.png" alt="" class="w-6 h-6">
             
             <p class="">{{ $post->user->name }}</p>
 
