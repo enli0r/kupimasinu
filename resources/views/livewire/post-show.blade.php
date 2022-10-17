@@ -11,24 +11,27 @@
                 <p class="text-lg text-blue-500 font-semibold mb-5">{{ $post->cena }} &euro;</p>
                 <hr class="mb-2">
     
-                <div class="flex gap-2 items-start">
-                    <div class="flex flex-col gap-2 flex-1">
-                        <p>Tip: <span class="font-semibold">@if ($post->kategorija_id == 1) Mašina za drvo @else Mašina za metal @endif</span></p>
-                        <p>Korišćenost: <span class="font-semibold">@if ($post->koriscenost == 1) Polovno  @else Novo @endif</span></p>
-                        <p>Ispravnost: <span class="font-semibold">@if ($post->koriscenost == 1) Ispravno  @else Neispravno @endif</span> </p>
-                        <p>Proizvođač: <span class="font-semibold">@if ($post->proizvodjac != null) {{ $post->proizvodjac }}  @else / @endif</span> </p>
-                        <p>Mesto: <span class="font-semibold">{{ $post->mesto }}</span> </p>
-                        <p>Godište: <span class="font-semibold">@if ($post->godina != null) {{ $post->godina }}  @else / @endif</span> </p>
-                        <p>Zamena: <span class="font-semibold">@if ($post->koriscenost == 1) Da  @else Ne @endif</span> </p>
-                    </div>
+                <div class="flex gap-5 items-start">
+                    <table class="w-full">
+                        <tr class="bg-gray-200">
+                            <td class="py-1 ">Tip: <span class="font-semibold">@if ($post->kategorija_id == 1) Mašina za drvo @else Mašina za metal @endif</span></td>
+                            <td class="py-1 ">Mesto: <span class="font-semibold">{{ $post->mesto }}</span></td>
+                        </tr>
     
-                    <div class="border px-4 py-4 bg-blue-500 text-white rounded-2xl h-auto custom:hidden">
-                        <div class="flex flex-col items-center gap-1">
-                            <img src="../images/white.png" alt="" class="w-6 h-6 ">
-                            <p class="font-semibold ">{{ $post->user->name }}</p>
-                            <p class="font-semibold">{{ $post->kontakt }}</p>
-                        </div>
-                    </div>
+                        <tr class="">
+                            <td class="py-1 ">Korišćenost: <span class="font-semibold">@if ($post->koriscenost == 1) Polovno  @else Novo @endif</span></td>
+                            <td class="py-1">Godište: <span class="font-semibold">@if ($post->godina != null) {{ $post->godina }}  @else / @endif</span></td>
+                        </tr>
+    
+                        <tr class="bg-gray-200">
+                            <td class="py-1">Ispravnost: <span class="font-semibold">@if ($post->koriscenost == 1) Ispravno  @else Neispravno @endif</span></td>
+                            <td class="py-1">Zamena: <span class="font-semibold">@if ($post->koriscenost == 1) Da  @else Ne @endif</span></td>
+                        </tr>
+    
+                        <tr class="">
+                            <td class="py-1">Proizvođač: <span class="font-semibold">@if ($post->proizvodjac != null) {{ $post->proizvodjac }}  @else / @endif</span></td>
+                        </tr>
+                    </table>    
                 </div>
             </div>
         </div>
@@ -39,16 +42,15 @@
             <p>{{ $post->opis }}</p>
         </div>   
 
-        <div class="border px-4 py-2 bg-blue-500 text-white rounded-2xl customMin:hidden">
-            <div class="flex flex-col items-center gap-2 justify-center">
-                <div class="flex gap-1 items-center">
-                    <img src="../images/white.png" alt="" class="w-6 h-6 ">
-                    <p class="font-semibold ">{{ $post->user->name }}</p>
-                </div>
-    
-                <p class="font-semibold">{{ $post->kontakt }}</p>
+        <div class="border py-2 bg-blue-500 text-white rounded-t-none rounded-2xl">
+            <div class="flex items-center justify-center">
+                <img src="../images/white.png" alt="" class="w-6 h-6 ">
+                <p class="font-semibold ml-1">{{ $post->user->name }}</p>
+                <p class="ml-2">|</p>
+                <p class="font-semibold ml-2">{{ $post->kontakt }}</p>
             </div>
         </div>
+
     </div>
 
 
@@ -65,14 +67,27 @@
 
         <hr>
 
-        <div class="flex flex-col gap-2 flex-1">
-            <p>Tip: <span class="font-semibold">@if ($post->kategorija_id == 1) Mašina za drvo @else Mašina za metal @endif</span></p>
-            <p>Korišćenost: <span class="font-semibold">@if ($post->koriscenost == 1) Polovno  @else Novo @endif</span></p>
-            <p>Ispravnost: <span class="font-semibold">@if ($post->koriscenost == 1) Ispravno  @else Neispravno @endif</span> </p>
-            <p>Proizvođač: <span class="font-semibold">@if ($post->proizvodjac != null) {{ $post->proizvodjac }}  @else / @endif</span> </p>
-            <p>Mesto: <span class="font-semibold">{{ $post->mesto }}</span> </p>
-            <p>Godište: <span class="font-semibold">@if ($post->godina != null) {{ $post->godina }}  @else / @endif</span> </p>
-            <p>Zamena: <span class="font-semibold">@if ($post->koriscenost == 1) Da  @else Ne @endif</span> </p>
+        <div>
+            <table class="w-full">
+                <tr class="bg-gray-200">
+                    <td class="py-1">Tip: <span class="font-semibold">@if ($post->kategorija_id == 1) Mašina za drvo @else Mašina za metal @endif</span></td>
+                    <td class="py-1 ">Mesto: <span class="font-semibold">{{ $post->mesto }}</span></td>
+                </tr>
+
+                <tr class="">
+                    <td class="py-1">Korišćenost: <span class="font-semibold">@if ($post->koriscenost == 1) Polovno  @else Novo @endif</span></td>
+                    <td class="py-1">Godište: <span class="font-semibold">@if ($post->godina != null) {{ $post->godina }}  @else / @endif</span></td>
+                </tr>
+
+                <tr class="bg-gray-200">
+                    <td class="py-1">Ispravnost: <span class="font-semibold">@if ($post->koriscenost == 1) Ispravno  @else Neispravno @endif</span></td>
+                    <td class="py-1">Zamena: <span class="font-semibold">@if ($post->koriscenost == 1) Da  @else Ne @endif</span></td>
+                </tr>
+
+                <tr class="">
+                    <td class="py-1">Proizvođač: <span class="font-semibold">@if ($post->proizvodjac != null) {{ $post->proizvodjac }}  @else / @endif</span></td>
+                </tr>
+            </table>    
         </div>
 
         
@@ -83,14 +98,12 @@
             <p>{{ $post->opis }}</p>
         </div>  
 
-        <div class="border px-4 py-2 bg-blue-500 text-white rounded-2xl">
-            <div class="flex flex-col items-center gap-2 justify-center">
-                <div class="flex gap-1 items-center">
-                    <img src="../images/white.png" alt="" class="w-6 h-6 ">
-                    <p class="font-semibold ">{{ $post->user->name }}</p>
-                </div>
-    
-                <p class="font-semibold">{{ $post->kontakt }}</p>
+        <div class="border py-2 bg-blue-500 text-white rounded-t-none rounded-2xl">
+            <div class="flex items-center justify-center">
+                <img src="../images/white.png" alt="" class="w-6 h-6 ">
+                <p class="font-semibold ml-1">{{ $post->user->name }}</p>
+                <p class="ml-2">|</p>
+                <p class="font-semibold ml-2">{{ $post->kontakt }}</p>
             </div>
         </div>
 
