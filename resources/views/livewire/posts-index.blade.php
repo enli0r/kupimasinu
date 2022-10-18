@@ -1,4 +1,12 @@
-<div class="space-y-5">
+<div class="space-y-5"
+    x-init="window.livewire.on('gotoTop', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    })"
+>
+
         @foreach ($posts as $post)
 
             <livewire:post-index :post="$post" :wire:key="$post->id">
