@@ -23,6 +23,7 @@
         <!-- Livewire styles -->
         @livewireStyles
 
+
     </head>
     <body class="font-sans antialiased text-gray-900 text-sm  bg-gray-100">
 
@@ -38,7 +39,7 @@
         </div>
 
         <x-footer />
-        
+
         <!-- Livewire scripts -->
         @livewireScripts
     </body>

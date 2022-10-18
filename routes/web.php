@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function(){
-    return view('pages.index');
+    return view('homepage');
 });
 
 Route::get('/oglasi', [PostController::class, 'index'])->name('homepage');

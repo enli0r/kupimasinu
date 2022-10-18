@@ -5,10 +5,8 @@
 
         @endforeach
 
-        <button wire:click="refresh()">Refresh</button>
-
         @if (count($posts))
-            {{ $posts->links() }}
+            <div class="livewire-pagination">{{ $posts->links('pagination.livewire-pagination-links') }}</div>
         @endif
 
 </div>
