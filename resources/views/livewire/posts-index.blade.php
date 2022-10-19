@@ -7,14 +7,15 @@
     })"
 >
 
-        @foreach ($posts as $post)
 
-            <livewire:post-index :post="$post" :wire:key="$post->id">
+    @foreach ($posts as $post)
 
-        @endforeach
+        <livewire:post-index :post="$post" :wire:key="$post->id">
 
-        @if (count($posts))
-            <div class="livewire-pagination">{{ $posts->links('pagination.livewire-pagination-links') }}</div>
-        @endif
+    @endforeach
+
+    @if (count($posts))
+        <div class="livewire-pagination">{{ $posts->links('pagination.livewire-pagination-links') }}</div>
+    @endif
 
 </div>

@@ -19,10 +19,18 @@
     <body>
 
         <div class="font-sans text-gray-900 antialiased bg-gray-100">
-            <x-navbar />
 
+            <div class="lg:mx-5">
+                <header class="max-w-main mx-auto mb-5">
+                    <x-navbar />
+                </header>
 
-            {{ $slot }}
+                {{ $slot }}
+
+            </div>
+
+            <x-footer />
+
         </div>
     </body>
 </html>

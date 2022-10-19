@@ -25,12 +25,14 @@
 
 
     </head>
-    <body class="font-sans antialiased text-gray-900 text-sm  bg-gray-100">
+    <body class="font-sans antialiased text-gray-900 text-sm bg-gray-background">
 
-        <div class="lg:mx-5">
-            <header class="max-w-main mx-auto mb-5">
-                <x-navbar />
-            </header>
+        <header class="mb-5">
+            <x-navbar />
+        </header>
+
+        <div class="lg:mx-5 background-cover-image pb-12">
+            
             
     
             <main class="container mx-auto max-w-main">
