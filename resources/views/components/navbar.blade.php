@@ -1,13 +1,18 @@
-<div class="navbar flex justify-end font-semibold bg-white border">
+<div class="navbar flex justify-end items-center font-semibold border pr-5 pl-5">
 
     <a href="{{ route('homepage') }}" class="p-4 hover:bg-gray-200 hover:transition-all">Početna</a>
 
     @auth
 
+
+        <a href="{{ route('user', auth()->user()->id) }}" class="p-4 hover:bg-gray-200 hover:transition-all">Moji oglasi</a>
+
+
         <form method="POST" action="{{ route('logout') }}">
             @csrf
 
             <a href="route('logout')"
+                class="p-4 hover:bg-gray-200 hover:transition-all"
                 onclick="event.preventDefault();
                 this.closest('form').submit();">
                 Log out

@@ -25,7 +25,7 @@
 
 
     </head>
-    <body class="font-sans antialiased text-gray-900 text-sm bg-gray-background">
+    <body class="font-sans antialiased text-gray-900 text-sm">
 
         <header class="mb-5">
             <x-navbar />

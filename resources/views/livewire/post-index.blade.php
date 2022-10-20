@@ -1,13 +1,13 @@
 <div>
 
     <!--Post for desktop -->
-    <div class="border rounded-2xl p-5 bg-white shadow-card md:hidden">
+    <div class="border rounded-2xl p-5 bg-white shadow-card md:hidden post">
 
         <div class="flex gap-5 justify-start">
             <div class="w-64 shrink-0">
                 <img src="{{ $post->images()->first()->link }}" alt="" class="">
 
-                <div class="border py-2 bg-red-600 text-white rounded-lg mt-2">
+                <div class="py-2 bg-red-600 text-white rounded-lg mt-2">
                     <div class="flex items-center justify-center">
                         <img src="../public/images/white.png" alt="" class="w-6 h-6 ">
                         <p class="font-semibold ml-1">{{ $post->user->name }}</p>
@@ -55,7 +55,7 @@
 
 
     <!-- Post for mobile -->
-    <div class=" rounded-2xl p-5 bg-white flex flex-col justify-start relative shadow-card  mdMin:hidden">
+    <div class=" rounded-2xl p-5 bg-white flex flex-col justify-start shadow-card relative mdMin:hidden post">
 
         <div class="flex gap-3 mb-5">
             <div class="flex">

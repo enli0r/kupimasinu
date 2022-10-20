@@ -51,4 +51,10 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    public function userPage(){
+
+        return view('pages.user');
+      
+    }
 }

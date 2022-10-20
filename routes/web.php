@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function(){
     return view('homepage');
 });
+
+Route::get('/korisnici/{user:id}/oglasi',  [RegisteredUserController::class, 'userPage'])->name('user');
 
 Route::get('/oglasi', [PostController::class, 'index'])->name('homepage');
 
