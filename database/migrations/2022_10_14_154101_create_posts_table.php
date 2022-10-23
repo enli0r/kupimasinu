@@ -31,6 +31,7 @@ class CreatePostsTable extends Migration
             $table->string('kontakt');
             $table->boolean('garantovanje_tacnosti');
             $table->boolean('saglasnost');
+            $table->boolean('odobren')->default(0);
             $table->timestamps();
 
             $table->foreign('korisnik_id')->references('id')->on('users')->onDelete('cascade');

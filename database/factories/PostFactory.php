@@ -42,6 +42,7 @@ class PostFactory extends Factory
             'kontakt' => '06'.strval(rand(0,9)).strval(rand(0000001, 9999999)),
             'garantovanje_tacnosti' => true,
             'saglasnost' => true,
+            'odobren' => array_rand($booleans),
         ];
 
     }

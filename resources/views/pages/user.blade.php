@@ -21,14 +21,34 @@
                 User posts
             </button>
 
+            @if ($user->is_admin == 1)
+                <button
+                @click="activeTab = 2"
+                class="tab-control"
+                :class="{ 'active': activeTab === 2 }"
+                >
+                    Zahtevi za odobravanje
+                </button>
+            @endif
+
         </div>
       
-        <div class="tab-panel" :class="{ 'active': activeTab === 0 }" x-show.transition.in.opacity.duration.600="activeTab === 0">
+        <div 
+        x-cloak    
+        class="tab-panel" :class="{ 'active': activeTab === 0 }" x-show.transition.in.opacity.duration.600="activeTab === 0">
             <livewire:user-info :user="$user"/>
         </div>
 
-        <div class="tab-panel" :class="{ 'active': activeTab === 1 }" x-show.transition.in.opacity.duration.600="activeTab === 1">
+        <div 
+        x-cloak    
+        class="tab-panel" :class="{ 'active': activeTab === 1 }" x-show.transition.in.opacity.duration.600="activeTab === 1">
             <livewire:user-posts :user="$user"/>
+        </div>
+
+        <div 
+        x-cloak    
+        class="tab-panel" :class="{ 'active': activeTab ===  2}" x-show.transition.in.opacity.duration.600="activeTab === 2">
+            <livewire:posts-to-approve />
         </div>
 
       </div>
