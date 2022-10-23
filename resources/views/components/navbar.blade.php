@@ -10,7 +10,9 @@
 
         @auth
     
-    
+            <a href="{{ route('posts.create') }}" class="p-4 hover:bg-gray-200 hover:transition-all">Kreiraj oglas</a>
+
+
             <a href="{{ route('user', auth()->user()->id) }}" class="p-4 hover:bg-gray-200 hover:transition-all">Profil</a>
     
     

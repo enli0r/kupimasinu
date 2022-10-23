@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function(){
     return view('homepage');
 });
+
+Route::get('/oglasi/kreiraj', [PagesController::class, 'create'])->name('posts.create')->middleware('auth');
+Route::put('/oglasi/kreiraj', [PostController::class, 'store']);
+
 
 Route::get('/korisnici/{user:id}',  [RegisteredUserController::class, 'userPage'])->name('user')->middleware('creator');
 
