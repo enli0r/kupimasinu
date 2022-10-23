@@ -19,7 +19,7 @@ Route::get('/', function(){
     return view('homepage');
 });
 
-Route::get('/korisnici/{user:id}/oglasi',  [RegisteredUserController::class, 'userPage'])->name('user');
+Route::get('/korisnici/{user:id}',  [RegisteredUserController::class, 'userPage'])->name('user')->middleware('creator');
 
 Route::get('/oglasi', [PostController::class, 'index'])->name('homepage');
 
