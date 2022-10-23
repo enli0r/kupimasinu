@@ -1,4 +1,4 @@
-<div class="navbar flex justify-end items-center font-semibold border pr-5 pl-5">
+<div class="navbar flex justify-end items-center font-semibold bg-white border pr-5 pl-5">
 
     <a href="{{ route('homepage') }}" class="p-4 hover:bg-gray-200 hover:transition-all">Početna</a>
 

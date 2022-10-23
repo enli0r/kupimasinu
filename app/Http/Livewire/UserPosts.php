@@ -12,12 +12,16 @@ class UserPosts extends Component
 {
     use WithPagination;
 
+    public $user;
+
+    public function mount(User $user){
+        $this->user = $user;
+    }
+
     public function render()
     {
-        $user = User::find(Auth::id());
-
         return view('livewire.user-posts', [
-            'posts' => $user->posts()->paginate(5)
+            'posts' => $this->user->posts()->paginate(5)
         ]);
     }
 }
