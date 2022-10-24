@@ -1,4 +1,6 @@
 <div class="mb-5" style="min-height: 70vh;">
+
+    <a href="{{ route('posts.edit', $post->slug) }}">Edit</a>
     
     <!-- DESKTOP VERSION -->
 
