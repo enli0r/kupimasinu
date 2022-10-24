@@ -157,4 +157,18 @@ class PostController extends Controller
          return redirect('/');   
     }
 
+    public function destroy($slug){
+        $post = Post::where('slug', $slug)->first();
+        
+        $images = PostImages::where('post_id', $post->id)->get();
+
+        foreach($images as $image){
+            $image->delete();
+        }
+
+        $post->delete();
+
+        return redirect('/');
+    }
+
 }

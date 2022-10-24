@@ -1,6 +1,16 @@
 <div class="mb-5" style="min-height: 70vh;">
 
-    <a href="{{ route('posts.edit', $post->slug) }}">Edit</a>
+    @auth
+        @if ($post->korisnik_id == auth()->user()->id)
+            <a href="{{ route('posts.edit', $post->slug) }}">Edit</a>
+
+            <form action="{{ route('posts.delete', $post->slug) }}" method="post">
+                @csrf
+                <button type="submit">Delete</button>
+            </form>
+        @endif
+    @endauth
+    
     
     <!-- DESKTOP VERSION -->
 

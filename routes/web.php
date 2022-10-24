@@ -33,4 +33,6 @@ Route::get('/oglasi/{post:slug}', [PostController::class, 'show'])->name('posts.
 Route::get('/oglasi/{post:slug}/edit', [PagesController::class, 'edit'])->name('posts.edit')->middleware('owner');
 Route::put('/oglasi/{post:slug}/edit', [PostController::class, 'update']);
 
+Route::post('/oglasi/{post:slug}/delete', [PostController::class, 'destroy'])->name('posts.delete')->middleware('owner');
+
 require __DIR__.'/auth.php';
