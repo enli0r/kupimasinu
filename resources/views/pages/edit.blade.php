@@ -1,7 +1,8 @@
 <x-app-layout>
     <p>Edit page</p>
 
-    <form action="{{ route('posts.update') }}" enctype="multipart/form-data" method="POST" class="bg-white p-5 flex flex-col gap-2">
+
+    <form action="{{ route('posts.edit',  $post->slug) }}" enctype="multipart/form-data" method="POST" class="bg-white p-5 flex flex-col gap-2">
         @csrf
         <input type="hidden" name="_method" value="put" />
 

@@ -12,7 +12,7 @@ class PagesController extends Controller
     }
 
     public function edit($slug){
-        $post = Post::where('slug', $slug)->get();
+        $post = Post::where('slug', $slug)->first();
 
         return view('pages.edit', [
             'post' => $post

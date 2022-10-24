@@ -114,7 +114,7 @@ class PostController extends Controller
             'images' => 'required'
         ]);
 
-        $post = Post::where('slug', $slug)->get();
+        $post = Post::where('slug', $slug)->first();
         $post->korisnik_id = $request->korisnik;
         $post->kategorija_id = $request->kategorija;
 
@@ -138,7 +138,6 @@ class PostController extends Controller
         $post->saglasnost = $request->saglasnost;
 
         $post->odobren = $request->odobren;
-
         $post->save();
 
         
@@ -155,7 +154,7 @@ class PostController extends Controller
         }
         
 
-         return redirect(route('posts.show', $slug));   
+         return redirect('/');   
     }
 
 }
