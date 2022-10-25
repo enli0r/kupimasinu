@@ -11,6 +11,9 @@ class PostsIndex extends Component
 {
     use WithPagination;
 
+    public $search;
+
+    //Filters
     public $tip;
     public $cena_od;
     public $cena_do;
@@ -19,25 +22,30 @@ class PostsIndex extends Component
     public $koriscenost;
     public $ispravnost;
     public $zamena;
+    //End of filters
 
     public $queryString = [
-        'tip', 'cena_od', 'cena_do', 'godina_od', 'godina_do', 'koriscenost', 'ispravnost', 'zamena'
+        'search', 'tip', 'cena_od', 'cena_do', 'godina_od', 'godina_do', 'koriscenost', 'ispravnost', 'zamena'
     ];
 
     public $listeners = ['updatingTip', 'updatingKoriscenost', 'updatingIspravnost', 'updatingZamena'];
 
 
-    public function updatingTip($tip){
+    public function setTip($tip){
         $this->tip = $tip;
+        $this->resetPage();
     }
-    public function updatingKoriscenost($koriscenost){
+    public function setKoriscenost($koriscenost){
         $this->koriscenost = $koriscenost;
+        $this->resetPage();
     }
-    public function updatingIspravnost($ispravnost){
+    public function setIspravnost($ispravnost){
         $this->ispravnost = $ispravnost;
+        $this->resetPage();
     }
-    public function updatingZamena($zamena){
+    public function setZamena($zamena){
         $this->zamena = $zamena;
+        $this->resetPage();
     }
 
     public function render()
@@ -76,6 +84,9 @@ class PostsIndex extends Component
             })
             ->when($this->zamena != null, function ($query) use ($zamena) {
                 return $query->where('zamena', $zamena->get($this->zamena));
+            })
+            ->when(strlen($this->search) >= 2, function($query){
+                return $query->where('naziv', 'like', '%'.$this->search.'%');
             })
             ->paginate(5)
         ]);

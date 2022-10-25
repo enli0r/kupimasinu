@@ -3,7 +3,7 @@
         <h2 class="font-semibold">
             Tip
         </h2>
-
+ 
         <button wire:click="setTip('masina za drvo')">Masina za drvo</button>
         <button wire:click="setTip('masina za metal')">Masina za metal</button>
     </div>
