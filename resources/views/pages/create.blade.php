@@ -17,9 +17,11 @@
         <!-- Kategorija -->
         <label>Kategorija</label>
         <label for="kategorija_drvo">Masina za drvo</label>
-        <input type="radio" name="kategorija" id="kategorija_drvo" value="1">
+        <x-radioCheck name="kategorija" value="1" id="kategorija_drvo" />
+
         <label for="kategorija_metal">Masina za metal</label>
-        <input type="radio" name="kategorija" id="kategorija_metal" value="2">
+        <x-radioCheck name="kategorija" value="2" id="kategorija_metal" />
+
         @error('kategorija')
                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
         @enderror
@@ -47,10 +49,13 @@
 
         <!-- Koriscenost -->
         <label>Koriscenost</label>
+
         <label for="koriscenost_novo">Novo</label>
-        <input type="radio" name="koriscenost" id="koriscenost_novo" value="0" />
+        <x-radioCheck name="koriscenost" value="0" id="koriscenost_novo" />
+
         <label for="koriscenost_polovno">Polovno</label>
-        <input type="radio" name="koriscenost" id="koriscenost_polovno" value="1" />
+        <x-radioCheck name="koriscenost" value="1" id="koriscenost_polovno" />
+
         @error('koriscenost')
                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
         @enderror
@@ -58,19 +63,24 @@
         <!-- Ispravnost -->
         <label>Ispravnost</label>
         <label for="ispravnost_ispravno">Ispravno</label>
-        <input type="radio" name="ispravnost" id="ispravnost_ispravno" value="0" />
+        <x-radioCheck name="ispravnost" value="0" id="ispravnost_ispravno" />
+
         <label for="ispravnost_neispravno">Neispravno</label>
-        <input type="radio" name="ispravnost" id="ispravnost_neispravno" value="1" />
+        <x-radioCheck name="ispravnost" value="1" id="ispravnost_neispravno" />
+
         @error('ispravnost')
                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
         @enderror
 
         <!-- Zamenna -->
         <label>Zamena</label>
+
         <label for="zamena_ne">Ne</label>
-        <input type="radio" name="zamena" id="zamena_ne" value="0" />
+        <x-radioCheck name="zamena" value="0" id="zamena_ne" />
+
         <label for="zamena_da">Da</label>
-        <input type="radio" name="zamena" id="zamena_da" value="1" />
+        <x-radioCheck name="zamena" value="1" id="zamena_da" />
+
         @error('zamena')
                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
         @enderror
@@ -85,23 +95,23 @@
 
         <!-- Opis -->
         <label for="opis">Opis</label>
-        <textarea name="opis" id="opis" cols="30" rows="10" value="{{old('opis')}}"></textarea>
+        <textarea name="opis" id="opis" cols="30" rows="10">{{old('opis')}}</textarea>
         @error('opis')
-                    <small class="text-red-500 font-semibold">*{{ $message }}</small>
+            <small class="text-red-500 font-semibold">*{{ $message }}</small>
         @enderror
 
         <!-- Mesto -->
         <label for="mesto">Mesto</label>
         <select name="mesto" id="mesto">
-            <option value="jagodina">Jagodina</option>
-            <option value="beograd">Beograd</option>
-            <option value="novi_sad">Novi sad</option>
-            <option value="kragujevac">Kragujevac</option>
-            <option value="cacak">Čačak</option>
-            <option value="nis">Niš</option>
+            <x-selectCheck value="jagodina" name="mesto" showToUser="Jagodina"/>
+            <x-selectCheck value="beograd" name="mesto" showToUser="Beograd"/>
+            <x-selectCheck value="novi_sad" name="mesto" showToUser="Novi sad"/>
+            <x-selectCheck value="kragujevac" name="mesto" showToUser="Kragujevac"/>
+            <x-selectCheck value="cacak" name="mesto" showToUser="Čačak"/>
+            <x-selectCheck value="nis" name="mesto" showToUser="Niš"/>
         </select>
         @error('mesto')
-                    <small class="text-red-500 font-semibold">*{{ $message }}</small>
+                <small class="text-red-500 font-semibold">*{{ $message }}</small>
         @enderror
 
         <!-- Postanski broj -->
