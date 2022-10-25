@@ -11,18 +11,27 @@ class PostsIndex extends Component
 {
     use WithPagination;
 
+    //Search
     public $search;
+    //End of search
 
     //Filters
     public $tip;
+    //Models
     public $cena_od;
     public $cena_do;
     public $godina_od;
     public $godina_do;
+    //end of models
     public $koriscenost;
     public $ispravnost;
     public $zamena;
     //End of filters
+
+    //Sorting
+    public $sort_by = 'created_at';
+    public $sort_direction = 'desc';
+
 
     public $queryString = [
         'search', 'tip', 'cena_od', 'cena_do', 'godina_od', 'godina_do', 'koriscenost', 'ispravnost', 'zamena'
@@ -46,6 +55,11 @@ class PostsIndex extends Component
     public function setZamena($zamena){
         $this->zamena = $zamena;
         $this->resetPage();
+    }
+
+    public function setOrderBy($sort_by, $sort_direction){
+        $this->sort_by = $sort_by;
+        $this->sort_direction = $sort_direction;
     }
 
     public function render()
@@ -99,8 +113,12 @@ class PostsIndex extends Component
             ->when($this->godina_do != null, function($query){
                 return $query->where('godina', '<=', $this->godina_do);
             })
-           
-            ->paginate(5)
+            ->orderBy($this->sort_by, $this->sort_direction)
+            ->paginate(5),
+
+            'sort_by' => $this->sort_by,
+            'sort_direction' => $this->sort_direction
+
         ]);
     }
 }
