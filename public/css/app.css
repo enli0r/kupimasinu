@@ -947,13 +947,17 @@ video {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 .pt-2 {
   padding-top: 0.5rem;
@@ -969,6 +973,12 @@ video {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pr-5 {
+  padding-right: 1.25rem;
+}
+.pl-12 {
+  padding-left: 3rem;
 }
 .pt-1 {
   padding-top: 0.25rem;
@@ -1202,6 +1212,31 @@ body {
   padding: 0.75rem;
   border-radius: 0.5rem;
   background-color: white;
+}
+
+.filters {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transform: translateY(110%);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-input::-moz-placeholder {
+  color: black;
+  font-weight: 500;
+}
+
+.search-input::placeholder {
+  color: black;
+  font-weight: 500;
 }
 
 .hover\:cursor-pointer:hover {
@@ -1508,6 +1543,14 @@ body {
     display: flex;
   }
 
+  .lg\:w-full {
+    width: 100%;
+  }
+
+  .lg\:flex-col-reverse {
+    flex-direction: column-reverse;
+  }
+
   .lg\:justify-center {
     justify-content: center;
   }
@@ -1521,11 +1564,24 @@ body {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+
+  .lg\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
 }
 
 @media (min-width: 768px) {
 
   .mdMin\:hidden {
     display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .lgMin\:hover\:bg-gray-100:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity));
   }
 }

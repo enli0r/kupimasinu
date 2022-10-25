@@ -33,8 +33,8 @@
                     </tr>
 
                     <tr class="bg-gray-100 text-gray-800" >
-                        <td class="py-1 w-1/2">Ispravnost: <span class="font-semibold">@if ($post->koriscenost == 1) Ispravno  @else Neispravno @endif</span></td>
-                        <td class="py-1">Zamena: <span class="font-semibold">@if ($post->koriscenost == 1) Da  @else Ne @endif</span></td>
+                        <td class="py-1 w-1/2">Ispravnost: <span class="font-semibold">@if ($post->ispravnost == 1) Ispravno  @else Neispravno @endif</span></td>
+                        <td class="py-1">Zamena: <span class="font-semibold">@if ($post->zamena == 1) Da  @else Ne @endif</span></td>
                     </tr>
 
                     <tr class="text-gray-800">
