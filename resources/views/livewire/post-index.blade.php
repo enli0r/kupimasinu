@@ -7,13 +7,34 @@
             <div class="w-64 shrink-0">
                 <img src="{{ $post->images()->first()->link }}" alt="" class="rounded-xl">
 
-                <div class="py-2 bg-blue-700 text-white rounded-lg mt-3">
-                    <div class="flex items-center justify-center">
-                        <img src="../public/images/white.png" alt="" class="w-6 h-6 ">
-                        <p class="font-semibold ml-1">{{ $post->user->name }}</p>
-                        <p class="ml-2">|</p>
-                        <p class="font-semibold ml-2">{{ $post->kontakt }}</p>
+                {{-- py-2 bg-black-700 text-white rounded-lg mt-3  --}}
+                <div 
+                x-data="{showKontakt:false}"
+                class="kontakt-info relative">
+                    <div 
+                    @click="showKontakt = !showKontakt"
+                    class="flex flex-col font-semibold">
+                        <div class="flex items-center justify-center p-3 hover:cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                              
+                            <p class="font-semibold ml-2">{{ $post->user->name }}</p>
+                            <p class="ml-2">|</p>
+                            <p class="font-semibold ml-2">{{ $post->kontakt }}</p>
+                        </div>
+                        
+
+                        <a 
+                        x-cloak
+                        x-show="showKontakt"
+                        href="#" class="text-sm hover:bg-gray-200 py-1 text-center hover:text-black mb-3 font-semibold">Svi oglasi</a>
+
                     </div>
+
+
+                    
+
                 </div>
             </div>
 
@@ -94,24 +115,38 @@
         </div>
 
 
-        {{-- <p class="text-xs text-center mt-3 mb-3 text-gray-600">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p> --}}
 
+        {{-- flex justify-center items-center gap-2 hover:cursor-pointer rounded-lg  bg-blue-700 py-2 text-white font-semibold --}}
+        <div 
+        x-data="{showKontakt:false}"
+        class="flex flex-col kontakt-info">
 
+            <div 
+            @click="showKontakt = !showKontakt"
+            class="flex justify-center items-center gap-2 p-3 hover:cursor-pointer font-semibold">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+                
+                <p class="">{{ $post->user->name }}</p>
+    
+                <p class="ml-2">|</p>
+                
+                <p class="ml-2">{{ $post->kontakt }}</p>
+    
 
-        <div class="flex justify-center items-center gap-2 hover:cursor-pointer rounded-lg  bg-blue-700 py-2 text-white font-semibold">
-
-            <img src="https://i.ibb.co/Kb1mp8Y/white.png" alt="" class="w-6 h-6">
+            </div>
             
-            <p class="">{{ $post->user->name }}</p>
 
-            <p class="ml-2">|</p>
-            
-            <p class="ml-2">{{ $post->kontakt }}</p>
+            <a 
+                x-cloak
+                x-show="showKontakt"
+                href="#" class="text-sm hover:bg-gray-200 py-1 text-center hover:text-gray-800 mb-3 font-semibold">Svi oglasi
+            </a>
 
-                  
         </div>
 
-        <p class="text-xs text-center mt-4 text-gray-600">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p>
+        {{-- <p class="text-xs text-center mt-4 text-gray-600">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p> --}}
 
 
     </div>
