@@ -71,7 +71,6 @@ class PostsIndex extends Component
         ]); 
                     
 
-
         return view('livewire.posts-index', [
             'posts' => Post::when($this->tip != null, function($query) use ($tipovi) {
                 return $query->where('kategorija_id', $tipovi->get($this->tip));
@@ -88,6 +87,19 @@ class PostsIndex extends Component
             ->when(strlen($this->search) >= 2, function($query){
                 return $query->where('naziv', 'like', '%'.$this->search.'%');
             })
+            ->when($this->cena_od != null, function($query){
+                return $query->where('cena', '>=', $this->cena_od);
+            })
+            ->when($this->cena_do != null, function($query){
+                return $query->where('cena', '<=', $this->cena_do);
+            })
+            ->when($this->godina_od != null, function($query){
+                return $query->where('godina', '>=', $this->godina_od);
+            })
+            ->when($this->godina_do != null, function($query){
+                return $query->where('godina', '<=', $this->godina_do);
+            })
+           
             ->paginate(5)
         ]);
     }

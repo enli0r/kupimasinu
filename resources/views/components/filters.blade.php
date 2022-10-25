@@ -13,10 +13,12 @@
             Cena
         </h2>
 
-        <form action="">
+        <form action="" method="POST">
             @csrf
-            <input type="number" name="cena_od" />
-            <input type="number" name="cena_do" />
+            <label for="cena_od">Cena od:</label>
+            <input wire:model="cena_od" type="number" name="cena_od" id="cena_od"/>
+            <label for="cena_do">Cena do:</label>
+            <input wire:model="cena_do" type="number" name="cena_do" id="cena_do"/>
         </form>
         
     </div>
@@ -26,10 +28,12 @@
             Godina
         </h2>
 
-        <form action="">
+        <form action="" method="post">
             @csrf
-            <input type="number" name="godina_od" />
-            <input type="number" name="godina_do" />
+            <label for="godina_od">Godiste od:</label>
+            <input wire:model='godina_od' type="number" name="godina_od" id="godina_od"/>
+            <label for="godina_od">Godiste do:</label>
+            <input wire:model='godina_do' type="number" name="godina_do" id="godina_do"/>
         </form>
     </div>
 
