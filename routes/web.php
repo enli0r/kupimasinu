@@ -21,8 +21,6 @@ Route::get('/', function(){
 });
 
 Route::get('/oglasi/kreiraj', [PagesController::class, 'create'])->name('posts.create')->middleware('auth');
-Route::put('/oglasi/kreiraj', [PostController::class, 'store']);
-
 
 Route::get('/korisnici/{user:id}',  [RegisteredUserController::class, 'userPage'])->name('user')->middleware('creator');
 

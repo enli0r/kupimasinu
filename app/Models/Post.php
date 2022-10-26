@@ -12,6 +12,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['korisnik_id','slug', 'odobren' , 'kategorija_id', 'naziv', 'cena', 'godina', 'koriscenost', 'ispravnost', 'zamena', 'proizvodjac', 'opis', 'mesto', 'postanski_broj', 'kontakt', 'saglasnost','garantovanje_tacnosti'];
+
     public function user(){
         return $this->belongsTo(User::class, 'korisnik_id');
     }

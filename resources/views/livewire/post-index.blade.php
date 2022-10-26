@@ -5,7 +5,7 @@
 
         <div class="flex gap-5 justify-start">
             <div class="w-64 shrink-0">
-                <img src="{{ $post->images()->first()->link }}" alt="" class="rounded-xl">
+                <img src="" alt="" class="rounded-xl">
 
                 {{-- py-2 bg-black-700 text-white rounded-lg mt-3  --}}
                 <div 
@@ -80,7 +80,7 @@
         <div class="flex gap-3 mb-6">
             <div class="flex">
                 <div class="w-36 shrink-0">
-                    <img src="{{ $post->images()->first()->link }}" alt="" class="rounded-lg">
+                    <img src="" alt="" class="rounded-lg">
                 </div>
             </div>
     
