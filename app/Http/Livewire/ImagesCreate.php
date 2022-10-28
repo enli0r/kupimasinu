@@ -27,7 +27,6 @@ class ImagesCreate extends Component
                 $postImage->link = $newName;
                 $postImage->save();
 
-
             }
         }
         

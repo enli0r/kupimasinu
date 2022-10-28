@@ -4,21 +4,6 @@
     <form wire:submit.prevent="store" action="" enctype="multipart/form-data" method="POST" class="bg-white p-5 flex flex-col gap-2">
         @csrf
 
-
-
-        <!-- Odobren -->
-        <input type="hidden" wire:model="odobren" name="odobren" value="0" />
-        @error('odobren')
-            <small class="text-red-500 font-semibold">*{{ $message }}</small>
-        @enderror
-
-        <!-- Korisnik -->
-        <input type="hidden" wire:model="korisnik_id" name="korisnik_id" value="1" />
-
-        @error('korisnik_id')
-            <small class="text-red-500 font-semibold">*{{ $message }}</small>
-        @enderror
-
         <!-- Kategorija -->
         <label>Kategorija</label>
 
@@ -117,6 +102,7 @@
         <!-- Mesto -->
         <label for="mesto">Mesto</label>
         <select wire:model="mesto" name="mesto" id="mesto">
+            <option selected>Izaberite mesto</option>
             <x-selectCheck wire:model="mesto" value="jagodina" name="mesto" showToUser="Jagodina"/>
             <x-selectCheck wire:model="mesto" value="beograd" name="mesto" showToUser="Beograd"/>
             <x-selectCheck wire:model="mesto" value="novi_sad" name="mesto" showToUser="Novi sad"/>

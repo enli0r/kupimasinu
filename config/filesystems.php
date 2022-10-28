@@ -76,6 +76,7 @@ return [
 
     'links' => [
         public_path('post-images') => storage_path('app/post-images'),
+        public_path('livewire-tmp') => storage_path('app/livewire-tmp')
     ],
 
 ];

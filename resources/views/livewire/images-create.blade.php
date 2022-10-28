@@ -11,11 +11,4 @@
         @endforeach
     @endif
 
-    @error('images')
-        {{ $message }}
-    @enderror
-
-
-    
-
 </div>
