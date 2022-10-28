@@ -5,7 +5,9 @@
 
         <div class="flex gap-5 justify-start">
             <div class="w-64 shrink-0">
-                <img src="" alt="" class="rounded-xl">
+
+
+                <img src="{{ asset('images/'.$post->images()->first()->link) }}" alt="" class="rounded-xl">
 
                 {{-- py-2 bg-black-700 text-white rounded-lg mt-3  --}}
                 <div 

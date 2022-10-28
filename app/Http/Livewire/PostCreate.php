@@ -74,6 +74,9 @@ class PostCreate extends Component
         $post->garantovanje_tacnosti = $this->garantovanje_tacnosti;
         $post->save();
 
+        if($this->validate()){
+            $this->emit('saveImages', $post->id, Auth::id());
+        }
 
     }
 

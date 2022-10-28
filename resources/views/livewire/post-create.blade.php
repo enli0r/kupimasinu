@@ -6,7 +6,6 @@
 
 
 
-
         <!-- Odobren -->
         <input type="hidden" wire:model="odobren" name="odobren" value="0" />
         @error('odobren')

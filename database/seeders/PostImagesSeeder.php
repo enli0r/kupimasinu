@@ -18,7 +18,7 @@ class PostImagesSeeder extends Seeder
         foreach(Post::all() as $post){
             PostImages::create([
                 'post_id' => $post->id,
-                'link' => 'http://www.audiohms.com/images/galerije/CNC_Parketo/CNC_Parketo_10.jpg'
+                'link' => 'no-image.jpg'
             ]);
         }
     }
