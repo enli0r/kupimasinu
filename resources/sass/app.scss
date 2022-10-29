@@ -50,3 +50,63 @@ body{
     color: #f4f4f4;
     background-color: rgba(0,0,0,1);
 }
+
+.post-image{
+    aspect-ratio: 4/3;
+}
+
+.showImages{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.9);
+    display: none;
+    
+
+
+    .showImagesContainer{
+        max-width: 62.5rem;
+        width: 100%;
+        padding: 0 50px;
+        position: relative;
+        margin: auto;
+
+        
+        .arrow{
+            display: block;
+            position: absolute;
+            top: 50%;
+            z-index: 100;
+            color: lightgray;
+            transform: translateY(-100%);
+
+            &:hover{
+                color: white;
+                transition: all 0.1s ease-in-out;
+                cursor: pointer;
+            }
+        }
+
+        .prev{
+            left: 0;
+        }
+
+        .next{
+            right: 0;
+        }
+    }
+
+    .showImagesSlider{
+        .image-cont{
+            width: 100%;
+
+            img{
+                width: 100%;
+                aspect-ratio: 2/1.5;
+            }
+        }
+    }
+    
+}

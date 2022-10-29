@@ -8,6 +8,8 @@
     })"
 >
 
+    @if(count($posts) > 0)
+
     <div class="flex justify-between gap-5 relative lg:flex-col-reverse">
         <button 
         @click="showFilters =! showFilters"
@@ -49,6 +51,12 @@
 
     @if (count($posts))
         <div class="livewire-pagination lg:flex lg:justify-center">{{ $posts->links('pagination.livewire-pagination-links') }}</div>
+    @endif
+
+    @else
+
+        <p>There are currenlty no posts</p>
+
     @endif
 
 </div>
