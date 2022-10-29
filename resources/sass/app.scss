@@ -16,14 +16,6 @@ body{
     background-color: white;
 }
 
-.filters{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    transform: translateY(110%);
-}
-
 .search-icon{
     position: absolute;
     left: 1.25rem;
@@ -33,15 +25,18 @@ body{
 
 .search-input::placeholder{
     color: black;
-    font-weight: 500; 
+    // font-weight: 500; 
 }
 
 .sort{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    transform: translateY(100%);
-    border: 1px solid blue;
+
+    a{
+        padding: 10px 20px;
+
+        &:hover{
+            background-color: lightgray;
+        }
+    }
 }
 
 .kontakt-info{
