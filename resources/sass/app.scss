@@ -58,6 +58,20 @@ body{
     left: 0;
     background-color: rgba(0,0,0,0.9);
     display: none;
+
+    .images-exit{
+        position: absolute;
+        right: 1.25rem;
+        top: 1.25rem;
+        color: lightgray;
+
+        &:hover{
+            color: white;
+            cursor: pointer;
+            transition: 0.2s all ease-in-out;
+        }
+
+    }
     
 
 
@@ -76,6 +90,7 @@ body{
             z-index: 100;
             color: lightgray;
             transform: translateY(-100%);
+            
 
             &:hover{
                 color: white;
@@ -94,14 +109,34 @@ body{
     }
 
     .showImagesSlider{
+
         .image-cont{
             width: 100%;
 
             img{
                 width: 100%;
-                aspect-ratio: 2/1.5;
+                aspect-ratio: 4/3;
             }
         }
     }
     
+}
+
+@media only screen and (max-width: 1023px) {
+    .showImagesContainer{
+        padding: 0 1.25rem !important;
+
+        .arrow{
+            top: 104% !important;
+        }
+        
+        .prev{
+            left: 1.25rem !important;
+        }
+
+        .next{
+            right: 1.25rem !important;
+        }
+    }
+
 }

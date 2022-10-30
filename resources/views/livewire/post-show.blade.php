@@ -1,6 +1,12 @@
 <div style="">
 
     <div class="showImages">
+        <!-- X -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 images-exit">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+        <!---->
+
         <livewire:show-images :post="$post" />
     </div>
 
@@ -33,7 +39,7 @@
             <div class="space-y-8 bg-white p-5 rounded-2xl border shadow-card">         
                 <div class="flex gap-5">
                     <div class="w-100 shrink-0">
-                        <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="w-full rounded-2xl post-image" alt="">
+                        <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="w-full rounded-2xl post-image hover:cursor-pointer" alt="">
                         
                         <div class="border py-2 bg-black text-gray-200 rounded-lg mt-3">
                             <div class="flex items-center justify-center">
@@ -99,7 +105,7 @@
 
             <div class="bg-white p-5 rounded-2xl shadow-card ">
                 <div class="w-full">
-                    <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="w-full rounded-xl post-image" alt="">
+                    <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="w-full rounded-xl post-image hover:cursor-pointer" alt="">
                 </div>
         
                 <div class="flex flex-col gap-2 font-semibold text-lg mt-5">
