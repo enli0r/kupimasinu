@@ -6,6 +6,51 @@
     display: none !important;
 }
 
+.return-to-top{
+    background-color: rgb(158, 2, 2);
+    border-radius: 50px;
+    color: white;
+    padding: 7px 20px;
+    font-weight: 600;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    //
+    position: fixed;
+    right: 1.25rem;
+    bottom: 6rem;
+}
+
+.create-post-button{
+    background-color: rgb(158, 2, 2);
+    border-radius: 100px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    color: white;
+    z-index: 100;
+
+    //
+    position: fixed;
+    right: 1.25rem;
+    bottom: 2.5rem;
+
+    svg{
+        justify-self: flex-start;
+    }
+}
+
+.navbar{
+    background: rgb(255,255,255);
+// background: linear-gradient(180deg, rgba(255,255,255,1) 59%, rgba(244,244,244,1) 100%);
+}
+
 body{
     background: #f4f4f4;
 }
@@ -32,16 +77,10 @@ body{
 
     a{
         padding: 10px 20px;
-
-        &:hover{
-            background-color: lightgray;
-        }
     }
 }
 
 .kontakt-info{
-    border-radius: 8px;
-    margin-top: 10px;
     color: #f4f4f4;
     background-color: rgba(0,0,0,1);
 }

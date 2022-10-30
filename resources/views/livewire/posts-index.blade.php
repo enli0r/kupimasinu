@@ -1,4 +1,4 @@
-<div class="space-y-7" style="min-height: 65vh;"
+<div class="space-y-7" style="min-height: 75vh;"
     x-data="{showFilters:false}"
     x-init="window.livewire.on('gotoTop', () => {
         window.scrollTo({
@@ -7,6 +7,23 @@
         })
     })"
 >
+    <button class="return-to-top mdMin:hidden shadow-card">
+        <svg wire:click="$emit('gotoTop')" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
+        </svg>
+
+        {{-- <p class="text-xs uppercase">Vrh</p> --}}
+    </button>
+
+
+    <a href="{{ route('posts.create') }}" class="create-post-button mdMin:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          
+        <p class="text-xs uppercase">Novi oglas</p>
+    </a>
+
     <!-- Filters -->
     <div class="relative flex gap-5 md:hidden">
         <div class="relative">

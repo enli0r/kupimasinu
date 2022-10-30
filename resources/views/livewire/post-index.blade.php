@@ -1,18 +1,18 @@
 <div>
 
     <!--Post for desktop -->
-    <div class="border rounded-2xl p-5 bg-white shadow-card md:hidden post">
+    <div class="rounded-2xl p-5 bg-white shadow-card md:hidden post">
 
         <div class="flex gap-5 justify-start">
             <div class="w-64 shrink-0">
 
 
-                <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-xl post-image">
+                <a href="{{ route('posts.show', $post) }}" class="text-md font-bold line-clamp-3"><img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-xl post-image"></a>
 
                 {{-- py-2 bg-black-700 text-white rounded-lg mt-3  --}}
                 <div 
                 x-data="{showKontakt:false}"
-                class="kontakt-info relative">
+                class="kontakt-info relative mt-5 rounded-lg">
                     <div 
                     @click="showKontakt = !showKontakt"
                     class="flex flex-col font-semibold">
@@ -82,7 +82,7 @@
         <div class="flex gap-3 mb-6">
             <div class="flex">
                 <div class="w-36 shrink-0">
-                    <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-lg post-image">
+                    <a href="{{ route('posts.show', $post) }}" class="text-md font-bold line-clamp-3"><img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-lg post-image"></a>
                 </div>
             </div>
     
@@ -118,10 +118,12 @@
 
 
 
-        {{-- flex justify-center items-center gap-2 hover:cursor-pointer rounded-lg  bg-blue-700 py-2 text-white font-semibold --}}
+        {{-- <p class="text-xs text-center mt-4 text-gray-600">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p> --}}
+
+
         <div 
         x-data="{showKontakt:false}"
-        class="flex flex-col kontakt-info">
+        class="flex flex-col kontakt-info rounded-lg">
 
             <div 
             @click="showKontakt = !showKontakt"
@@ -147,9 +149,6 @@
             </a>
 
         </div>
-
-        {{-- <p class="text-xs text-center mt-4 text-gray-600">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p> --}}
-
 
     </div>
 

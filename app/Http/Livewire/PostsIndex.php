@@ -29,8 +29,13 @@ class PostsIndex extends Component
     //End of filters
 
     //Sorting
-    public $sort_by = 'created_at';
-    public $sort_direction = 'desc';
+    public $sort_by;
+    public $sort_direction;
+
+    public function mount(){
+        $this->sort_by = 'created_at';
+        $this->sort_direction = 'desc';
+    }
 
 
     public $queryString = [

@@ -34,9 +34,9 @@
     class="flex flex-col z-10 bg-white rounded-xl text-center py-2 mt-14 absolute left-0 top-0 w-full shadow-card sort"
 
     >
-        <a wire:click.prevent="setOrderBy('cena', 'asc')" href="">Najjeftinije prvo</a>
-        <a wire:click.prevent="setOrderBy('cena', 'desc')" href="">Najskuplje prvo</a>
-        <a wire:click.prevent="setOrderBy('created_at', 'desc')" href="">Najnovije prvo</a>
-        <a wire:click.prevent="setOrderBy('created_at', 'asc')" href="">Najstarije prvo</a>
+    <a wire:click.prevent="setOrderBy('cena', 'asc')" href="" class="hover:bg-gray-200 @if($sortBy== 'cena' && $sortDirection == 'asc') bg-gray-200 @endif">Najjeftinije prvo</a>
+        <a wire:click.prevent="setOrderBy('cena', 'desc')" href="" class="hover:bg-gray-200 @if($sortBy== 'cena' && $sortDirection == 'desc') bg-gray-200 @endif">Najskuplje prvo</a>
+        <a wire:click.prevent="setOrderBy('created_at', 'desc')" href="" class="hover:bg-gray-200 @if($sortBy== 'created_at' && $sortDirection == 'desc') bg-gray-200 @endif">Najnovije prvo</a>
+        <a wire:click.prevent="setOrderBy('created_at', 'asc')" href="" class="hover:bg-gray-200 @if($sortBy== 'created_at' && $sortDirection == 'asc') bg-gray-200 @endif">Najstarije prvo</a>
     </div>
 </div>
