@@ -52,6 +52,7 @@ class PostCreate extends Component
     ];
 
     public function store(){
+
         $this->validate();
 
         $post = new Post;
@@ -77,6 +78,7 @@ class PostCreate extends Component
         if($this->validate()){
             $this->emit('saveImages', $post->id, Auth::id());
         }
+
 
     }
 

@@ -4,5 +4,6 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
+
 require('./bootstrap');
 require('./slickSlider');

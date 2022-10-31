@@ -59,10 +59,10 @@
         <label>Ispravnost</label>
 
         <label for="ispravnost_ispravno">Ispravno</label>
-        <input wire:model="ispravnost" type="radio" name="ispravnost" id="ispravnost_ispravno" value="0" @if (old('ispravnost') === 0) checked @endif/>
+        <input wire:model="ispravnost" type="radio" name="ispravnost" id="ispravnost_ispravno" value="1" @if (old('ispravnost') === 0) checked @endif/>
 
         <label for="ispravnost_neispravno">Neispravno</label>
-        <input wire:model="ispravnost" type="radio" name="ispravnost" id="ispravnost_neispravno" value="1" @if (old('ispravnost') === 1) checked @endif/>
+        <input wire:model="ispravnost" type="radio" name="ispravnost" id="ispravnost_neispravno" value="0" @if (old('ispravnost') === 1) checked @endif/>
 
         @error('ispravnost')
             <small class="text-red-500 font-semibold">*{{ $message }}</small>

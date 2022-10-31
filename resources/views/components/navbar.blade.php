@@ -1,11 +1,10 @@
 <div class="navbar">
 
-    <div class="container mx-auto max-w-main flex justify-end items-center font-semibold lg:px-5 py-4">
+    <div class="container mx-auto max-w-main flex justify-between items-center font-semibold lg:px-5 py-4 md:hidden">
 
-
-        {{-- <div>
+        <div>
             <p class="text-lg font-semibold text-gray-700">KUPI MAŠINU</p>
-        </div> --}}
+        </div>
 
         <div class="flex justify-between items-center gap-5 text-gray-700">
             {{-- <a href="{{ route('homepage') }}" class="">
@@ -56,15 +55,44 @@
             @endauth
         
             @guest
-                <a href="{{ route('login') }}" class="hover:transition-all">Prijavi se</a>
+                <a href="{{ route('login') }}" class="hover:transition-all">Prijava</a>
         
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="hover:transition-all">Registruj se</a>
+                    <a href="{{ route('register') }}" class="hover:transition-all">Registracija</a>
                 @endif
             @endguest
         </div>
 
         
+    </div>
+
+
+    <div 
+    x-data="{showMenu:false}"
+    class="container mx-auto max-w-main flex justify-between items-center mdMin:hidden px-5 py-3">
+        <div>
+            <a href="{{ route('homepage') }}"><p class="text-lg font-semibold text-gray-700">KUPI MAŠINU</p></a>
+        </div>
+
+        <div 
+        @click="showMenu = !showMenu"
+        @click.away="showMenu = false"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </div>
+
+        <div
+        x-cloak
+        x-show="showMenu"
+        class="showMenu"
+        >
+
+        </div>
+
+
+
     </div>
 
     

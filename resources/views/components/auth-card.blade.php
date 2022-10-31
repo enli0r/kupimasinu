@@ -1,6 +1,6 @@
-<div class="min-h-screen flex items-center justify-center w-full">
+<div class="w-full">
 
-    <div class="rounded-2xl bg-white shadow-card w-120 px-4 py-6 -mt-32">
+    <div class="rounded-xl bg-white shadow-card w-full px-4 py-6">
         {{ $slot }}
     </div>
 

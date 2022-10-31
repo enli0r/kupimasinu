@@ -35,6 +35,9 @@ class PostsIndex extends Component
     public function mount(){
         $this->sort_by = 'created_at';
         $this->sort_direction = 'desc';
+        $this->koriscenost = null;
+        $this->ispravnost = null;
+        $this->zamena = null;
     }
 
 
@@ -46,19 +49,39 @@ class PostsIndex extends Component
 
 
     public function setTip($tip){
-        $this->tip = $tip;
+        if($this->tip == $tip){
+            $this->tip = null;
+        }else{
+            $this->tip = $tip;
+        }
+
         $this->resetPage();
     }
     public function setKoriscenost($koriscenost){
-        $this->koriscenost = $koriscenost;
+        if($this->koriscenost == $koriscenost){
+            $this->koriscenost = null;
+        }else{
+            $this->koriscenost = $koriscenost;
+        }
+
         $this->resetPage();
     }
     public function setIspravnost($ispravnost){
-        $this->ispravnost = $ispravnost;
+        if($this->ispravnost == $ispravnost){
+            $this->ispravnost = null;
+        }else{
+            $this->ispravnost = $ispravnost;
+        }
+
         $this->resetPage();
     }
     public function setZamena($zamena){
-        $this->zamena = $zamena;
+        if($this->zamena == $zamena){
+            $this->zamena = null;
+        }else{
+            $this->zamena = $zamena;
+        }
+        
         $this->resetPage();
     }
 
@@ -74,17 +97,17 @@ class PostsIndex extends Component
             'masina za metal' => 2
         ]);
 
-        $koriscenost = collect([
+        $koriscenosti = collect([
             'polovno' => 1,
             'novo' => 0
         ]);
 
-        $ispravnost = collect([
+        $ispravnosti = collect([
             'ispravno' => 1,
             'neispravno' => 0
         ]);
 
-        $zamena = collect([
+        $zamene = collect([
             'da' => 1,
             'ne' => 0
         ]); 
@@ -94,14 +117,14 @@ class PostsIndex extends Component
             'posts' => Post::when($this->tip != null, function($query) use ($tipovi) {
                 return $query->where('kategorija_id', $tipovi->get($this->tip));
             })
-            ->when($this->koriscenost != null, function ($query) use ($koriscenost) {
-                return $query->where('koriscenost', $koriscenost->get($this->koriscenost));
+            ->when($this->koriscenost != null, function ($query) use ($koriscenosti) {
+                return $query->where('koriscenost', $koriscenosti->get($this->koriscenost));
             })
-            ->when($this->ispravnost != null, function ($query) use ($ispravnost) {
-                return $query->where('ispravnost', $ispravnost->get($this->ispravnost));
+            ->when($this->ispravnost != null, function ($query) use ($ispravnosti) {
+                return $query->where('ispravnost', $ispravnosti->get($this->ispravnost));
             })
-            ->when($this->zamena != null, function ($query) use ($zamena) {
-                return $query->where('zamena', $zamena->get($this->zamena));
+            ->when($this->zamena != null, function ($query) use ($zamene) {
+                return $query->where('zamena', $zamene->get($this->zamena));
             })
             ->when(strlen($this->search) >= 2, function($query){
                 return $query->where('naziv', 'like', '%'.$this->search.'%');
@@ -122,8 +145,11 @@ class PostsIndex extends Component
             ->paginate(5),
 
             'sort_by' => $this->sort_by,
-            'sort_direction' => $this->sort_direction
-
+            'sort_direction' => $this->sort_direction,
+            'tip' => $this->tip,
+            'koriscenost' => $this->koriscenost,
+            'ispravnost' => $this->ispravnost,
+            'zamena' => $this->zamena
         ]);
     }
 }

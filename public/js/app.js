@@ -659,10 +659,15 @@ var directiveOrder = [
   "ref",
   "data",
   "id",
-  "tabs",
   "radio",
+  "tabs",
   "switch",
   "disclosure",
+  "menu",
+  "listbox",
+  "list",
+  "item",
+  "combobox",
   "bind",
   "init",
   "for",
@@ -1478,7 +1483,7 @@ var Alpine = {
   get raw() {
     return raw;
   },
-  version: "3.10.4",
+  version: "3.10.5",
   flushAndStopDeferringMutations,
   dontAutoEvaluateFunctions,
   disableEffectScheduling,
@@ -5087,21 +5092,21 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   \*************************************/
 /***/ (() => {
 
-$(document).ready(function () {
+$(function () {
   var slider = $('showImagesSlider').slick({});
-  $('.post-image').on("click", function () {
-    $('.showImages').css('display', 'flex');
-    $('.showImagesSlider').get(0).slick.setPosition();
-  });
-  $('.images-exit').on('click', function () {
-    $('.showImages').css('display', 'none');
-  });
   $('.showImagesSlider').slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     prevArrow: $('.prev'),
     nextArrow: $('.next')
+  });
+  $('.post-image').on("click", function () {
+    $('.showImages').css('display', 'flex');
+    $('.showImagesSlider').get(0).slick.setPosition();
+  });
+  $('.images-exit').on('click', function () {
+    $('.showImages').css('display', 'none');
   });
   $('.showImages').on('click', function (e) {
     if (e.target.nodeName.toLowerCase() !== 'img') {

@@ -7,6 +7,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <!-- Favicon.ico bug -->
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -20,17 +23,21 @@
 
         <div class="font-sans text-gray-900 antialiased bg-gray-100">
 
+
             <div class="lg:mx-5">
-                <header class="max-w-main mx-auto mb-5">
-                    <x-navbar />
-                </header>
-
                 {{ $slot }}
-
             </div>
-
-            <x-footer />
+            
 
         </div>
+
+        <!-- Jquery -->
+        <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+
+        <!-- Slick slider -->
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     </body>
 </html>

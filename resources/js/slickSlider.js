@@ -1,6 +1,16 @@
-$(document).ready(function(){
+$(function() {
 
     var slider = $('showImagesSlider').slick({    
+    });
+
+    
+
+    $('.showImagesSlider').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        prevArrow: $('.prev'),
+        nextArrow: $('.next'),
     });
 
     $('.post-image').on("click", function() {
@@ -12,13 +22,6 @@ $(document).ready(function(){
         $('.showImages').css('display', 'none');
     })
 
-    $('.showImagesSlider').slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        prevArrow: $('.prev'),
-        nextArrow: $('.next'),
-    });
 
     $('.showImages').on('click', function(e){
         if(e.target.nodeName.toLowerCase() !== 'img'){

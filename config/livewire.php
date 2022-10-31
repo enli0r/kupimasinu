@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/kupimasinu/public',
+    'asset_url' => 'http://192.168.0.100/kupimasinu/public',
 
     /*
     |--------------------------------------------------------------------------

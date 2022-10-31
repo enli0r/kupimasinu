@@ -42,7 +42,6 @@
                     </svg>
                 </div>
             </button>
-
             
             <div
                 x-cloak
@@ -55,7 +54,7 @@
                 x-transition:leave-end="origin-top scale-y-0"
                 class="bg-white w-full p-5 shadow-card rounded-xl mt-5 absolute left-0 top-9 z-10"
             >
-                <x-filters />
+                <x-filters :tip="$tip" :koriscenost="$koriscenost" :ispravnost="$ispravnost" :zamena="$zamena"/>
             </div>
         </div>
         
@@ -101,9 +100,9 @@
                 x-transition:leave="transition ease-out duration-300"
                 x-transition:leave-start="origin-top scale-y-100"
                 x-transition:leave-end="origin-top scale-y-0"
-                class="bg-white w-full p-5 shadow-card rounded-xl absolute left-0 top-14 z-10"
+                class="bg-white w-full p-5 rounded-xl absolute left-0 top-14 z-10 shadow-dialog"
             >
-                <x-filters />
+                <x-filters :tip="$tip" :koriscenost="$koriscenost" :ispravnost="$ispravnost" :zamena="$zamena"/>
             </div>
         </div>
         
@@ -111,22 +110,23 @@
     </div>
     <!-- End of phone filters -->
 
-    @if(count($posts) > 0)
+        @if(count($posts) > 0)
 
-    @foreach ($posts as $post)
+        @foreach ($posts as $post)
 
-        <livewire:post-index :post="$post" :wire:key="$post->id">
+            <livewire:post-index :post="$post" :wire:key="$post->id" />
 
-    @endforeach
+        @endforeach
 
-    @if (count($posts))
-        <div class="livewire-pagination lg:flex lg:justify-center">{{ $posts->links('pagination.livewire-pagination-links') }}</div>
-    @endif
+        @if (count($posts))
+            <div class="livewire-pagination lg:flex lg:justify-center">{{ $posts->links('pagination.livewire-pagination-links') }}</div>
+        @endif
 
-    @else
+        @else
 
-        <p>There are currenlty no posts</p>
+            <p>There are currenlty no posts</p>
 
-    @endif
+        @endif
+    
 
 </div>
