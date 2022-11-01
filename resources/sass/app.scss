@@ -7,10 +7,10 @@
 }
 
 .return-to-top{
-    background-color: rgb(158, 2, 2);
-    border-radius: 50px;
-    color: white;
-    padding: 7px 20px;
+    background-color: #ba1b1d;
+    border-radius: 100%;
+    color: #F7F4F3;
+    padding: 10px 11px;
     font-weight: 600;
     z-index: 9;
 
@@ -22,7 +22,7 @@
     //
     position: fixed;
     right: 1.25rem;
-    bottom: 6rem;
+    bottom: 2.5rem;
 }
 
 .create-post-button{
@@ -45,6 +45,7 @@
         justify-self: flex-start;
     }
 }
+
 
 .navbar{
     background: rgb(255,255,255);
@@ -82,7 +83,6 @@ body{
 
 .kontakt-info{
     color: #f4f4f4;
-    background-color: rgba(0,0,0,1);
 }
 
 .post-image{
@@ -162,16 +162,62 @@ body{
 }
 
 .showMenu{
-    background-color: red;
-    max-width: 300px;
-    width: 100%;
+    background-color: white;
     z-index: 100;
-    height: 100vh;
     position: fixed;
     top: 0;
     right: 0;
+    height: 100vh;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+
+    .link{
+        a{
+            padding: 0 5px;
+            border-bottom: 2px solid rgba(0,0,0,0.92);
+            color: rgba(0,0,0,0.92);
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+    }
 
    
+}
+
+.logout{
+
+    button{
+        padding: 0 5px;
+        border-bottom: 2px solid #ba1b1d;
+        color: #ba1b1d;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+}
+
+
+.nav-x{
+    position: fixed;
+    right: 1.25rem;
+    top: 1.25rem;
+    color: rgba(0,0,0, 0.92);
+    z-index: 200;
+
+    &:hover{
+        color: black;
+    }
+}
+
+.novi-oglas-telefon{
+    top: 1.25rem;
+    right: 280px;
+    transform: translateX(100%);
+    max-width:200px;
+    width:100%;
 }
 
 .tip{

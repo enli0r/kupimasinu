@@ -88,7 +88,7 @@
     
             <div class="flex flex-col gap-3">
                 <a href="{{ route('posts.show', $post) }}" class="text-md font-bold line-clamp-3">{{ $post->naziv }}</a>
-                <p class="font-bold text-blue-700 text-lg">{{ $post->cena }} &euro;</p>
+                <p class="font-bold text-blue-700 text-lg" style="color: #ba1b1d;">{{ $post->cena }} &euro;</p>
             </div>
         </div>
 
@@ -123,7 +123,7 @@
 
         <div 
         x-data="{showKontakt:false}"
-        class="flex flex-col kontakt-info rounded-lg">
+        class="flex flex-col kontakt-info rounded-xl bg-gray-900">
 
             <div 
             @click="showKontakt = !showKontakt"

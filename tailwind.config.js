@@ -24,6 +24,8 @@ module.exports = {
         'gray-background' : '#f7f8fc',
         'half-transparent': 'rgba(0,0,0,0.5)',
         'footer' : '#e4e4e4',
+        'redd' : '#ba1b1d',
+        'whitee': '#F7F4F3'
         
       },
 
@@ -47,7 +49,9 @@ module.exports = {
       
       boxShadow: {
           card: '4px 4px 15px 0 rgba(36, 37, 38, 0.08)',
-          dialog: '3px 4px 15px 0 rgba(36, 37, 38, 0.22)',
+          dialog: '0px 5px 15px -2px rgba(0,0,0,0.66)',
+          leftDialog: '-10px 3px 20px -8px rgba(0,0,0,0.50)'
+
       },
 
       fontFamily: {

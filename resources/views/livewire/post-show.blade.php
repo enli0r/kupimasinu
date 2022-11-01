@@ -16,10 +16,11 @@
 
             <!-- BACK BUTTON -->
             <form action="{{ URL::previous() }}">
-                <button class="bg-white rounded-xl px-3 py-2 flex justify-center gap-2 items-center font-semibold shadow-card" type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-6 h-6 ">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                <button class="bg-white rounded-2xl p-3 flex justify-center gap-2 items-center shadow-card" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                     </svg>
+                      
                     Povratak
                 </button>
             </form>
@@ -73,7 +74,7 @@
 
                     <div class="flex flex-col gap-2 w-full">
                         <p class="text-lg font-bold  ">{{ $post->naziv }}</p>
-                        <p class="text-lg text-blue-500 font-bold mb-5">{{ $post->cena }} &euro;</p>
+                        <p class="text-lg text-redd font-bold mb-5">{{ $post->cena }} &euro;</p>
 
                         <table class="w-full mt-5">
                             <tr class="bg-gray-100 text-gray-800">
@@ -122,7 +123,7 @@
         
                 <div class="flex flex-col gap-2 font-semibold text-lg mt-5">
                     <p>{{ $post->naziv }}</p>
-                    <p class="text-blue-500 font-bold mt-2">{{ $post->cena }} &euro;</p>
+                    <p class="text-redd font-bold mt-2">{{ $post->cena }} &euro;</p>
                 </div>
         
         
@@ -160,7 +161,7 @@
         
 
         
-                <div class="border p-3 bg-black text-gray-200 rounded-lg mt-8">
+                <div class="border p-3 bg-gray-900 text-gray-200 rounded-xl mt-8">
                     <div class="flex items-center justify-center">
                         <img src="../images/white.png" alt="" class="w-6 h-6 ">
                         <p class="font-semibold ml-1">{{ $post->user->name }}</p>

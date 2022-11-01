@@ -5,7 +5,7 @@
     <button
         @click="showSort = !showSort"
         @click.away="showSort=false"
-        class="bg-white gap-2 shadow-card flex justify-center items-center font-semibold rounded-xl px-4 py-3"
+        class="bg-white gap-2 shadow-card flex justify-center items-center  rounded-2xl px-4 py-3"
     >
         @if ($sortBy == 'cena' && $sortDirection == 'asc')
             Najjeftinije prvo
@@ -18,7 +18,7 @@
         @endif
 
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
         </svg>
     </button>
 
@@ -31,7 +31,7 @@
     x-transition:leave="transition ease-out duration-300"
     x-transition:leave-start="origin-top scale-y-100"
     x-transition:leave-end="origin-top scale-y-0"
-    class="flex flex-col z-10 bg-white rounded-xl text-center py-2 mt-14 absolute left-0 top-0 w-full shadow-card sort"
+    class="flex flex-col z-10 bg-white rounded-xl text-center py-2 mt-14 absolute left-0 top-0 w-full shadow-dialog sort"
 
     >
     <a wire:click.prevent="setOrderBy('cena', 'asc')" href="" class="hover:bg-gray-200 @if($sortBy== 'cena' && $sortDirection == 'asc') bg-gray-200 @endif">Najjeftinije prvo</a>
