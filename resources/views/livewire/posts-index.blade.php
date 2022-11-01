@@ -7,6 +7,8 @@
         })
     })"
 >
+
+
     <button class="return-to-top mdMin:hidden shadow-card">
         <svg wire:click="$emit('gotoTop')" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
@@ -23,6 +25,7 @@
           
         <p class="text-xs uppercase">Novi oglas</p>
     </a>
+
 
     <!-- Filters -->
     <div class="relative flex gap-5 md:hidden">
@@ -52,11 +55,15 @@
                 x-transition:leave="transition ease-out duration-300"
                 x-transition:leave-start="origin-top scale-y-100"
                 x-transition:leave-end="origin-top scale-y-0"
-                class="bg-white w-full p-5 shadow-card rounded-xl mt-5 absolute left-0 top-9 z-10"
+                class="w-full p-5 shadow-card rounded-xl mt-5 absolute left-0 top-9 z-10 bg-white"
             >
-                <x-filters :tip="$tip" :koriscenost="$koriscenost" :ispravnost="$ispravnost" :zamena="$zamena"/>
+
+
+                {{-- <livewire:filters :tip="$tip" :koriscenost="$koriscenost" :ispravnost="$ispravnost" :zamena="$zamena"/> --}}
             </div>
         </div>
+
+        
         
 
         <div class="grow">
@@ -102,7 +109,9 @@
                 x-transition:leave-end="origin-top scale-y-0"
                 class="bg-white w-full p-5 rounded-xl absolute left-0 top-14 z-10 shadow-dialog"
             >
-                <x-filters :tip="$tip" :koriscenost="$koriscenost" :ispravnost="$ispravnost" :zamena="$zamena"/>
+            
+
+                <livewire:filters :tip="$tip" :koriscenost="$koriscenost" :ispravnost="$ispravnost" :zamena="$zamena" />
             </div>
         </div>
         

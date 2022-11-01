@@ -22,8 +22,6 @@
         <!-- Favicon.ico bug -->
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
-
-
         <!-- Livewire styles -->
         @livewireStyles
 
@@ -36,7 +34,7 @@
         </header>
 
         <div class="lg:mx-5 background-cover-image pb-12">
-            
+
             
     
             <main class="container mx-auto max-w-main">
@@ -51,9 +49,12 @@
         src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
         crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <!-- Slick slider -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
 
         <!-- Livewire scripts -->
         @livewireScripts

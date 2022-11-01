@@ -7,3 +7,5 @@ Alpine.start();
 
 require('./bootstrap');
 require('./slickSlider');
+require('./menu');
+
