@@ -97,6 +97,13 @@
         x-show="showMenu"
         @click.away="showMenu = false; showBurger = true;"
         class="showMenu shadow-leftDialog"
+
+        x-transition:enter="transition ease-out duration-150"
+        x-transition:enter-start="origin-right scale-x-0 opacity-50"
+        x-transition:enter-end="origin-right scale-x-100 opacity-100"
+        x-transition:leave="transition ease-out duration-300"
+        x-transition:leave-start="origin-right scale-x-100 opacity-100"
+        x-transition:leave-end="origin-right scale-x-0 opacity-50"
         >
     
             <!-- X -->
@@ -128,7 +135,7 @@
 
                     <a href="{{ route('register') }}">Registracija</a>
 
-                    <a href="/">Početna</a>
+                    <a href="{{ route('homepage') }}">Početna</a>
 
                     <a href="{{ route('homepage') }}">Svi oglasi</a>
                 @endguest
@@ -137,7 +144,7 @@
                 @auth
                     <a href="{{ route('user', auth()->user()->id) }}">{{explode(' ', trim(auth()->user()->name))[0] }}</a>
 
-                    <a href="/">Početna</a>
+                    <a href="{{ route('homepage') }}">Početna</a>
 
                     <a href="{{ route('homepage') }}">Svi oglasi</a>
 

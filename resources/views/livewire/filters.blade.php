@@ -23,20 +23,7 @@
             
         </div>
     
-        <div>
-            
-            {{-- <div  class="flex flex-col gap-3 mb-5">
-                <div class="flex justify-start gap-1 items-center">
-                    <label for="default-range" class="font-semibold">Cena od</label>
-                    <input id="cena_od_input" type="number" value="0" class="w-24 outline-2 outline-black border rounded-lg py-1 px-2">
-                </div>
-            
-                <input type="range" min="0" max="2000" step="1" id="cena_od_range" value="0"/>
-            
-                
-            </div> --}}
-
-            
+        <div>            
 
 
             <div class="range-slider flex flex-col">

@@ -1,6 +1,6 @@
 <div style="">
 
-    <div class="showImages">
+    <div class="showImages z-10">
         <!-- X -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 images-exit">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -16,7 +16,7 @@
 
             <!-- BACK BUTTON -->
             <form action="{{ URL::previous() }}">
-                <button class="bg-white rounded-2xl p-3 flex justify-center gap-2 items-center shadow-card" type="submit">
+                <button class="bg-white rounded-2xl p-3 flex justify-center gap-1 items-center shadow-card w-32" type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                     </svg>
@@ -27,25 +27,47 @@
             <!---->
 
             <!-- Edit & delete -->
-            <div class="flex bg-white rounded-lg shadow-card">
+            <div x-data="{showDetails:false}" class="relative">
+
                 @auth
-                    @if ($post->korisnik_id == auth()->user()->id)
-                        <a href="{{ route('posts.edit', $post->slug) }}" class="p-2 border-r border-gray-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-600">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                            </svg>                              
-                        </a>
+
+                    <div
+                    @click="showDetails = !showDetails"
+                    class="bg-white shadow-card rounded-2xl z-0" style="padding: 5px 5px;"
+                    >
+                        <svg 
+                        
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                        </svg>
+                    </div>
+                    
+                  
+                    <div 
+                    @click.away="showDetails=false"
+                    x-cloak
+                    x-show="showDetails"
+                    x-transition:enter="transition ease-out duration-150"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-out duration-300"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="showDetails shadow-dialog">
+                        @if ($post->korisnik_id == auth()->user()->id)
+                        <div>
+                            <a href="{{ route('posts.edit', $post->slug) }}" class="">Izmenite oglas</a>
+
+                        </div>
         
-                        <form action="{{ route('posts.delete', $post->slug) }}" method="post">
-                            @csrf
-                            <button type="submit" class="p-2 border-l border-gray-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-700">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                </svg>
-                                  
-                            </button>
-                        </form>
-                    @endif
+                            <form action="{{ route('posts.delete', $post->slug) }}" method="post">
+                                @csrf
+                                <button type="submit" class="">Uklonite oglas</button>
+                            </form>
+                        @endif
+                    </div>
+
+                    
                 @endauth
             </div>
             <!---->
@@ -121,8 +143,8 @@
                     <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="w-full rounded-xl post-image hover:cursor-pointer" alt="">
                 </div>
         
-                <div class="flex flex-col gap-2 font-semibold text-lg mt-5">
-                    <p>{{ $post->naziv }}</p>
+                <div class="flex flex-col font-semibold text-lg mt-5">
+                    <p class="font-bold">{{ $post->naziv }}</p>
                     <p class="text-redd font-bold mt-2">{{ $post->cena }} &euro;</p>
                 </div>
         
@@ -160,18 +182,25 @@
         
         
 
+                <p class="text-xs text-center mt-10" style="color: #161A1D;">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p>
+
         
-                <div class="border p-3 bg-gray-900 text-gray-200 rounded-xl mt-8">
-                    <div class="flex items-center justify-center">
-                        <img src="../images/white.png" alt="" class="w-6 h-6 ">
-                        <p class="font-semibold ml-1">{{ $post->user->name }}</p>
-                        <p class="ml-2">|</p>
-                        <p class="font-semibold ml-2">{{ $post->kontakt }}</p>
+                <div class="kontakt-info p-3">
+                    <div class="flex gap-2 items-center justify-center">
+                        <div class="flex items-center justify-center">
+                            <img src="../images/white.png" alt="" class="w-6 h-6 ">
+                            <p class="font-semibold ml-1">{{explode(' ', trim($post->user->name))[0] }}</p>
+                        </div>       
+
+                       
+                        <p>|</p>
+
+                        <p class="font-semibold">{{ $post->kontakt }}</p>
+
                     </div>
+
                 </div>
         
-                {{-- <p class="text-xs text-center text-gray-600">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p> --}}
-
         
         
             </div>
