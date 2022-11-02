@@ -53,7 +53,6 @@ body{
 
 .navbar{
     background: rgb(255,255,255);
-// background: linear-gradient(180deg, rgba(255,255,255,1) 59%, rgba(244,244,244,1) 100%);
 }
 
 body{
@@ -220,21 +219,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     flex-direction: column;
     
-    a{
-        border-bottom: 2px solid #161A1D;
-        color: rgb(11, 180, 11);
-        padding: 0 5px;
-    }
 
 
-    button{
-        display: block;
-        border-bottom: 2px solid #161A1D;
-        color: #ba1b1d;
-    }
 }
 
 .logout{
@@ -264,6 +253,113 @@ body{
         color: black;
     }
 }
+
+.nav-links a{
+    display: inline-block;
+    position: relative;
+
+    &:hover{
+        color: black;
+    }
+
+    &:hover:after{
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #161A1D;
+        transform-origin: bottom left;
+        transition: transform 0.2s ease-out;
+      }
+}
+
+.nav-link-black{
+    position: relative;
+
+    color: #f7f4f3;
+
+    &:hover{
+        color: white;
+    }
+
+    &:hover:after{
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #f7f4f3;
+        transform-origin: bottom left;
+        transition: transform 0.2s ease-out;
+      }
+}
+
+.nav-link{
+    position: relative;
+
+    &:hover{
+        color: black;
+    }
+
+    &:hover:after{
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #161A1D;
+        transform-origin: bottom left;
+        transition: transform 0.2s ease-out;
+      }
+}
+
+.nav-link-red{
+    position: relative;
+
+    color: #d32023;
+
+    &:hover:after{
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #d32023;
+        transform-origin: bottom left;
+        transition: transform 0.2s ease-out;
+      }
+}
+
+
 
 .novi-oglas-telefon{
     top: 1.25rem;

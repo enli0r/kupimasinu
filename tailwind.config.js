@@ -25,7 +25,8 @@ module.exports = {
         'half-transparent': 'rgba(0,0,0,0.5)',
         'footer' : '#e4e4e4',
         'redd' : '#ba1b1d',
-        'whitee': '#F7F4F3'
+        'whitee': '#F7F4F3',
+        'dark-gray': '#161A1D'
         
       },
 

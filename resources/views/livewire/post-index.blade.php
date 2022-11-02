@@ -2,41 +2,22 @@
 
     <!--Post for desktop -->
     <div class="rounded-2xl p-5 bg-white shadow-card md:hidden post">
-
         <div class="flex gap-5 justify-start">
             <div class="w-64 shrink-0">
 
 
                 <a href="{{ route('posts.show', $post) }}" class="text-md font-bold line-clamp-3"><img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-xl post-image"></a>
 
-                {{-- py-2 bg-black-700 text-white rounded-lg mt-3  --}}
-                <div 
-                x-data="{showKontakt:false}"
-                class="kontakt-info relative mt-5 rounded-lg">
-                    <div 
-                    @click="showKontakt = !showKontakt"
-                    class="flex flex-col font-semibold">
+                <div class="kontakt-info relative mt-5 rounded-lg">
+                    <div class="flex flex-col font-semibold">
                         <div class="flex items-center justify-center p-3 hover:cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                             </svg>
                               
-                            <p class="font-semibold ml-2">{{ explode(' ', trim($post->user->name))[0] }} </p>
-                            <p class="ml-2">|</p>
-                            <p class="font-semibold ml-2">{{ $post->kontakt }}</p>
+                            <p class="font-semibold ml-1">{{ explode(' ', trim($post->user->name))[0] }} </p>
                         </div>
-                        
-
-                        <a 
-                        x-cloak
-                        x-show="showKontakt"
-                        href="#" class="text-sm hover:bg-gray-200 py-1 text-center hover:text-black mb-3 font-semibold">Svi oglasi</a>
-
                     </div>
-
-
-                    
-
                 </div>
             </div>
 
@@ -68,11 +49,8 @@
     
                 <p class="mt-auto self-end text-sm text-gray-600">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p>
                 
-                
             </div>
         </div>
-        
-
     </div>
 
 
