@@ -5,7 +5,7 @@
     <button
         @click="showSort = !showSort"
         @click.away="showSort=false"
-        class="bg-white gap-2 shadow-card flex justify-center items-center  rounded-2xl px-4 py-3"
+        class="bg-white gap-2 shadow-card flex justify-center items-center  rounded-2xl px-4 py-3 font-semibold" style="color:#161A1D;"
     >
         @if ($sortBy == 'cena' && $sortDirection == 'asc')
             Najjeftinije prvo

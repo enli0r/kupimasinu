@@ -3,7 +3,10 @@
     <div class="container mx-auto max-w-main flex justify-between items-center font-semibold lg:px-5 py-4 md:hidden">
 
         <div>
-            <img src="https://cdn.pixabay.com/photo/2014/04/02/11/16/cog-305746_1280.png" alt="" class="w-6 h-6">
+            <a href="{{ route('homepage') }}" class="flex gap-2 items-center">
+                <img src="https://cdn.pixabay.com/photo/2014/04/02/11/16/cog-305746_1280.png" alt="" class="w-8 h-8">
+                <span class="text-lg font-semibold text-gray-700">KUPI MAŠINU</span>
+            </a>
         </div>
 
         <div class="flex justify-between items-center gap-5 text-gray-700">

@@ -33,7 +33,7 @@
 
                     <div
                     @click="showDetails = !showDetails"
-                    class="bg-white shadow-card rounded-2xl z-0" style="padding: 5px 5px;"
+                    class="bg-white shadow-card rounded-2xl z-0 hover:cursor-pointer" style="padding: 5px 5px;"
                     >
                         <svg 
                         
@@ -96,7 +96,7 @@
 
                     <div class="flex flex-col gap-2 w-full">
                         <p class="text-lg font-bold  ">{{ $post->naziv }}</p>
-                        <p class="text-lg text-redd font-bold mb-5">{{ $post->cena }} &euro;</p>
+                        <p class="text-lg text-blue-700 font-bold mb-5">{{ $post->cena }} &euro;</p>
 
                         <table class="w-full mt-5">
                             <tr class="bg-gray-100 text-gray-800">
@@ -145,7 +145,7 @@
         
                 <div class="flex flex-col font-semibold text-lg mt-5">
                     <p class="font-bold">{{ $post->naziv }}</p>
-                    <p class="text-redd font-bold mt-2">{{ $post->cena }} &euro;</p>
+                    <p class="text-blue-700 font-bold mt-2">{{ $post->cena }} &euro;</p>
                 </div>
         
         

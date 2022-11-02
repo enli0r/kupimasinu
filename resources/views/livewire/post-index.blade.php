@@ -42,7 +42,7 @@
 
             <div class="flex flex-col gap-2 w-full">
                 <a href="{{ route('posts.show', $post) }}" class="text-md font-semibold line-clamp-2">{{ $post->naziv }}</a>
-                <p class="font-bold text-blue-600 text-lg mb-5">{{ $post->cena }} &euro;</p>
+                <p class="font-bold text-blue-700 text-lg mb-3">{{ $post->cena }} &euro;</p>
     
                 <table class="w-full ">
                     <tr class="bg-gray-100 text-gray-800">
@@ -88,7 +88,7 @@
     
             <div class="flex flex-col gap-3">
                 <a href="{{ route('posts.show', $post) }}" class="text-md font-bold line-clamp-3">{{ $post->naziv }}</a>
-                <p class="font-bold text-lg" style="color: #ba1b1d;">{{ $post->cena }} &euro;</p>
+                <p class="font-bold text-lg text-blue-700" style="">{{ $post->cena }} &euro;</p>
             </div>
         </div>
 

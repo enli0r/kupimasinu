@@ -1,7 +1,9 @@
 <div>
     
     <!-- For phone -->
-    <div class="flex flex-col gap-7 mdMin:hidden z-100 ">
+    <div class="flex flex-col gap-7 z-100">
+        <h3 class="text-redd text-lg font-semibold lg:hidden">Filteri</h3>
+
         <div class="flex flex-col gap-3 justify-center">
             <h2 class="font-semibold text-left">
                 Tip mašine
@@ -36,7 +38,7 @@
                 </div>
                 
 
-                <div class="flex justify-between">
+                <div class="flex justify-between mdMin:flex-col mdMin:gap-2">
                     <div class="flex gap-1 items-center">
                         <label for="cena_od">Od:</label>
                         <input id="cena_od" type="number" value="0" min="0" max="2000" step="1" class="border rounded-lg p-1 px-2"> 
@@ -187,7 +189,7 @@
     
     
     <!-- For desktop -->
-    <div class="flex flex-col gap-5 md:hidden">
+    {{-- <div class="flex flex-col gap-5 border md:hidden">
         <div class="border">
             <h2 class="font-semibold">
                 Tip
@@ -259,8 +261,8 @@
         </div>
     
     
-    </div>
-    </div>
+    </div> --}}
+</div>
     
     
     
