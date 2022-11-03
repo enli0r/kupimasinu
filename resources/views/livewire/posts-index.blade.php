@@ -99,7 +99,7 @@
             class="w-full">
             <button 
             @click="showFilters = !showFilters"
-            class="bg-white rounded-2xl shadow-card px-4 py-3 flex-1 w-full text-redd font-semibold">
+            class="bg-white rounded-2xl shadow-card px-4 py-3 flex-1 w-full text-dark-gray font-semibold">
                 <div class="flex gap-3 justify-between items-center">
                     <p class="">Filteri</p>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">

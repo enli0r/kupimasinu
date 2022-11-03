@@ -23,6 +23,10 @@
 
         <div class="font-sans text-gray-900 antialiased bg-gray-100">
 
+            <header class="mb-5">
+                <x-navbar />
+            </header>
+
 
             <div class="lg:mx-5">
                 {{ $slot }}

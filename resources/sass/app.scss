@@ -52,7 +52,7 @@ body{
 
 
 .navbar{
-    background: rgb(255,255,255);
+    background: #161A1D;
 }
 
 body{
@@ -180,7 +180,7 @@ body{
 }
 
 .showMenu{
-    background-color: #f7f4f3;
+    background-color: #161A1D;
     z-index: 100;
     position: fixed;
     top: 0;
@@ -189,15 +189,14 @@ body{
     max-width: 300px;
     width: 100%;
     text-align: center;
-    padding-top: 4.5rem;
+    padding-top: 4.73rem;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 
     .link{
         a{
             padding: 0 5px;
-            border-bottom: 2px solid rgba(0,0,0,0.92);
-            color: rgba(0,0,0,0.92);
             font-size: 1.125rem;
             line-height: 1.75rem;
         }
@@ -230,8 +229,7 @@ body{
 
     button{
         padding: 0 5px;
-        border-bottom: 2px solid #ba1b1d;
-        color: #ba1b1d;
+
         font-size: 1.125rem;
         line-height: 1.75rem;
     }
@@ -246,7 +244,7 @@ body{
     position: fixed;
     right: 1.25rem;
     top: 1.25rem;
-    color: rgba(0,0,0, 0.92);
+    color: #f7f4f3;
     z-index: 200;
 
     &:hover{
@@ -254,32 +252,6 @@ body{
     }
 }
 
-.nav-links a{
-    display: inline-block;
-    position: relative;
-
-    &:hover{
-        color: black;
-    }
-
-    &:hover:after{
-        transform: scaleX(1);
-        transform-origin: bottom left;
-    }
-
-    &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #161A1D;
-        transform-origin: bottom left;
-        transition: transform 0.2s ease-out;
-      }
-}
 
 .nav-link-black{
     position: relative;
@@ -290,9 +262,22 @@ body{
         color: white;
     }
 
+    &:focus:after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(1);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #f7f4f3;
+    }
+
+
     &:hover:after{
         transform: scaleX(1);
         transform-origin: bottom left;
+        
     }
 
     &:after {
@@ -358,7 +343,6 @@ body{
         transition: transform 0.2s ease-out;
       }
 }
-
 
 
 .novi-oglas-telefon{
