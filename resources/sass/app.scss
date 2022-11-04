@@ -6,8 +6,16 @@
     display: none !important;
 }
 
+html{
+    scroll-behavior: smooth; 
+    -webkit-scroll-behavior: smooth;
+}
+
+html, body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; }
+
 body{
     color: #2F2D2E;
+    
 }
 
 .return-to-top{
@@ -105,6 +113,51 @@ body{
 
 .post-image{
     aspect-ratio: 4/3;
+    position: relative;
+}
+
+.post-img-container{
+    position: relative;
+    
+
+    &:after{
+        content: '';
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        transition: all 0.2s ease-in-out;
+        border-radius: 1rem;
+    }
+
+    &:hover:after{
+        opacity: 1;
+    }
+}
+
+.post-index-img-container{
+    position: relative;
+    
+
+    &:after{
+        content: '';
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        transition: all 0.2s ease-in-out;
+        border-radius: 0.75rem;
+    }
+
+    &:hover:after{
+        opacity: 1;
+    }
 }
 
 .showImages{
@@ -365,6 +418,87 @@ body{
     transform: scale(1.1);
 }
 
+.checkbox {
+    --background: #fff;
+    --border: #D1D6EE;
+    --border-hover: #BBC1E1;
+    --border-active: #ba1b1d;
+    --tick: #fff;
+    position: relative;
+
+    input, svg {
+        width: 18px;
+        height: 18px;
+        display: block;
+    }
+    input{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        position: relative;
+        outline: none;
+        background: var(--background);
+        border: none;
+        margin: 0;
+        padding: 0;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: box-shadow .1s;
+        box-shadow: inset 0 0 0 var(--s, 1px) var(--b, var(--border));
+        &:hover {
+            --s: 2px;
+            --b: var(--border-hover);
+        }
+        &:checked {
+            --b: var(--border-active);
+        }
+    }
+    svg {
+        pointer-events: none;
+        fill: none;
+        stroke-width: 2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke: var(--stroke, var(--border-active));
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        transform: scale(var(--scale, 1)) translateZ(0);
+    }
+    
+    &.bounce {
+        --stroke: var(--tick);
+        input {
+            &:checked {
+                --s: 11px;
+                & + svg {
+                    animation: bounce .1s linear forwards .1s;
+                }
+            }
+        }
+        svg {
+            --scale: 0;
+        }
+    }
+}
+
+.temp-image{
+    aspect-ratio: 4/3;
+}
+
+@keyframes bounce {
+    50% {
+        transform: scale(1.2);
+    }
+    75% {
+        transform: scale(.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 @media only screen and (max-width: 1023px) {
     .showImagesContainer{
         padding: 0 1.25rem !important;
@@ -383,7 +517,6 @@ body{
     }
 
 }
-
 
 
 /// Slider

@@ -67,10 +67,10 @@
             <div class="w-1/3 md:w-full shrink-0 bg-dark-gray p-8 rounded-xl mdMin:rounded-l-none md:rounded-t-none px-5 pt-5 flex flex-col items-center justify-center md:py-12 md:px-8">
                 <h1 class="text-3xl font-bold text-whitee text-center mb-">Već imate nalog?</h1>
                 <p class="text-whitee text-center mt-3">Prijavite se na Vaš postojeći nalog unosom podataka!</p>
-                <form method="POST" action="{{ route('login') }}" class="text-center mt-6">
-                    @csrf
-                    <button type="submit" class="py-2 px-4 bg-redd text-whitee rounded-full hover:bg-red-600 hover:text-white transition-all w-48">Prijavite se</button>
-                </form>
+
+                <div class="mt-6">
+                    <a href="{{ route('login') }}" class="py-2 px-8 bg-redd text-whitee rounded-full hover:bg-red-600 hover:text-white transition-all">Prijavite se</a>
+                </div>
             </div>
             
         </x-auth-card>

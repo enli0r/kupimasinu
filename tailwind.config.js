@@ -32,6 +32,7 @@ module.exports = {
 
       maxWidth: {
           main: '62.5rem',
+          create: '50rem',
           footer : '31.25rem',
       },
       
@@ -39,9 +40,11 @@ module.exports = {
           5: '1.25rem',
           70: '17.5rem',
           55: '17rem',
+          88: '22rem',
           100: '25rem',
           120: '30rem',
           175: '43.75rem',
+
       },
       
       fontSize: {

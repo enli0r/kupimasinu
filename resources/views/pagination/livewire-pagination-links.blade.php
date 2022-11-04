@@ -23,7 +23,7 @@
                 @if ($paginator->currentPage()  == $i)
                     <button 
                         
-                        class="w-10 border bg-blue-500 text-white rounded-md py-2">
+                        class="w-10 border  text-white rounded-md py-2 bg-redd">
                         {{ $i }}
                     </button>
 
@@ -32,7 +32,7 @@
                         
                         wire:click='gotoPage({{ $i }})'
                         
-                        class="w-10 border bg-white text-black rounded-md">
+                        class="w-10 border bg-white text-black rounded-md ">
                         {{ $i }}
                     </button>
                     

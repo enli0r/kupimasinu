@@ -6,7 +6,7 @@
             <div class="w-64 shrink-0">
 
 
-                <a href="{{ route('posts.show', $post) }}" class="text-md font-bold line-clamp-3"><img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-xl post-image"></a>
+                <a href="{{ route('posts.show', $post) }}" class="post-index-img-container"><img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-xl post-image"></a>
 
                 <div class="kontakt-info relative mt-5 rounded-lg">
                     <div class="flex flex-col font-semibold">
@@ -22,7 +22,7 @@
             </div>
 
             <div class="flex flex-col gap-2 w-full">
-                <a href="{{ route('posts.show', $post) }}" class="text-md font-semibold line-clamp-2">{{ $post->naziv }}</a>
+                <a href="{{ route('posts.show', $post) }}" class="text-md font-semibold line-clamp-2 text-dark-gray hover:text-black">{{ $post->naziv }}</a>
                 <p class="font-bold text-redd text-lg mb-3">{{ $post->cena }} &euro;</p>
     
                 <table class="w-full ">
@@ -60,7 +60,7 @@
         <div class="flex gap-3 mb-6">
             <div class="flex">
                 <div class="w-36 shrink-0">
-                    <a href="{{ route('posts.show', $post) }}" class="text-md font-bold line-clamp-3"><img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-lg post-image"></a>
+                    <a href="{{ route('posts.show', $post) }}" class="post-index-img-container"><img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-lg post-image"></a>
                 </div>
             </div>
     
