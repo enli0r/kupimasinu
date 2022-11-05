@@ -54,15 +54,15 @@ class ImagesCreate extends Component
     public function saveImages($post_id, $user_id){
         if($this->validate()){
             foreach($this->imagesToUpload as $image){
-                if(!(in_array($image->getFilename(), $this->removeTempList))){
-                    $newName = $user_id.'-'.$post_id.'-'.$image->getClientOriginalName();
-                    $image->storeAs('post-images', $newName);
-    
-                    $postImage = new PostImages();
-                    $postImage->post_id = $post_id;
-                    $postImage->link = $newName;
-                    $postImage->save();
-                }
+                
+                $newName = $user_id.'-'.$post_id.'-'.$image->getClientOriginalName();
+                $image->storeAs('post-images', $newName);
+
+                $postImage = new PostImages();
+                $postImage->post_id = $post_id;
+                $postImage->link = $newName;
+                $postImage->save();
+                
             }
         }
 

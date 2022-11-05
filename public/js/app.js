@@ -5171,6 +5171,10 @@ $(function () {
     $('.showImages').css('display', 'flex');
     $('.showImagesSlider').get(0).slick.setPosition();
   });
+  $('.post-index-img-container').on("click", function () {
+    $('.showImages').css('display', 'flex');
+    $('.showImagesSlider').get(0).slick.setPosition();
+  });
   $('.post-image').on("click", function () {
     $('.showImages').css('display', 'flex');
     $('.showImagesSlider').get(0).slick.setPosition();

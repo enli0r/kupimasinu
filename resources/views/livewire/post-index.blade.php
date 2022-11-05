@@ -3,10 +3,13 @@
     <!--Post for desktop -->
     <div class="rounded-2xl p-5 bg-white shadow-card md:hidden post">
         <div class="flex gap-5 justify-start">
-            <div class="w-64 shrink-0">
+            <div class="w-60 shrink-0">
 
-
-                <a href="{{ route('posts.show', $post) }}" class="post-index-img-container"><img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-xl post-image"></a>
+                <a href="{{ route('posts.show', $post) }}">
+                    <div class="post-img-container w-full h-60 p-2 border rounded-xl flex items-center justify-center hover:bg-red">
+                        <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-xl post-image">
+                    </div>
+                </a>
 
                 <div class="kontakt-info relative mt-5 rounded-lg">
                     <div class="flex flex-col font-semibold">
@@ -60,7 +63,12 @@
         <div class="flex gap-3 mb-6">
             <div class="flex">
                 <div class="w-36 shrink-0">
-                    <a href="{{ route('posts.show', $post) }}" class="post-index-img-container"><img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-lg post-image"></a>
+                    <a href="{{ route('posts.show', $post) }}">
+                        <div class="post-index-img-container h-36 flex justify-center items-center p-2 border rounded-lg">
+                            <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" alt="" class="rounded-lg post-image">
+                        </div>
+                        
+                    </a>
                 </div>
             </div>
     

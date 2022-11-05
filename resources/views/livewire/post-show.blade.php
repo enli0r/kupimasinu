@@ -81,7 +81,8 @@
             <div class="space-y-8 bg-white p-5 rounded-2xl border shadow-card">         
                 <div class="flex gap-5">
                     <div class="w-100 shrink-0">
-                        <div class="post-img-container hover:cursor-pointer">
+
+                        <div class="post-img-container h-100 border rounded-2xl p-2 flex justify-center items-center hover:cursor-pointer">
                             <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="w-full rounded-2xl post-image hover:cursor-pointer" alt="">
                         </div>
                         
@@ -140,8 +141,14 @@
         <div class="mdMin:hidden">
 
             <div class="bg-white p-5 rounded-2xl shadow-card ">
-                <div class="w-full">
-                    <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="w-full rounded-xl post-image hover:cursor-pointer" alt="">
+                <div class="w-full border rounded-xl post-index-img-container p-2 relative hover:cursor-pointer" style="padding-top: 100%;">
+
+                    <div class="rounded-xl hover:cursor-pointer absolute top-0 right-0 bottom-0 left-0 p-2 flex items-center justify-center post-image">
+
+                        <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="rounded-xl" style="" alt="">
+
+                    </div>
+
                 </div>
         
                 <div class="flex flex-col font-semibold text-lg mt-5">
