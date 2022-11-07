@@ -42,6 +42,11 @@ return [
             'visibility' => 'public',
         ],
 
+        'import' => [
+            'driver' => 'local',
+            'root' => storage_path('app/import'),
+        ],
+
 
         'public' => [
             'driver' => 'local',

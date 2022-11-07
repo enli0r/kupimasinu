@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\NaseljaController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -32,5 +33,7 @@ Route::get('/oglasi/{post:slug}/edit', [PagesController::class, 'edit'])->name('
 Route::put('/oglasi/{post:slug}/edit', [PostController::class, 'update']);
 
 Route::post('/oglasi/{post:slug}/delete', [PostController::class, 'destroy'])->name('posts.delete')->middleware('owner');
+
+Route::get('/import-naselja', [NaseljaController::class, 'import'])->name('naselja.import');
 
 require __DIR__.'/auth.php';
