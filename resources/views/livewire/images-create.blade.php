@@ -30,16 +30,20 @@
 
     @if($imagesToUpload)
 
-        <div class="w-full space-y-5">
+        <div class="rounded-xl space-y-5">
             @foreach ($imagesToUpload as $imgToUpload)
 
-                    <div class="w-full relative">
-                        <img src="{{ $imgToUpload->temporaryUrl() }}" alt="" class="temp-image rounded-xl"/>
+                    <div class="w-full border rounded-xl relative" style="padding-top: 100%;">
+
+                        <div class="absolute top-0 right-0 bottom-0 left-0 p-2 flex items-center justify-center ">
+                            <img src="{{ $imgToUpload->temporaryUrl() }}" alt="" class="post-image rounded-xl"/>
+                        </div>
+
 
                         <div 
                         wire:click="removeTemp('{{ $imgToUpload->getClientOriginalName() }}')"
-                        class="position absolute hover:cursor-pointer" style="top: -12px; right:-12px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-redd bg-dark-gray lg:bg-white rounded-full p-1">
+                        class="position absolute hover:cursor-pointer" style="top: -15px; right:-15px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9 text-redd bg-dark-gray lg:bg-white rounded-full p-1">
                                 <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clip-rule="evenodd" />
                             </svg>
                         </div>

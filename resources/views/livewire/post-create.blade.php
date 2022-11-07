@@ -1,8 +1,5 @@
 <div class="flex shadow-card rounded-2xl max-w-main mx-auto lg:flex-col mt-10">
 
-    {{-- <div class="bg-dark-gray px-10 py-10 rounded-b-none rounded-t-2xl">
-        <h2 class="text-2xl text-whitee text-center ">Postavite svoj oglas</h2>
-    </div> --}}
 
     <div class="bg-white py-12 md:pb-0 px-16 lg:px-5 w-full rounded-l-2xl lg:rounded-l-none lg:rounded-t-2xl">
 
@@ -266,7 +263,7 @@
                 <!-- Tacnost -->
                 <div class="flex gap-1 items-center mt-2">
                     <x-checkbox-bounce wire:model="garantovanje_tacnosti" name="garantovanje_tacnosti" id="tacnost" value="1" />
-                    <label class="text-dark-gray" for="tacnost">Garantujem tacnost oglasa<span class="text-redd">*</span></label>
+                    <label class="text-dark-gray" for="tacnost">Garantujem tačnost oglasa<span class="text-redd">*</span></label>
                 </div>
                 @error('garantovanje_tacnosti')
                             <small class="text-red-500 font-semibold">*{{ $message }}</small>
@@ -279,7 +276,7 @@
     
             <!-- Submit -->
             <div class="w-full flex justify-center items-center lg:hidden">
-                <button type="submit" class="bg-redd py-2 px-8 rounded-full text-whitee hover:bg-red-600 hover:text-white">Potvrdi</button>
+                <button type="submit" class="bg-redd py-2 px-8 rounded-full text-whitee hover:bg-red-600 hover:text-white">Postavite ovaj oglas</button>
             </div>
         </form>
     </div>
@@ -291,7 +288,7 @@
 
     <div class="lgMin:hidden w-full bg-white px-5 py-10 rounded-b-2xl">
         <div class="w-full flex justify-center items-center">
-            <button type="submit" class="bg-redd py-2 px-8 rounded-full text-whitee hover:bg-red-600 hover:text-white">Potvrdi</button>
+            <button type="submit" class="bg-redd py-2 px-8 rounded-full text-whitee hover:bg-red-600 hover:text-white">Postavite ovaj oglas</button>
         </div>
     </div>
 
