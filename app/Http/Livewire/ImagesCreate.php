@@ -67,8 +67,10 @@ class ImagesCreate extends Component
         }
 
         foreach($this->images as $image){
-            unlink(public_path('app/livewire-tmp/'.$image->getFilename()));
+            unlink(public_path('app/livewire-tmp/'.$image->temporaryUrl()));
         }
+
+        return redirect('/');
     }
 
 

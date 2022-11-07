@@ -3,12 +3,24 @@
 namespace App\Http\Livewire;
 
 use App\Models\Post;
+use App\Models\Naselja;
 use Livewire\Component;
+use App\Models\PostImages;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 
 class PostCreate extends Component
 {
+    use WithFileUploads;
+
+    //Images
+    public $images = [];
+    public $imagesToUpload = [];
+    public $imageNames = [];
+    //Images
+
+
     public $korisnik_id;
     public $odobren;
     public $kategorija_id;
@@ -21,10 +33,47 @@ class PostCreate extends Component
     public $proizvodjac;
     public $opis;
     public $mesto;
-    public $postanski_broj;
     public $kontakt;
     public $saglasnost;
     public $garantovanje_tacnosti;
+
+    public $queryString = [
+        'mesto'
+    ];
+
+    public function updateMesto($naziv){
+        $this->mesto = $naziv;
+    }
+
+    public function removeTemp($tempName){
+        //Removing images from imagesToUpload
+        foreach($this->imagesToUpload as $imgToUpload){
+            if($imgToUpload->getClientOriginalName() == $tempName){
+                $index = array_search($imgToUpload, $this->imagesToUpload);
+
+                unset($this->imagesToUpload[$index]);
+
+                $this->imagesToUpload = array_values($this->imagesToUpload);
+            }
+        }
+        
+        //Removing image from image names
+        $index = array_search($tempName, $this->imageNames);
+        unset($this->imageNames[$index]);
+        $this->imageNames = array_values($this->imageNames);
+
+        //Removing image from images
+        foreach($this->images as $img){
+            if($img->getClientOriginalName() == $tempName){
+                $index = array_search($img, $this->images);
+
+                unset($this->images[$index]);
+
+                $this->images = array_values($this->images);
+            }
+        }
+    }
+
 
     public function mount(){
         $this->korisnik_id = Auth::id();
@@ -45,14 +94,13 @@ class PostCreate extends Component
         'proizvodjac' => 'max:25',
         'opis' => 'required|min:25|max:255',
         'mesto' => 'required',
-        'postanski_broj' => 'required',
         'kontakt' => 'required',
         'saglasnost' => 'required',
         'garantovanje_tacnosti' => 'required',
+        'images' => 'required'
     ];
 
     public function store(){
-
         $this->validate();
 
         $post = new Post;
@@ -69,21 +117,57 @@ class PostCreate extends Component
         $post->proizvodjac = $this->proizvodjac;
         $post->opis = $this->opis;
         $post->mesto = $this->mesto;
-        $post->postanski_broj = $this->postanski_broj;
         $post->kontakt = $this->kontakt;
         $post->saglasnost = $this->saglasnost;
         $post->garantovanje_tacnosti = $this->garantovanje_tacnosti;
         $post->save();
 
+
+        //Images
         if($this->validate()){
-            $this->emit('saveImages', $post->id, Auth::id());
+            foreach($this->imagesToUpload as $image){
+                $newName = auth()->user()->id.'-'.$post->id.'-'.$image->getClientOriginalName();
+                $image->storeAs('post-images', $newName);
+
+                $postImage = new PostImages();
+                $postImage->post_id = $post->id;
+                $postImage->link = $newName;
+                $postImage->save();
+                
+            }
         }
 
-
+        return redirect('/');
     }
 
     public function render()
     {
-        return view('livewire.post-create');
+        if(count($this->imagesToUpload) > 0){
+            foreach($this->images as $img){
+                if(!(in_array($img->getClientOriginalName(), $this->imageNames))){
+                    array_push($this->imagesToUpload, $img);
+                }
+            }
+        }
+        
+        if(count($this->imagesToUpload) == 0){
+            foreach($this->images as $img){
+                array_push($this->imagesToUpload, $img);
+            }
+        }
+
+        foreach($this->imagesToUpload as $imgToUpload){
+            if(!(in_array($imgToUpload->getClientOriginalName(), $this->imageNames))){
+                array_push($this->imageNames, $imgToUpload->getClientOriginalName());
+            }
+        }
+
+
+
+        return view('livewire.post-create', [
+            'naselja' => Naselja::when(strlen($this->mesto) >= 2, function($query){
+                return $query->where('naziv', 'like', '%'.$this->mesto.'%');
+            })->get()
+        ]);
     }
 }

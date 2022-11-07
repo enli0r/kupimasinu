@@ -1,27 +1,4 @@
 <div class="w-full space-y-5">
-    {{-- @if (count($images))
-        @foreach ($images as $img)
-            <p class="text-white">{{ $img->getClientOriginalName() }}</p>
-        @endforeach
-    @endif
-
-    <hr class="bg-white">
-
-    @if (count($imagesToUpload))
-        @foreach ($imagesToUpload as $img)
-            <p class="text-white">{{ $img->getClientOriginalName() }}</p>
-        @endforeach
-    @endif
-
-    <hr class="bg-white">
-
-
-    @if (count($imageNames))
-        @foreach ($imageNames as $img)
-            <p class="text-white">{{ $img }}</p>
-        @endforeach
-    @endif --}}
-
 
         
     @error('images')
@@ -66,5 +43,9 @@
     
 
     <input wire:model="images" id="images" type="file" name="images[]" multiple class="hidden"/>
+
+    @error('images')
+        <p class="text-redd">{{ $message }}</p>
+    @enderror
 
 </div>

@@ -1,7 +1,7 @@
 <div class="flex shadow-card rounded-2xl max-w-main mx-auto lg:flex-col mt-10">
 
 
-    <div class="bg-white py-12 md:pb-0 px-16 lg:px-5 w-full rounded-l-2xl lg:rounded-l-none lg:rounded-t-2xl">
+    <div class="bg-white py-12 px-16 lg:px-5 w-full rounded-l-2xl lg:rounded-l-none lg:rounded-t-2xl lg:rounded-b-2xl">
 
 
         <h1 class="text-redd text-3xl lg:text-3xl text-center font-bold mb-16">Unesite podatke za Vaš oglas</h1>
@@ -41,46 +41,61 @@
                     <label class="font-semibold" for="godina">Godište<span class="text-redd">*</span></label>
                     <x-input class="w-full" wire:model="godina" type="number" name="godina" id="godina" value="{{old('godina')}}"/>
                     @error('godina')
-                                <small class="text-red-500 font-semibold">*{{ $message }}</small>
+                            <small class="text-red-500 font-semibold">*{{ $message }}</small>
                     @enderror
                 </div>
 
                 <!-- Mesto -->
-                <div class="flex flex-col gap-2 items-start lg:hidden">
+                <div 
+                @click.away="showMesta=false"
+                x-data="{showMesta:false}"
+                class="flex flex-col gap-2 items-start lg:hidden relative">
                     <label class="font-semibold text-dark-gray" for="mesto">Mesto<span class="text-redd">*</span></label>
-                    <select wire:model="mesto" name="mesto" id="mesto" class="py-2 px-3 bg-dark-gray hover:bg-black rounded-xl text-whitee hover:cursor-pointer  hover:text-white">
-                        <option selected>Izaberite mesto</option>
-                        <x-selectCheck wire:model="mesto" value="jagodina" name="mesto" showToUser="Jagodina"/>
-                        <x-selectCheck wire:model="mesto" value="beograd" name="mesto" showToUser="Beograd"/>
-                        <x-selectCheck wire:model="mesto" value="novi_sad" name="mesto" showToUser="Novi sad"/>
-                        <x-selectCheck wire:model="mesto" value="kragujevac" name="mesto" showToUser="Kragujevac"/>
-                        <x-selectCheck wire:model="mesto" value="cacak" name="mesto" showToUser="Čačak"/>
-                        <x-selectCheck wire:model="mesto" value="nis" name="mesto" showToUser="Niš"/>
-                    </select>
+                    <x-input wire:model="mesto" @click="showMesta = !showMesta" type="text" name="mesto" id="mesto" autocomplete="off" value="{{ old('mesto') }}"/>
+                    
                     @error('mesto')
                             <small class="text-red-500 font-semibold">*{{ $message }}</small>
                     @enderror
-                    <!---->
+                    
+
+                    <!-- POPUP -->
+                    <div 
+                    x-cloak
+                    x-show="showMesta"
+                    class="bg-dark-gray py-2 text-whitee overflow-y-auto shadow-dialog flex flex-col text-center" style="position: absolute; top: -180px; right:0; height:200px; width:180px;">
+                        @foreach ($naselja as $mesto)
+                            <label @click="showMesta = false" wire:click="updateMesto('{{ $mesto->naziv }}')" class="w-full hover:bg-gray-100 hover:text-dark-gray py-1 hover:cursor-pointer">{{ $mesto->naziv }}</label>
+                        @endforeach
+                    </div>
+
+
                 </div>
                 <!---->  
             </div>
             
             <div class="flex w-full lg:flex-col lg:gap-6 lgMin:justify-between">
                  <!-- Mesto -->
-                 <div class="flex flex-col gap-2 items-start lgMin:hidden">
+                 <div 
+                 @click.away="showMesta=false"
+                    x-data="{showMesta:false}"
+                    class="flex flex-col gap-2 items-start lgMin:hidden relative w-full">
                     <label class="font-semibold text-dark-gray" for="mesto">Mesto<span class="text-redd">*</span></label>
-                    <select wire:model="mesto" name="mesto" id="mesto" class="py-2 px-3 bg-dark-gray hover:bg-black rounded-xl text-whitee hover:cursor-pointer  hover:text-white">
-                        <option selected>Izaberite mesto</option>
-                        <x-selectCheck wire:model="mesto" value="jagodina" name="mesto" showToUser="Jagodina"/>
-                        <x-selectCheck wire:model="mesto" value="beograd" name="mesto" showToUser="Beograd"/>
-                        <x-selectCheck wire:model="mesto" value="novi_sad" name="mesto" showToUser="Novi sad"/>
-                        <x-selectCheck wire:model="mesto" value="kragujevac" name="mesto" showToUser="Kragujevac"/>
-                        <x-selectCheck wire:model="mesto" value="cacak" name="mesto" showToUser="Čačak"/>
-                        <x-selectCheck wire:model="mesto" value="nis" name="mesto" showToUser="Niš"/>
-                    </select>
+                    <x-input class="w-full" wire:model="mesto" @click="showMesta = !showMesta" type="text" name="mesto" id="mesto" autocomplete="off" value="{{ old('mesto') }}"/>
+                    
                     @error('mesto')
                             <small class="text-red-500 font-semibold">*{{ $message }}</small>
                     @enderror
+                    
+
+                    <!-- POPUP -->
+                    <div 
+                    x-cloak
+                    x-show="showMesta"
+                    class="bg-dark-gray py-2 text-whitee overflow-y-auto shadow-dialog flex flex-col text-center" style="position: absolute; top: -180px; right:0; height:200px; width:180px;">
+                        @foreach ($naselja as $mesto)
+                            <label @click="showMesta = false" wire:click="updateMesto('{{ $mesto->naziv }}')" class="w-full hover:bg-gray-100 hover:text-dark-gray py-1 hover:cursor-pointer">{{ $mesto->naziv }}</label>
+                        @endforeach
+                    </div>
                     <!---->
                 </div>
                 <!---->  
@@ -90,8 +105,11 @@
                     <div class="flex flex-col gap-2 items-start"> 
                         <label class="font-semibold" for="naziv">Kategorija<span class="text-redd">*</span></label>
     
-                        <select name="kategorija" id="kategorija" class="lg:w-full py-2 px-2 bg-dark-gray text-whitee rounded-xl hover:bg-black hover:text-white hover:cursor-pointer ">
-                            <option value="1" name="kategorija">Mašina za plastiku</option>
+                        <select wire:model="kategorija_id" name="kategorija_id" id="kategorija" class="lg:w-full py-2 px-2 bg-dark-gray text-whitee rounded-xl hover:bg-black hover:text-white hover:cursor-pointer ">
+                            <option selected>Izaberite</option>
+                            <option value="1" name="kategorija_id" @if (old('kategorija_id') === 1) selected @endif>Mašina za drvo</option>
+                            <option value="2" name="kategorija_id" @if (old('kategorija_id') === 2) selected @endif>Mašina za metal</option>
+                            <option value="3" name="kategorija_id" @if (old('kategorija_id') === 3) selected @endif>Mašina za plastiku</option>
                         </select>
 
     
@@ -100,41 +118,24 @@
                         @enderror
                     </div>
     
-    
-    
-                    {{-- <label class="font-semibold text-dark-gray" for="kategorija_drvo">Masina za drvo</label>
-                    <input wire:model="kategorija_id" type="radio" name="kategorija_id" id="kategorija_drvo" value="1" @if (old('kategorija_id') === 1) checked @endif/>
-        
-        
-                    <label class="font-semibold text-dark-gray" for="kategorija_metal">Masina za metal</label>
-                    <input wire:model="kategorija_id" type="radio" name="kategorija_id" id="kategorija_metal" value="2" @if (old('kategorija_id') === 2) checked @endif/> --}}
-                    <!---->
                 </div>
 
                 <div class="flex justify-start">
                     <!-- Koriscenost -->
                     <div class="flex flex-col gap-2 items-start">
-                        <label class="font-semibold" for="naziv">Korišćenost<span class="text-redd">*</span></label>
+                        <label class="font-semibold" for="koriscenost">Korišćenost<span class="text-redd">*</span></label>
 
     
-                        <select name="kategorija" id="kategorija" class="py-2 px-2 bg-dark-gray text-whitee rounded-xl hover:bg-black hover:text-white hover:cursor-pointer ">
-                            <option value="1" name="kategorija">Novo</option>
-                            <option value="1" name="kategorija">Polovno</option>
-
+                        <select wire:model = "koriscenost" name="koriscenost" id="koriscenost" class="py-2 px-2 bg-dark-gray text-whitee rounded-xl hover:bg-black hover:text-white hover:cursor-pointer ">
+                            <option selected>Izaberite</option>
+                            <option value="0" name="koriscenost" @if (old('koriscenost') === 0) selected @endif>Novo</option>
+                            <option value="1" name="koriscenost" @if (old('koriscenost') === 1) selected @endif>Polovno</option>
                         </select>
                 
                         @error('koriscenost')
                                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
                         @enderror
                     </div>
-    
-                    {{-- <label class="font-semibold text-dark-gray" for="koriscenost_novo">Novo</label>
-                    <input wire:model="koriscenost" type="radio" name="koriscenost" id="koriscenost_novo" value="0" @if (old('koriscenost') === 0) checked @endif/>
-            
-                    <label class="font-semibold text-dark-gray" for="koriscenost_polovno">Polovno</label>
-                    <input wire:model="koriscenost" type="radio" name="koriscenost" id="koriscenost_polovno" value="1" @if (old('koriscenost') === 0) checked @endif/> --}}
-    
-                    <!---->
                 </div>
                 
 
@@ -143,32 +144,21 @@
                     <!-- Ispravnost -->
             
                     <div class="flex flex-col gap-2 items-start">
-                        <label class="font-semibold" for="naziv">Ispravnost<span class="text-redd">*</span></label>
+                        <label class="font-semibold" for="ispravnost">Ispravnost<span class="text-redd">*</span></label>
 
 
-                        <select name="kategorija" id="kategorija" class="py-2 px-2 bg-dark-gray text-whitee rounded-xl hover:bg-black hover:text-white hover:cursor-pointer ">
-                            <option value="1" name="kategorija">Ispravno</option>
-                            <option value="1" name="kategorija">Neispravno</option>
-
+                        <select wire:model="ispravnost" name="ispravnost" id="ispravnost" class="py-2 px-2 bg-dark-gray text-whitee rounded-xl hover:bg-black hover:text-white hover:cursor-pointer ">
+                            <option selected>Izaberite</option>
+                            <option value="0" name="ispravnost" @if (old('ispravnost') === 0) selected @endif>Neispravno</option>
+                            <option value="1" name="ispravnost" @if (old('ispravnost') === 1) selected @endif>Ispravno</option>
                         </select>
     
                 
-                        @error('koriscenost')
+                        @error('ispravnost')
                             <small class="text-red-500 font-semibold">*{{ $message }}</small>
                         @enderror
                     </div>
                     
-            
-                    @error('ispravnost')
-                        <small class="text-red-500 font-semibold">*{{ $message }}</small>
-                    @enderror
-                    <!---->
-    
-                    {{-- <label class="font-semibold text-dark-gray" for="ispravnost_ispravno">Ispravno</label>
-                    <input wire:model="ispravnost" type="radio" name="ispravnost" id="ispravnost_ispravno" value="1" @if (old('ispravnost') === 0) checked @endif/>
-            
-                    <label class="font-semibold text-dark-gray" for="ispravnost_neispravno">Neispravno</label>
-                    <input wire:model="ispravnost" type="radio" name="ispravnost" id="ispravnost_neispravno" value="0" @if (old('ispravnost') === 1) checked @endif/> --}}
                 </div>
 
                 
@@ -177,32 +167,20 @@
 
                     <!-- Zamena -->
                     <div class="flex flex-col gap-2 items-start">
-                        <label class="font-semibold" for="naziv">Zamena<span class="text-redd">*</span></label>
+                        <label class="font-semibold" for="zamena">Zamena<span class="text-redd">*</span></label>
 
     
-                        <select name="kategorija" id="kategorija" class="py-2 px-2 bg-dark-gray text-whitee rounded-xl hover:bg-black hover:text-white hover:cursor-pointer ">
-                            <option value="1" name="kategorija">Da</option>
-                            <option value="1" name="kategorija">Ne</option>
-
+                        <select wire:model="zamena" name="zamena" id="zamena" class="py-2 px-2 bg-dark-gray text-whitee rounded-xl hover:bg-black hover:text-white hover:cursor-pointer ">
+                            <option selected>Izaberite</option>
+                            <option value="1" name="zamena" @if (old('zamena') === 0) selected @endif>Ne</option>
+                            <option value="1" name="zamena" @if (old('zamena') === 1) selected @endif>Da</option>
                         </select>
                 
-                        @error('koriscenost')
-                                <small class="text-red-500 font-semibold">*{{ $message }}</small>
+                        @error('zamena')
+                            <small class="text-red-500 font-semibold">*{{ $message }}</small>
                         @enderror
                     </div>
                     
-            
-                    @error('zamena')
-                        <small class="text-red-500 font-semibold">*{{ $message }}</small>
-                    @enderror
-                    <!---->
-    
-                    {{-- <label class="font-semibold text-dark-gray" for="zamena_ne">Ne</label>
-                    <input wire:model="zamena" type="radio" name="zamena" id="zamena_ne" value="0" @if (old('zamena') === 0) checked @endif/>
-        
-        
-                    <label class="font-semibold text-dark-gray" for="zamena_da">Da</label>
-                    <input wire:model="zamena" type="radio" name="zamena" id="zamena_da" value="1" @if (old('zamena') === 1) checked @endif/> --}}
                 </div>
 
                 
@@ -236,7 +214,6 @@
             </div>
         
              
-    
             
             <!-- Opis -->
             <div class="flex flex-col gap-2 w-full">
@@ -252,9 +229,10 @@
            <div class="flex flex-col gap-3">
                 <!-- Saglasnost -->
                 <div class="flex gap-1 items-center mt-4">
-                    <x-checkbox-bounce wire:model="saglasnost" name="saglasnost" id="saglasnost" value="1" />
+                    <input type="radio" wire:model="saglasnost" name="saglasnost" id="saglasnost" value="1" />
                     <label class=" text-dark-gray" for="saglasnost">Saglasan sam sa uslovima oglašavanja<span class="text-redd">*</span></label>
                 </div>
+
                 @error('saglasnost')
                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
                 @enderror
@@ -262,35 +240,132 @@
 
                 <!-- Tacnost -->
                 <div class="flex gap-1 items-center mt-2">
-                    <x-checkbox-bounce wire:model="garantovanje_tacnosti" name="garantovanje_tacnosti" id="tacnost" value="1" />
-                    <label class="text-dark-gray" for="tacnost">Garantujem tačnost oglasa<span class="text-redd">*</span></label>
+                    <input type="radio" wire:model="garantovanje_tacnosti" name="garantovanje_tacnosti" id="garantovanje_tacnosti" value="1" />
+                    <label class="text-dark-gray" for="garantovanje_tacnosti">Garantujem tačnost oglasa<span class="text-redd">*</span></label>
                 </div>
                 @error('garantovanje_tacnosti')
                             <small class="text-red-500 font-semibold">*{{ $message }}</small>
                 @enderror
            </div>
+
+           <div class="bg-white shrink-0 py-12 px-12 overflow-auto w-full lgMin:hidden">
+            <div class="w-full space-y-5">
     
+            
+                @error('images')
+                    <small class="text-red-500 font-semibold">*{{ $message }}</small>
+                @enderror
+            
+                @if($imagesToUpload)
+            
+                    <div class="rounded-xl space-y-5">
+                        @foreach ($imagesToUpload as $imgToUpload)
+            
+                                <div class="w-full border rounded-xl relative" style="padding-top: 100%;">
+            
+                                    <div class="absolute top-0 right-0 bottom-0 left-0 p-2 flex items-center justify-center ">
+                                        <img src="{{ $imgToUpload->temporaryUrl() }}" alt="" class="post-image rounded-xl"/>
+                                    </div>
+            
+            
+                                    <div 
+                                    wire:click="removeTemp('{{ $imgToUpload->getClientOriginalName() }}')"
+                                    class="position absolute hover:cursor-pointer" style="top: -15px; right:-15px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9 text-redd bg-dark-gray lg:bg-white rounded-full p-1">
+                                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+            
+                        @endforeach
+                    </div>
+                @endif
+            
+            
+                <div class="w-full flex justify-center items-center">
+                    <label for="images" class="flex gap-1 items-center justify-center py-2 px-3 bg-redd hover:bg-red-600 lg:bg-dark-gray lg:hover:bg-black text-whitee hover:text-white rounded-full w-48 uppercase font-semibold hover:cursor-pointer">
+            
+                        Dodajte slike
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </label>
+                </div>
+                
+            
+                <input wire:model="images" id="images" type="file" name="images[]" multiple class="hidden"/>
+            
+            
+            </div>
+        </div>
             
     
             
     
             <!-- Submit -->
-            <div class="w-full flex justify-center items-center lg:hidden">
+            <div class="w-full flex justify-center items-center">
                 <button type="submit" class="bg-redd py-2 px-8 rounded-full text-whitee hover:bg-red-600 hover:text-white">Postavite ovaj oglas</button>
             </div>
+
+
+
+
+
         </form>
     </div>
 
 
-    <div class="bg-dark-gray lg:bg-white shrink-0 rounded-r-2xl py-12 px-12 lg:rounded-r-none overflow-auto w-88 lg:w-full">
-        <livewire:images-create />
-    </div>
+    <div class="bg-dark-gray lg:bg-white shrink-0 rounded-r-2xl py-12 px-12 lg:rounded-r-none overflow-auto w-88 lg:w-full lg:hidden">
+        <div class="w-full space-y-5">
 
-    <div class="lgMin:hidden w-full bg-white px-5 py-10 rounded-b-2xl">
-        <div class="w-full flex justify-center items-center">
-            <button type="submit" class="bg-redd py-2 px-8 rounded-full text-whitee hover:bg-red-600 hover:text-white">Postavite ovaj oglas</button>
+        
+            @error('images')
+                <small class="text-red-500 font-semibold">*{{ $message }}</small>
+            @enderror
+        
+            @if($imagesToUpload)
+        
+                <div class="rounded-xl space-y-5">
+                    @foreach ($imagesToUpload as $imgToUpload)
+        
+                            <div class="w-full border rounded-xl relative" style="padding-top: 100%;">
+        
+                                <div class="absolute top-0 right-0 bottom-0 left-0 p-2 flex items-center justify-center ">
+                                    <img src="{{ $imgToUpload->temporaryUrl() }}" alt="" class="post-image rounded-xl"/>
+                                </div>
+        
+        
+                                <div 
+                                wire:click="removeTemp('{{ $imgToUpload->getClientOriginalName() }}')"
+                                class="position absolute hover:cursor-pointer" style="top: -15px; right:-15px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9 text-redd bg-dark-gray lg:bg-white rounded-full p-1">
+                                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+        
+                    @endforeach
+                </div>
+            @endif
+        
+        
+            <div class="w-full flex justify-center items-center">
+                <label for="images" class="flex gap-1 items-center justify-center py-2 px-3 bg-redd hover:bg-red-600 lg:bg-dark-gray lg:hover:bg-black text-whitee hover:text-white rounded-full w-48 uppercase font-semibold hover:cursor-pointer">
+        
+                    Dodajte slike
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                </label>
+            </div>
+            
+        
+            <input wire:model="images" id="images" type="file" name="images[]" multiple class="hidden"/>
+        
+        
         </div>
     </div>
+
 
     
 </div>

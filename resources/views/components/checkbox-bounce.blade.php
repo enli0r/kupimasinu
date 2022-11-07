@@ -2,7 +2,7 @@
     
 <div class="checkbox bounce filterable">
 
-    <input type="radio" id="{{ $id }}" name="{{ $name }}" value="{{ $value }}" />
+    <input type="radio" />
     
 
     <svg viewBox="0 0 21 21">

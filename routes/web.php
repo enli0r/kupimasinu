@@ -34,6 +34,6 @@ Route::put('/oglasi/{post:slug}/edit', [PostController::class, 'update']);
 
 Route::post('/oglasi/{post:slug}/delete', [PostController::class, 'destroy'])->name('posts.delete')->middleware('owner');
 
-Route::get('/import-naselja', [NaseljaController::class, 'import'])->name('naselja.import');
+Route::get('/{user:id}/import-naselja', [NaseljaController::class, 'import'])->name('naselja.import')->middleware('admin');
 
 require __DIR__.'/auth.php';
