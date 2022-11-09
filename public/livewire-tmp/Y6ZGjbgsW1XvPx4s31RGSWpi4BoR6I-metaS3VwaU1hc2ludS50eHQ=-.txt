@@ -1,0 +1,60 @@
+Ime sajta: KupiMasinu
+domen: kupimasinu.com
+
+Korisnik:
+-ime
+-prezime
+-email
+-is_admin
+
+Kategorije:
+-Masina za drvo
+-Masina za metal
+
+Masina polja (ista za obe kategorije):
+-korisnik_id
+-kategorija_id
+-naziv
+-slug
+-cena (u evrima)
+-godina (opciono)
+-koriscenost (polovna/nova)
+-ispravnost (da/ne || 1/0)
+-proizvodjac(opciono)
+-zamena (da/ne)
+-opis
+-grad
+-postanski broj
+-kontakt telefon
+
+Garantovanje tacnosti (ne moze se postovati oglas ako nije stiklirano)
+Saglasnost
+
+Masina slike:
+-masina id
+-href
+
+
+
+
+PRVOBITNI DOGOVOR:
+
+ime sajta: kupimasinu.com
+
+logo - 20e: (na kraju odluciti, mozda neki sraf)
+
+Masine za preradu drveta - jedina kategorija
+
+filteri: cena, jacina, godiste
+
+atributi oglasa: naslov, opis(opciono), slike(opciona), cena(din + eur, obavezna), jacina masine(kW + ?), godiste(opciono)
+
+navigation pages: pocetna, o-nama, svi oglasi, profil
+
+adsence (sponzor) kako ja hocu. svakih 5 oglasa 1 reklama
+
+odobravanje oglasa (zahtev od strane korisnika, ponistiti oglas uz obrazlozenje)
+
+boje: siva, crvena, crna
+
+latinica

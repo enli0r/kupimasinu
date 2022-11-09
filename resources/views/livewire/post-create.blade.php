@@ -251,11 +251,11 @@
            <div class="bg-white shrink-0 py-12 px-12 overflow-auto w-full lgMin:hidden">
             <div class="w-full space-y-5">
     
-            
                 @error('images')
                     <small class="text-red-500 font-semibold">*{{ $message }}</small>
                 @enderror
-            
+
+                
                 @if($imagesToUpload)
             
                     <div class="rounded-xl space-y-5">
@@ -280,6 +280,9 @@
                         @endforeach
                     </div>
                 @endif
+
+                
+            
             
             
                 <div class="w-full flex justify-center items-center">
@@ -294,7 +297,6 @@
                 
             
                 <input wire:model="images" id="images" type="file" name="images[]" multiple class="hidden"/>
-            
             
             </div>
         </div>

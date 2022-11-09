@@ -114,6 +114,7 @@ class PostEdit extends Component
         'saglasnost' => 'required',
         'garantovanje_tacnosti' => 'required',
         'hiddenImages' => 'required',
+        'images' => 'mimes:jpg,jpeg,png|max:4096'
     ];
 
     public function editPost(){
@@ -177,15 +178,20 @@ class PostEdit extends Component
     {
         if(count($this->imagesToUpload) > 0){
             foreach($this->images as $img){
-                if(!(in_array($img->getClientOriginalName(), $this->imageNames))){
-                    array_push($this->imagesToUpload, $img);
+                if($img->getMimeType() == 'image/png' || $img->getMimeType() == 'image/jpg' || $img->getMimeType() == 'image/jpeg'){
+
+                    if(!(in_array($img->getClientOriginalName(), $this->imageNames))){
+                        array_push($this->imagesToUpload, $img);
+                    }
                 }
             }
         }
         
         if(count($this->imagesToUpload) == 0){
             foreach($this->images as $img){
-                array_push($this->imagesToUpload, $img);
+                if($img->getMimeType() == 'image/png' || $img->getMimeType() == 'image/jpg' || $img->getMimeType() == 'image/jpeg'){
+                    array_push($this->imagesToUpload, $img);
+                }
             }
         }
 

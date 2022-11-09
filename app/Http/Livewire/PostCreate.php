@@ -97,14 +97,21 @@ class PostCreate extends Component
         'kontakt' => 'required',
         'saglasnost' => 'required',
         'garantovanje_tacnosti' => 'required',
-        'images' => 'required'
+        
     ];
+
+    public function updated($name)
+    {
+        $this->validateOnly($name, [
+            'naziv' => 'required|min:10|max:70',
+        ]);
+    }
 
     public function store(){
         $this->validate();
 
         $post = new Post;
-        $post->slug = Str::slug($this->naziv);
+        $post->slug = Str::slug($this->naziv).strtotime("now");
         $post->korisnik_id = $this->korisnik_id;
         $post->kategorija_id = $this->kategorija_id;
         $post->odobren = $this->odobren;
@@ -144,15 +151,19 @@ class PostCreate extends Component
     {
         if(count($this->imagesToUpload) > 0){
             foreach($this->images as $img){
-                if(!(in_array($img->getClientOriginalName(), $this->imageNames))){
-                    array_push($this->imagesToUpload, $img);
+                if($img->getMimeType() == 'image/png' || $img->getMimeType() == 'image/jpg' || $img->getMimeType() == 'image/jpeg'){
+                    if(!(in_array($img->getClientOriginalName(), $this->imageNames))){
+                        array_push($this->imagesToUpload, $img);
+                    }
                 }
             }
         }
         
         if(count($this->imagesToUpload) == 0){
             foreach($this->images as $img){
-                array_push($this->imagesToUpload, $img);
+                if($img->getMimeType() == 'image/png' || $img->getMimeType() == 'image/jpg' || $img->getMimeType() == 'image/jpeg'){
+                    array_push($this->imagesToUpload, $img);
+                }
             }
         }
 
