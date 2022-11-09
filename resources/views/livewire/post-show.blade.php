@@ -55,14 +55,12 @@
                     x-transition:leave-end="opacity-0"
                     class="showDetails shadow-dialog">
                         @if ($post->korisnik_id == auth()->user()->id)
-                        <div class="text-center">
-                            <a href="{{ route('posts.edit', $post->slug) }}" class="nav-link">Izmenite oglas</a>
-                        </div>
+                            <div class="text-center">
+                                <a href="{{ route('posts.edit', $post->slug) }}" class="nav-link">Izmenite oglas</a>
+                            </div>
         
-                            <form action="{{ route('posts.delete', $post->slug) }}" method="post">
-                                @csrf
-                                <button type="submit" class="nav-link">Uklonite oglas</button>
-                            </form>
+                            
+                            <button wire:click='deletePost()' type="submit" class="nav-link">Uklonite oglas</button>
                         @endif
                     </div>
 

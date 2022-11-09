@@ -13,6 +13,14 @@ class PostController extends Controller
         return view('pages.index');
     }
 
+    public function destroy($slug){
+        $post = Post::where('slug', $slug)->get();
+
+        return view('pages.delete', [
+            'post' => $post
+        ]);
+    }
+
     public function show($slug){
 
         $post = Post::where('slug', $slug)->first();

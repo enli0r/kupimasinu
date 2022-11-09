@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
+use Illuminate\Support\Facades\Storage;
 
 class PostShow extends Component
 {
@@ -11,6 +12,21 @@ class PostShow extends Component
 
     public function mount(Post $post){
         $this->post = $post;
+    }
+
+    public function deletePost(){
+
+        //Deleting images
+        foreach($this->post->images as $img){
+            Storage::delete('app/post-images/'.$img->link);
+            $img->delete();
+        }
+
+        //Deleting post
+        $this->post->delete();
+
+        return redirect('/');
+
     }
     
     public function render()
