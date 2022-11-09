@@ -5,7 +5,7 @@
 
         <div class="" style="width: 270px;">
             <a href="{{ route('homepage') }}" class="flex gap-2 items-center">
-                <img src="https://www.nicepng.com/png/full/128-1289866_free-clipart-gear-wheel-icon-white.png" alt="" class="w-8 h-8">
+                {{-- <img src="https://www.nicepng.com/png/full/128-1289866_free-clipart-gear-wheel-icon-white.png" alt="" class="w-8 h-8"> --}}
                 <span class="text-lg font-semibold text-whitee">KUPI MAŠINU</span>
             </a>
         </div>
@@ -137,7 +137,7 @@
     class="container mx-auto max-w-main flex justify-between items-center lgMin:hidden px-5 py-4">
         <div>
             <a href="{{ route('homepage') }}" class="flex gap-2 items-center">
-                <img src="https://www.nicepng.com/png/full/128-1289866_free-clipart-gear-wheel-icon-white.png" alt="" class="w-8 h-8">
+                {{-- <img src="https://www.nicepng.com/png/full/128-1289866_free-clipart-gear-wheel-icon-white.png" alt="" class="w-8 h-8"> --}}
                 <span class="text-lg font-semibold text-whitee">KUPI MAŠINU</span>
             </a>
         </div>

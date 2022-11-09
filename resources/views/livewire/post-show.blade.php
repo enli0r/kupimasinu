@@ -136,16 +136,15 @@
         </div>
         
 
-
         <!-- Mobile version -->
         <div class="mdMin:hidden">
 
             <div class="bg-white p-5 rounded-2xl shadow-card ">
                 <div class="w-full border rounded-xl post-index-img-container p-2 relative hover:cursor-pointer" style="padding-top: 100%;">
 
-                    <div class="rounded-xl hover:cursor-pointer absolute top-0 right-0 bottom-0 left-0 p-2 flex items-center justify-center post-image">
+                    <div class="rounded-xl hover:cursor-pointer absolute top-0 right-0 bottom-0 left-0 p-2 flex items-center justify-center">
 
-                        <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="rounded-xl" style="" alt="">
+                        <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="rounded-xl post-image" style="" alt="">
 
                     </div>
 
