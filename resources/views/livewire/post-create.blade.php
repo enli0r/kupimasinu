@@ -172,7 +172,7 @@
     
                         <select wire:model="zamena" name="zamena" id="zamena" class="py-2 px-2 bg-dark-gray text-whitee rounded-xl hover:bg-black hover:text-white hover:cursor-pointer ">
                             <option selected>Izaberite</option>
-                            <option value="1" name="zamena" @if (old('zamena') === 0) selected @endif>Ne</option>
+                            <option value="0" name="zamena" @if (old('zamena') === 0) selected @endif>Ne</option>
                             <option value="1" name="zamena" @if (old('zamena') === 1) selected @endif>Da</option>
                         </select>
                 

@@ -144,7 +144,7 @@ class PostCreate extends Component
             }
         }
 
-        return redirect('/');
+        return redirect()->route('homepage');
     }
 
     public function render()

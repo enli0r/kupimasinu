@@ -34,8 +34,6 @@
         </header>
 
         <div class="lg:mx-5 background-cover-image pb-12">
-
-            
     
             <main class="container mx-auto max-w-main">
                 {{ $slot }}

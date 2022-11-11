@@ -1,8 +1,8 @@
-@props(['id', 'name', 'value'])
-    
+@props(['name', 'id', 'value'])
+
 <div class="checkbox bounce filterable">
 
-    <input type="radio" />
+    <input type="checkbox" id="{{ $id }}" value="{{ $value }}"/>
     
 
     <svg viewBox="0 0 21 21">

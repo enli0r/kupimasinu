@@ -1,18 +1,18 @@
 <div class="navbar">
 
     <!-- Navbar desktop -->
-    <div class="container mx-auto max-w-main flex lgMin:gap-5 justify-between items-center lg:px-5 py-5 lg:hidden lgMin:relative">
+    <div class="container mx-auto max-w-main flex lgMin:gap-5 justify-between items-center lg:px-5 py-3 lg:hidden lgMin:relative">
 
         <div class="" style="width: 270px;">
             <a href="{{ route('homepage') }}" class="flex gap-2 items-center">
-                {{-- <img src="https://www.nicepng.com/png/full/128-1289866_free-clipart-gear-wheel-icon-white.png" alt="" class="w-8 h-8"> --}}
-                <span class="text-lg font-semibold text-whitee">KUPI MAŠINU</span>
+                <img src="{{ asset('images/Light.png') }}" alt="" class="h-14 w-auto">
+                {{-- <h1 class="text-lg text-whitee">KUPI MAŠINU</h1> --}}
             </a>
         </div>
 
         <div class="flex justify-end items-center gap-5 grow">
 
-            <form action="{{ route('posts.create') }}" class="mr-auto">
+            <form action="{{ route('posts.create') }}" class="">
                 <button type="submit" class="flex gap-1 items-center bg-red-700 text-whitee justify-center uppercase rounded-xl py-2 px-5 hover:bg-red-600 hover:text-white transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -20,7 +20,6 @@
                     Novi oglas
                 </button>
             </form>
-            
 
             <div class="flex items-center gap-5">
                 <a href="{{ route('homepage') }}" class="nav-link-black">Početna</a>
@@ -60,7 +59,7 @@
                     </div>
                     
                     <div class="text-center">
-                        <a href="#" class="nav-link-black">Tehnička podrška</a>
+                        <a href="#" class="nav-link-black">Kontakt</a>
 
                     </div>
 
@@ -126,6 +125,8 @@
                 <a href="{{ route('register') }}" class="py-2 px-3 rounded-xl text-whitee transition-all hover:text-white bg-black ">Registracija</a>
             @endguest
 
+           
+
         </div>
     </div>
     <!-- -->
@@ -134,11 +135,10 @@
     <!-- Navbar phone -->
     <div 
     x-data="{showMenu:false, showBurger:true}"
-    class="container mx-auto max-w-main flex justify-between items-center lgMin:hidden px-5 py-4">
+    class="container mx-auto max-w-main flex justify-cener items-center lgMin:hidden px-5 py-4">
         <div>
             <a href="{{ route('homepage') }}" class="flex gap-2 items-center">
-                {{-- <img src="https://www.nicepng.com/png/full/128-1289866_free-clipart-gear-wheel-icon-white.png" alt="" class="w-8 h-8"> --}}
-                <span class="text-lg font-semibold text-whitee">KUPI MAŠINU</span>
+                <img src="{{ asset('images/logo.png') }}" alt="" class="h-14">
             </a>
         </div>
           

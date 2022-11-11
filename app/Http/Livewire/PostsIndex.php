@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Naselja;
 use App\Models\Post;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -18,7 +19,7 @@ class PostsIndex extends Component
     //Filters
     public $tip;
     //Models
-    public $cena_od;
+    public $cena_od = 0;
     public $cena_do;
     public $godina_od;
     public $godina_do;
@@ -26,6 +27,7 @@ class PostsIndex extends Component
     public $koriscenost;
     public $ispravnost;
     public $zamena;
+    public $mesto;
     //End of filters
 
     //Sorting
@@ -45,44 +47,46 @@ class PostsIndex extends Component
         'search', 'tip', 'cena_od', 'cena_do', 'godina_od', 'godina_do', 'koriscenost', 'ispravnost', 'zamena'
     ];
 
-    public $listeners = ['updatingTip', 'updatingKoriscenost', 'updatingIspravnost', 'updatingZamena'];
 
-
-    public function setTip($tip){
+    public function updateTip($tip){
         if($this->tip == $tip){
             $this->tip = null;
         }else{
             $this->tip = $tip;
         }
-
-        $this->resetPage();
     }
-    public function setKoriscenost($koriscenost){
+
+    public function updateKoriscenost($koriscenost){
         if($this->koriscenost == $koriscenost){
             $this->koriscenost = null;
         }else{
             $this->koriscenost = $koriscenost;
         }
-
-        $this->resetPage();
     }
-    public function setIspravnost($ispravnost){
+
+    public function updateIspravnost($ispravnost){
         if($this->ispravnost == $ispravnost){
             $this->ispravnost = null;
         }else{
             $this->ispravnost = $ispravnost;
         }
 
-        $this->resetPage();
     }
-    public function setZamena($zamena){
+
+    public function updateZamena($zamena){
         if($this->zamena == $zamena){
             $this->zamena = null;
         }else{
             $this->zamena = $zamena;
         }
-        
-        $this->resetPage();
+    }
+
+    public function updateMesto($mesto){
+        if($this->mesto == $mesto){
+            $this->mesto = null;
+        }else{
+            $this->mesto = $mesto;
+        }
     }
 
     public function setOrderBy($sort_by, $sort_direction){
@@ -94,7 +98,8 @@ class PostsIndex extends Component
     {
         $tipovi = collect([
             'masina za drvo' => 1,
-            'masina za metal' => 2
+            'masina za metal' => 2,
+            'masina za plastiku' => 3
         ]);
 
         $koriscenosti = collect([
@@ -111,11 +116,15 @@ class PostsIndex extends Component
             'da' => 1,
             'ne' => 0
         ]); 
-                    
+
+
 
         return view('livewire.posts-index', [
             'posts' => Post::when($this->tip != null, function($query) use ($tipovi) {
                 return $query->where('kategorija_id', $tipovi->get($this->tip));
+            })
+            ->when($this->mesto != null, function($query){
+                return $query->where('mesto', $this->mesto);
             })
             ->when($this->koriscenost != null, function ($query) use ($koriscenosti) {
                 return $query->where('koriscenost', $koriscenosti->get($this->koriscenost));
@@ -149,7 +158,8 @@ class PostsIndex extends Component
             'tip' => $this->tip,
             'koriscenost' => $this->koriscenost,
             'ispravnost' => $this->ispravnost,
-            'zamena' => $this->zamena
+            'zamena' => $this->zamena,
+            'naselja' => Naselja::all()
         ]);
     }
 }

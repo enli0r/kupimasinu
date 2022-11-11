@@ -114,10 +114,10 @@ class PostEdit extends Component
         'saglasnost' => 'required',
         'garantovanje_tacnosti' => 'required',
         'hiddenImages' => 'required',
-        'images' => 'mimes:jpg,jpeg,png|max:4096'
+        'images.*' => 'mimes:jpg,jpeg,png|max:4096'
     ];
 
-    public function editPost(){
+    public function editPost(Post $post){
 
         foreach($this->imagesToUpload as $img){
             array_push($this->hiddenImages, $img->getClientOriginalName());
@@ -130,26 +130,23 @@ class PostEdit extends Component
         }
 
 
-
         if($this->validate()){
-
-            $this->post->odobren = $this->odobren;
-            $this->post->kategorija_id = $this->kategorija_id;
-            $this->post->naziv = $this->naziv;
-            $this->post->cena = $this->cena;
-            $this->post->godina = $this->godina;
-            $this->post->koriscenost = $this->koriscenost;
-            $this->post->ispravnost = $this->ispravnost;
-            $this->post->zamena = $this->zamena;
-            $this->post->proizvodjac = $this->proizvodjac;
-            $this->post->opis = $this->opis;
-            $this->post->mesto = $this->mesto;
-            $this->post->kontakt = $this->kontakt;
-            $this->post->saglasnost = $this->saglasnost;
-            $this->post->garantovanje_tacnosti = $this->garantovanje_tacnosti;
-
-
+            $post->kategorija_id = $this->kategorija_id;
+            $post->naziv = $this->naziv;
+            $post->cena = $this->cena;
+            $post->godina = $this->godina;
+            $post->koriscenost = $this->koriscenost;
+            $post->ispravnost = $this->ispravnost;
+            $post->zamena = $this->zamena;
+            $post->proizvodjac = $this->proizvodjac;
+            $post->opis = $this->opis;
+            $post->mesto = $this->mesto;
+            $post->kontakt = $this->kontakt;
+            $post->saglasnost = $this->saglasnost;
+            $post->garantovanje_tacnosti = $this->garantovanje_tacnosti;
+            $post->save();
         }
+
 
         if(count($this->post_images) > 0 || count($this->imagesToUpload) > 0){
             foreach($this->imagesToUpload as $image){
@@ -170,7 +167,7 @@ class PostEdit extends Component
             }
         }
 
-        return redirect('/');
+        return redirect()->route('posts.show', $post->slug);
     }
 
 

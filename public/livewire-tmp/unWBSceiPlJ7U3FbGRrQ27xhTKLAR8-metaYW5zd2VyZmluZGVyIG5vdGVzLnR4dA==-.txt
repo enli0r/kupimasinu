@@ -1,3 +1,0 @@
-add popup on mobile version when you click image to show name and view profile button
-add filters highest votes, most comments... etc.
-add attachment to create post form?	

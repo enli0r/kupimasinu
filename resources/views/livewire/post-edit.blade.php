@@ -6,7 +6,7 @@
 
         <h1 class="text-redd text-3xl lg:text-3xl text-center font-bold mb-16">Izmenite Vaš oglas</h1>
 
-        <form wire:submit.prevent="editPost" action="" enctype="multipart/form-data" method="POST" class="flex flex-col items-start gap-10 text-dark-gray">
+        <form wire:submit.prevent="editPost({{ $post }})" action="" enctype="multipart/form-data" method="POST" class="flex flex-col items-start gap-10 text-dark-gray">
             @csrf
             <input wire:model="hiddenImages" type="hidden" name="hiddenImages[]" />
 

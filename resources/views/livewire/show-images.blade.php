@@ -13,12 +13,18 @@
         <!-- Slider -->
         <div  class="showImagesSlider">
             @foreach ($post->images as $image)
-            <div class="text-and-image-cont">
-                <div class="image-cont">
-                    <img src="{{ asset('post-images/'.$image->link) }}" alt="" class="">
+                <div class="img-and-text">
+                    <div class="img-cont">
+                        <img src="{{ asset('post-images/'.$image->link) }}" alt="" class="">
+                    </div>
+                    <p class="text-center text-white mt-10 lgMin:text-lg">Slika: {{ $loop->iteration }}/{{ $loop->count }}</p>
                 </div>
-                <p class="text-center text-white mt-10 lgMin:text-lg">Slika: {{ $loop->iteration }}/{{ $loop->count }}</p>
-            </div>
+
+                    
+
+
+                
+
             @endforeach
         </div>
         <!-- End of slider -->

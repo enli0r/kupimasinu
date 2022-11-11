@@ -5048,6 +5048,7 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./slickSlider */ "./resources/js/slickSlider.js");
 __webpack_require__(/*! ./menu */ "./resources/js/menu.js");
+__webpack_require__(/*! ./radio-button */ "./resources/js/radio-button.js");
 
 /***/ }),
 
@@ -5149,6 +5150,16 @@ window.onload = function () {
     };
   });
 };
+
+/***/ }),
+
+/***/ "./resources/js/radio-button.js":
+/*!**************************************!*\
+  !*** ./resources/js/radio-button.js ***!
+  \**************************************/
+/***/ (() => {
+
+
 
 /***/ }),
 
