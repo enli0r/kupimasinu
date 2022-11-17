@@ -521,6 +521,9 @@ video {
 .top-16 {
   top: 4rem;
 }
+.top-32 {
+  top: 8rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -594,9 +597,6 @@ video {
 .mt-2 {
   margin-top: 0.5rem;
 }
-.mt-5 {
-  margin-top: 1.25rem;
-}
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -623,6 +623,12 @@ video {
 }
 .mt-14 {
   margin-top: 3.5rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 .block {
   display: block;
@@ -882,6 +888,9 @@ video {
 .gap-10 {
   gap: 2.5rem;
 }
+.gap-4 {
+  gap: 1rem;
+}
 .space-y-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -970,6 +979,9 @@ video {
 .border-b-2 {
   border-bottom-width: 2px;
 }
+.border-b-4 {
+  border-bottom-width: 4px;
+}
 .border-l-4 {
   border-left-width: 4px;
 }
@@ -995,6 +1007,10 @@ video {
 .border-indigo-400 {
   --tw-border-opacity: 1;
   border-color: rgb(129 140 248 / var(--tw-border-opacity));
+}
+.border-dark-gray {
+  --tw-border-opacity: 1;
+  border-color: rgb(22 26 29 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -1028,13 +1044,13 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(228 228 228 / var(--tw-bg-opacity));
 }
-.bg-indigo-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(238 242 255 / var(--tw-bg-opacity));
-}
 .bg-gray-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+.bg-indigo-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 242 255 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;
@@ -1120,10 +1136,6 @@ video {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
 .pt-5 {
   padding-top: 1.25rem;
 }
@@ -1156,6 +1168,9 @@ video {
 }
 .pr-4 {
   padding-right: 1rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 .pb-12 {
   padding-bottom: 3rem;
@@ -1194,10 +1209,6 @@ video {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
-}
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 .text-xs {
   font-size: 0.75rem;
@@ -1552,6 +1563,7 @@ body input[type=number] {
 
 .post-index-img-container {
   position: relative;
+  z-index: 1;
 }
 .post-index-img-container:after {
   content: "";
@@ -1662,6 +1674,7 @@ body input[type=number] {
 
 .showDetails {
   position: absolute;
+  z-index: 2;
   right: 0;
   bottom: -10px;
   background-color: white;
@@ -1861,6 +1874,69 @@ body input[type=number] {
   aspect-ratio: 4/3;
 }
 
+.prom-sifru {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */ /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.showPassword {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.showPassword .showPassword-cont {
+  background-color: white;
+  padding: 50px;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 1rem;
+  position: relative;
+  margin: 0 30px;
+}
+.showPassword .showPassword-cont .exitPassword {
+  color: #ba1b1d;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  right: -20px;
+  background-color: white;
+  border-radius: 100%;
+  transform: translateY(-50%);
+  transition: all 0.2s ease-in-out;
+}
+.showPassword .showPassword-cont .exitPassword:hover {
+  color: red;
+}
+.showPassword .showPassword-cont form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.showPassword .showPassword-cont form button {
+  background-color: #161A1D;
+  color: lightgray;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 0.75rem;
+  width: 100px;
+  align-self: center;
+  margin-top: 10px;
+  transition: all 0.2s ease-in-out;
+}
+.showPassword .showPassword-cont form button:hover {
+  background-color: black;
+  color: white;
+}
+
 @keyframes bounce {
   50% {
     transform: scale(1.2);
@@ -1890,6 +1966,9 @@ body input[type=number] {
   .img-cont {
     width: 335px !important;
     height: 500px !important;
+  }
+  .showPassword-cont {
+    padding: 50px 20px !important;
   }
 }
 .slider-wrapper {
@@ -1993,6 +2072,10 @@ body input[type=number] {
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+.hover\:border-dark-gray:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(22 26 29 / var(--tw-border-opacity));
 }
 .hover\:bg-red-600:hover {
   --tw-bg-opacity: 1;

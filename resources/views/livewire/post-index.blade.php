@@ -11,17 +11,16 @@
                     </div>
                 </a>
 
-                <div class="kontakt-info relative mt-5 rounded-lg">
-                    <div class="flex flex-col font-semibold">
-                        <div class="flex items-center justify-center p-3 hover:cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                            </svg>
-                              
-                            <p class="font-semibold ml-1">{{ explode(' ', trim($post->user->name))[0] }} </p>
-                        </div>
-                    </div>
-                </div>
+                <form class="mt-3" action="{{ route('user', $post->user) }}">
+                    <button class="flex items-center justify-center hover:cursor-pointer bg-dark-gray text-whitee w-full rounded-xl p-3 hover:bg-black transition-all hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                        </svg>
+                            
+                        <p class="font-semibold ml-1">{{ explode(' ', trim($post->user->name))[0] }} </p>
+                    </button>
+                        
+                </form>
             </div>
 
             <div class="flex flex-col gap-2 w-full">
@@ -107,24 +106,17 @@
         {{-- <p class="text-xs text-center mt-4 text-gray-600">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p> --}}
 
 
-        <div 
-        x-data="{showKontakt:false}"
-        class="kontakt-info">
+        <form action="{{ route('user', $post->user) }}">
 
-            <div 
-            @click="showKontakt = !showKontakt"
-            class="flex justify-center items-center gap-2 p-3 hover:cursor-pointer font-semibold">
+            <button class="flex justify-center items-center gap-2 p-3 hover:cursor-pointer font-semibold bg-dark-gray text-whitee w-full rounded-2xl hover:bg-black hover:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                 </svg>
                 
                 <p class="">{{explode(' ', trim($post->user->name))[0] }}</p>
-                
-    
-
-            </div>
+            </button>
         
-        </div>
+        </form>
 
     </div>
 

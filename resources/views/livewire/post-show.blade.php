@@ -83,15 +83,9 @@
                         <div class="post-img-container h-100 border rounded-2xl p-2 flex justify-center items-center hover:cursor-pointer">
                             <img src="{{ asset('post-images/'.$post->images()->first()->link) }}" class="w-full rounded-2xl post-image hover:cursor-pointer" alt="">
                         </div>
+
                         
-                        <div class="border p-3 bg-black text-gray-200 rounded-lg mt-3 kontakt-info">
-                            <div class="flex items-center justify-center">
-                                <img src="../images/white.png" alt="" class="w-6 h-6">
-                                <p class="font-semibold ml-1 ">{{ $post->user->name }}</p>
-                                <p class="ml-2">|</p>
-                                <p class="font-semibold ml-2">{{ $post->kontakt }}</p>
-                            </div>
-                        </div>
+
                     </div>
 
                     <div class="flex flex-col gap-2 w-full">
@@ -118,6 +112,26 @@
                                 <td class="py-1">Proizvođač: <span class="font-semibold">@if ($post->proizvodjac != null) {{ $post->proizvodjac }}  @else / @endif</span></td>
                             </tr>
                         </table>    
+
+                        {{-- User & Kontakt --}}
+                        <div class="flex gap-3 justify-between items-center mt-8 items-top">
+
+                            <form action="{{ route('user', $post->user) }}" class="flex-1 shrink-0">
+                                <button class="p-3 bg-dark-gray text-gray-200 rounded-xl w-full">
+                                    <div class="flex items-center justify-center">
+                                        <img src="../images/white.png" alt="" class="w-6 h-6">
+                                        <p class="font-semibold ml-1 ">{{ $post->user->name }}</p>
+                                    </div>
+                                </button>
+                            </form>
+                                
+                            
+
+                            <div class="text-center bg-redd text-whitee rounded-xl p-3 flex-1">
+                                <p class="font-semibold">Telefon: {{ $post->kontakt }}</p>                                    
+                            </div>
+                        </div>
+                        {{-- End of user & kontakt --}}
 
                         <p class="mt-auto self-end text-sm text-gray-600">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p>
 
@@ -187,26 +201,31 @@
         
         
 
-                <p class="text-xs text-center mt-10" style="color: #161A1D;">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p>
+                
 
         
-                <div class="kontakt-info p-3">
+                <div class="mt-10 mb-5">
                     <div class="flex gap-2 items-center justify-center">
-                        <div class="flex items-center justify-center">
-                            <img src="../images/white.png" alt="" class="w-6 h-6 ">
-                            <p class="font-semibold ml-1">{{explode(' ', trim($post->user->name))[0] }}</p>
-                        </div>       
-
-                       
-                        <p>|</p>
-
-                        <p class="font-semibold">{{ $post->kontakt }}</p>
+                        <form action="{{ route('user', $post->user) }}" class="flex-1 shrink-0">
+                            <button class="flex items-center justify-center rounded-xl p-3 bg-dark-gray text-whitee w-full">
+                                <img src="../images/white.png" alt="" class="w-6 h-6">
+                                <p class="font-semibold ml-1">{{explode(' ', trim($post->user->name))[0] }}</p>
+                            </button>   
+                        </form>
+                        
+                        
+                        <a href="tel:{{$post->kontakt}}" class="flex items-center font-semibold gap-1 justify-center bg-redd text-whitee rounded-xl p-3 w-20">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                            </svg>                                
+                        </a>
+                        
 
                     </div>
 
                 </div>
         
-        
+                <p class="text-xs text-center" style="color: #161A1D;">Postavljen: <span class="font-semibold">{{ date('d.m.Y', strtotime($post->created_at)) }}</span></p>
         
             </div>
         </div>

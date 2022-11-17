@@ -19,7 +19,7 @@ class PostsIndex extends Component
     //Filters
     public $tip;
     //Models
-    public $cena_od = 0;
+    public $cena_od;
     public $cena_do;
     public $godina_od;
     public $godina_do;

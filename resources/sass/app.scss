@@ -155,7 +155,7 @@ body{
 
 .post-index-img-container{
     position: relative;
-    
+    z-index: 1;
 
     &:after{
         content: '';
@@ -293,6 +293,7 @@ body{
 
 .showDetails{
     position: absolute;
+    z-index: 2;
     right: 0;
     bottom: -10px;
     background-color: white;
@@ -520,6 +521,81 @@ body{
     aspect-ratio: 4/3;
 }
 
+.prom-sifru{
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.showPassword{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+   
+
+    .showPassword-cont{
+        background-color: white;
+        padding: 50px;
+        max-width: 500px;
+        width: 100%;
+        border-radius: 1rem;
+        position: relative;
+        margin: 0 30px;
+
+        .exitPassword{
+            color: #ba1b1d;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 0;
+            right: -20px;
+            background-color: white;
+            border-radius: 100%;
+            transform: translateY(-50%);
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                color: red;
+            }
+        }
+        
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            button{
+                background-color: #161A1D;
+                color: lightgray;
+                font-weight: 600;
+                padding: 10px 15px;
+                border-radius: 0.75rem;
+                width: 100px;
+                align-self: center;
+                margin-top: 10px;
+                transition: all 0.2s ease-in-out;
+
+                &:hover{
+                    background-color: black;
+                    color: white;
+                }
+
+            }
+        }
+    }
+}
+
+
+
 
 @keyframes bounce {
     50% {
@@ -556,6 +632,10 @@ body{
     .img-cont{
         width: 335px !important;
         height: 500px !important;
+    }
+
+    .showPassword-cont{
+        padding: 50px 20px !important;
     }
 }
 

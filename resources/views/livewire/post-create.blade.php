@@ -15,7 +15,7 @@
                 <x-input wire:model="naziv" type="text" name="naziv" id="naziv" value="{{old('naziv')}}" />
         
                 @error('naziv')
-                            <small class="text-red-500 font-semibold">*{{ $message }}</small>
+                    <small class="text-red-500 font-semibold">*{{ $message }}</small>
                 @enderror
             </div>
             <!---->
