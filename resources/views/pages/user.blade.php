@@ -3,6 +3,5 @@
 
     <livewire:user-posts :user='$user' />
 
-    
 
 </x-app-layout>

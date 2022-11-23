@@ -99,7 +99,8 @@ class PostsIndex extends Component
         $tipovi = collect([
             'masina za drvo' => 1,
             'masina za metal' => 2,
-            'masina za plastiku' => 3
+            'masina za plastiku' => 3,
+            'radna masina' => 4
         ]);
 
         $koriscenosti = collect([

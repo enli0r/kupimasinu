@@ -110,6 +110,7 @@
                             <option value="1" name="kategorija_id" @if (old('kategorija_id') === 1) selected @endif>Mašina za drvo</option>
                             <option value="2" name="kategorija_id" @if (old('kategorija_id') === 2) selected @endif>Mašina za metal</option>
                             <option value="3" name="kategorija_id" @if (old('kategorija_id') === 3) selected @endif>Mašina za plastiku</option>
+                            <option value="4" name="kategorija_id" @if (old('kategorija_id') === 4) selected @endif>Radna mašina</option>
                         </select>
 
     

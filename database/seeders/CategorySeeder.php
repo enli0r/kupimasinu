@@ -28,5 +28,10 @@ class CategorySeeder extends Seeder
             'id' => 3,
             'naziv' => 'masina za plastiku'
         ]);
+
+        Category::create([
+            'id' => 4,
+            'naziv' => 'radna masina'
+        ]);
     }
 }

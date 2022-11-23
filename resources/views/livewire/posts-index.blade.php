@@ -79,6 +79,19 @@
                                 </div>
                                 <label for="masina_za_plastiku">Mašina za plastiku</label>
                             </div>
+
+                            <div class="flex items-center gap-1">
+                                <div class="checkbox bounce filterable">
+
+                                    <input type="checkbox"  wire:click="updateTip('radna masina')"  name="tip" id="radna_masina" value="radna_masina" @if ($tip == 'radna masina') checked @endif />
+
+                                    <svg viewBox="0 0 21 21">
+                                        <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                    </svg>
+                                </div>
+            
+                                <label for="radna_masina">Radna mašina</label>
+                            </div>
                         </div>
                         
                     </div>
@@ -383,6 +396,22 @@
                                                 </div>
                                                 <label for="masina_za_plastiku">Mašina za plastiku</label>
                                             </div>
+
+                                            <div class="flex items-center gap-1">
+
+                                                <div class="checkbox bounce filterable">
+
+                                                    <input type="checkbox" wire:click="updateTip('radna masina')" name="tip" id="radna_masina" value="radna masina" @if ($tip == 'radna masina') checked @endif/>
+
+                                                    <svg viewBox="0 0 21 21">
+                                                        <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                                    </svg>
+
+                                                </div>
+                                                <label for="radna_masina">Radna mašina</label>
+                                            </div>
+
+                                            
                                         </div>
                                         
                                     </div>

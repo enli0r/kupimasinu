@@ -94,7 +94,7 @@
 
                         <table class="w-full mt-5">
                             <tr class="bg-gray-100 text-gray-800">
-                                <td class="py-1 ">Tip: <span class="font-semibold">@if ($post->kategorija_id == 1) Mašina za drvo @else Mašina za metal @endif</span></td>
+                                <td class="py-1 ">Tip: <span class="font-semibold">@if ($post->kategorija_id == 1) Mašina za drvo @elseif ($post->kategorija_id == 2) Mašina za metal  @elseif($post->kategorija_id == 3) Mašina za plastiku  @elseif($post->kategorija_id == 4) Radna mašina @endif</span></td>
                                 <td class="py-1 ">Mesto: <span class="font-semibold">{{ $post->mesto }}</span></td>
                             </tr>
 
@@ -171,7 +171,7 @@
                 <div class="mt-8">
                     <table class="w-full">
                         <tr class="bg-gray-100  text-gray-800">
-                            <td class="py-1">Tip: <span class="font-semibold">@if ($post->kategorija_id == 1) Mašina za drvo @else Mašina za metal @endif</span></td>
+                            <td class="py-1">Tip: <span class="font-semibold">@if ($post->kategorija_id == 1) Mašina za drvo @elseif ($post->kategorija_id == 2) Mašina za metal  @elseif($post->kategorija_id == 3) Mašina za plastiku  @elseif($post->kategorija_id == 4) Radna mašina @endif''</span></td>
                             <td class="py-1 ">Mesto: <span class="font-semibold">{{ $post->mesto }}</span></td>
                         </tr>
         
