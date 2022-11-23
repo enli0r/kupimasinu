@@ -26,79 +26,82 @@
             </form>
             <!---->
 
-            @if ($post->odobren == 1)
-                <!-- Edit & delete -->
-                <div x-data="{showDetails:false}" class="relative">
+            @auth
+                @if(auth()->user()->id === $post->korisnik_id)
+                    <!-- Edit & delete -->
+                    <div x-data="{showDetails:false}" class="relative">
 
-                    @auth
+                        @auth
 
-                        <div
-                        @click="showDetails = !showDetails"
-                        class="bg-white shadow-card rounded-2xl z-0 hover:cursor-pointer" style="padding: 5px 5px;"
-                        >
-                            <svg 
-                            
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                            </svg>
-                        </div>
-                        
-                    
-                        <div 
-                        @click.away="showDetails=false"
-                        x-cloak
-                        x-show="showDetails"
-                        x-transition:enter="transition ease-out duration-150"
-                        x-transition:enter-start="opacity-0"
-                        x-transition:enter-end="opacity-100"
-                        x-transition:leave="transition ease-out duration-300"
-                        x-transition:leave-start="opacity-100"
-                        x-transition:leave-end="opacity-0"
-                        class="showDetails shadow-dialog">
-                            @if ($post->korisnik_id == auth()->user()->id)
-                                <div class="text-center">
-                                    <a href="{{ route('posts.edit', $post->slug) }}" class="nav-link">Izmenite oglas</a>
-                                </div>
-            
+                            <div
+                            @click="showDetails = !showDetails"
+                            class="bg-white shadow-card rounded-2xl z-0 hover:cursor-pointer" style="padding: 5px 5px;"
+                            >
+                                <svg 
                                 
-                                <button wire:click='deletePost()' type="submit" class="nav-link">Uklonite oglas</button>
-                            @endif
-                        </div>
-
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                                </svg>
+                            </div>
+                            
                         
-                    @endauth
-                </div>
-                <!---->
+                            <div 
+                            @click.away="showDetails=false"
+                            x-cloak
+                            x-show="showDetails"
+                            x-transition:enter="transition ease-out duration-150"
+                            x-transition:enter-start="opacity-0"
+                            x-transition:enter-end="opacity-100"
+                            x-transition:leave="transition ease-out duration-300"
+                            x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0"
+                            class="showDetails shadow-dialog">
+                                @if ($post->korisnik_id == auth()->user()->id)
+                                    <div class="text-center">
+                                        <a href="{{ route('posts.edit', $post->slug) }}" class="nav-link">Izmenite oglas</a>
+                                    </div>
 
-            @elseif($post->odobren === 0)
-                <div class="flex gap-5">
-                    <button 
-                    wire:click="approvePost"
-                    class="bg-white shadow-card p-3 rounded-2xl flex gap-2 items-center transition-all odobrite">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-700">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                          
-                          
-                        Odobrite oglas
-                    </button>
+                                    
+                                    <button wire:click='deletePost()' type="submit" class="nav-link">Uklonite oglas</button>
+                                @endif
+                            </div>
+
+                            
+                        @endauth
+                    </div>
+                    <!---->
+                @endif
+
+                @if ($post->odobren === 0)
+                    @if (auth()->user()->is_admin === 1)
+                        <div class="flex gap-5">
+                            <button 
+                            wire:click="approvePost"
+                            class="bg-white shadow-card p-3 rounded-2xl flex gap-2 items-center transition-all odobrite">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-700">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                
+                                
+                                Odobrite oglas
+                            </button>
 
 
-                    <button 
-                    wire:click="deletePost"
-                    class="bg-white shadow-card p-3 rounded-2xl flex gap-2 items-center uklonite">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-700">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-                          
-                          
-                        Uklonite oglas
-                    </button>
-                </div>
-            @endif
-    
-            
+                            <button 
+                            wire:click="deletePost"
+                            class="bg-white shadow-card p-3 rounded-2xl flex gap-2 items-center uklonite">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-700">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                </svg>
+                                
+                                
+                                Uklonite oglas
+                            </button>
+                        </div>
+                    @endif
+                @endif
 
+            @endauth               
         </div>
         
         

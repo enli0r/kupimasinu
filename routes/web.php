@@ -30,7 +30,7 @@ Route::get('/admini/{user:id}',  [RegisteredUserController::class, 'adminPage'])
 
 Route::get('/oglasi', [PostController::class, 'index'])->name('homepage');
 
-Route::get('/oglasi/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/oglasi/{post:slug}', [PostController::class, 'show'])->name('posts.show')->middleware('approved');
 
 Route::get('/oglasi/{post:slug}/edit', [PagesController::class, 'edit'])->name('posts.edit')->middleware('owner');
 Route::put('/oglasi/{post:slug}/edit', [PostController::class, 'update']);

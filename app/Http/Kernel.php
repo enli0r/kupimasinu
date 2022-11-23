@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'not.admin' => \App\Http\Middleware\NotAdmin::class,
         'not.admin.owner' => \App\Http\Middleware\NotAdminOwner::class,
+        'approved' => \App\Http\Middleware\Approved::class,
     ];
 }
