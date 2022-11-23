@@ -1,6 +1,7 @@
-<x-guest-layout>
-    <div class="max-w-main mx-auto min-h-screen flex flex-col gap-5 mt-20 lg:mt-10 mb-10">
+<x-app-layout>
+    <div class="max-w-main mx-auto min-h-screen flex flex-col gap-5 mt-12 lg:mt-10 mb-10">
 
+        
         <x-auth-card>
 
             <div class="w-2/3 bg-white rounded-xl mdMin:rounded-r-none md:rounded-b-none px-5 pt-5 pb-24 md:pb-20 md:w-full">
@@ -14,53 +15,11 @@
 
                 <h1 class="text-4xl font-bold text-redd text-center mb-4 md:text-3xl">Napravite svoj nalog</h1>
                 <p class="text-center text-dark-gray">Dobrodošli!</p>
-                <p class="text-center mb-12 text-dark-gray">Unesite vaše podatke u poljima ispod.</p>
+                <p class="text-center mb-8 text-dark-gray">Unesite vaše podatke u poljima ispod.</p>
+
+                <livewire:register-form />
 
 
-                <form method="POST" action="{{ route('register') }}" class="flex flex-col lg:px-5 lgMin:px-36">
-                @csrf
-
-                <!-- Name -->
-                <div>
-                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" placeholder="Ime" required autofocus />
-                </div>
-
-                <!-- Email Address -->
-                <div class="mt-4">
-                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" required />
-                </div>
-
-                <!-- Password -->
-                <div class="mt-4">
-                    <x-input id="password" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password"
-                                    placeholder="Lozinka"
-                                    required autocomplete="new-password" />
-                </div>
-
-                <!-- Confirm Password -->
-                <div class="mt-4">
-                    <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    placeholder="Potvrdite lozinku"
-                                    name="password_confirmation" required />
-                </div>
-
-                <div class="text-right mt-4">
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                        Već ste registrovani?
-                    </a>
-                </div>
-
-                <div class="mt-4">
-                    
-
-                    <div class="text-center  mt-16">
-                        <button type="submit" class="py-2 px-4 bg-dark-gray text-whitee rounded-full hover:bg-black hover:text-white transition-all w-48">Registrujte se</button>
-                    </div>
-                </div>
-                </form>
 
             </div>
 
@@ -76,4 +35,4 @@
         </x-auth-card>
 
     </div>
-</x-guest-layout>
+</x-app-layout>

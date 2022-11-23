@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\PravnoLice;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -39,11 +40,27 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        if($request->userType == 'pravno lice'){
+            $request->validate([
+                'ime_pravnog_lica' => ['required', 'string', 'max:255'],
+                'pib' => ['required', 'min:9', 'max:9', 'unique:pravna_lica,pib']
+            ]);
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        if($request->userType == 'pravno lice'){
+            $pravnoLice = PravnoLice::create([
+                'korisnik_id' => $user->id,
+                'ime_pravnog_lica' => $request->ime_pravnog_lica,
+                'pib' => $request->pib
+            ]);
+        }
+        
 
         event(new Registered($user));
 

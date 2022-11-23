@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class, 'korisnik_id');
     }
+
+    public function pravnaLica(){
+        return $this->hasMany(PravnoLice::class, 'korisnik_id');
+    }
 }
