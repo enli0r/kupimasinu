@@ -57,6 +57,12 @@ class RegisteredUserController extends Controller
         return view('pages.user', [
             'user' => User::find($id)
         ]);
-      
+    }
+
+    public function adminPage($id){
+
+        return view('pages.admin', [
+            'user' => User::find($id)
+        ]);
     }
 }

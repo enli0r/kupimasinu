@@ -58,7 +58,9 @@
     <div class="w-full bg-dark-gray text-whitee rounded-2xl flex flex-col gap-4 items-start justify-start mb-5">
 
         <div class="p-5 flex flex-col gap-3">
-            <h1 class="text-3xl font-semibold text-redd">{{ $user->name }}</h1>
+            <h1 class="text-3xl font-semibold text-redd">{{ $user->name }} @if ($user->is_admin === 1)
+                <span class="text-whitee">(</span>ADMIN<span class="text-whitee">)</span>
+            @endif</h1>
         
             @auth
                 @if (auth()->user()->id == $user->id)

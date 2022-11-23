@@ -12,14 +12,30 @@
 
         <div class="flex justify-end items-center gap-5 grow">
 
-            <form action="{{ route('posts.create') }}" class="">
-                <button type="submit" class="flex gap-1 items-center bg-red-700 text-whitee justify-center uppercase rounded-xl py-2 px-5 hover:bg-red-600 hover:text-white transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                    Novi oglas
-                </button>
-            </form>
+            @auth
+                @if(auth()->user()->is_admin === 0)
+                    <form action="{{ route('posts.create') }}" class="">
+                        <button type="submit" class="flex gap-1 items-center bg-red-700 text-whitee justify-center uppercase rounded-xl py-2 px-5 hover:bg-red-600 hover:text-white transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                            Novi oglas
+                        </button>
+                    </form>
+                @endif
+            @endauth
+                    
+            @guest
+                <form action="{{ route('posts.create') }}" class="">
+                    <button type="submit" class="flex gap-1 items-center bg-red-700 text-whitee justify-center uppercase rounded-xl py-2 px-5 hover:bg-red-600 hover:text-white transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        Novi oglas
+                    </button>
+                </form>
+            @endguest
+                
 
             <div class="flex items-center gap-5">
                 <a href="{{ route('homepage') }}" class="nav-link-black">Početna</a>
@@ -101,7 +117,12 @@
                     >
                         <div class="text-center flex flex-col gap-3">
                             <div class="text-center">
-                                <a href="{{ route('user', auth()->user()->id) }}" class="nav-link-black">Profil</a>
+                                @if (auth()->user()->is_admin === 0)
+                                    <a href="{{ route('user', auth()->user()->id) }}" class="nav-link-black">Profil</a>
+
+                                @elseif( auth()->user()->is_admin === 1 )
+                                    <a href="{{ route('admin', auth()->user()->id) }}" class="nav-link-black">Profil</a>
+                                @endif
                             </div>
                         
 
@@ -179,13 +200,30 @@
             </div>
             <!-- -->
 
-            <a href="{{ route('posts.create') }}" class="flex gap-1 bg-redd text-whitee p-3 justify-center items-center mb-7">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-                  
-                NOVI OGLAS
-            </a>
+            @auth
+                @if (auth()->user()->is_admin === 0)
+                    <a href="{{ route('posts.create') }}" class="flex gap-1 bg-redd text-whitee p-3 justify-center items-center mb-7">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        
+                        NOVI OGLAS
+                    </a>
+                @endif
+            @endauth
+                
+            @guest
+                <form action="{{ route('posts.create') }}" class="">
+                    <button type="submit" class="flex gap-1 items-center bg-red-700 text-whitee justify-center uppercase rounded-xl py-2 px-5 hover:bg-red-600 hover:text-white transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        Novi oglas
+                    </button>
+                </form>
+            @endguest
+
+            
 
             <div class="link flex flex-col gap-5 justify-top items-center">
                 
@@ -205,7 +243,12 @@
                 @auth
                     
 
-                    <a class="nav-link-black" href="{{ route('user', auth()->user()->id) }}">Profil</a>
+                @if (auth()->user()->is_admin === 0)
+                    <a href="{{ route('user', auth()->user()->id) }}" class="nav-link-black">Profil</a>
+
+                @elseif( auth()->user()->is_admin === 1 )
+                    <a href="{{ route('admin', auth()->user()->id) }}" class="nav-link-black">Profil</a>
+                @endif
 
                     <a href="{{ route('homepage') }}" class="nav-link-black">Svi oglasi</a>
 

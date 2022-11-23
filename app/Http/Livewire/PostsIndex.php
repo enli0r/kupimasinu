@@ -121,7 +121,8 @@ class PostsIndex extends Component
 
 
         return view('livewire.posts-index', [
-            'posts' => Post::when($this->tip != null, function($query) use ($tipovi) {
+            'posts' => Post::where('odobren', 1)
+            ->when($this->tip != null, function($query) use ($tipovi) {
                 return $query->where('kategorija_id', $tipovi->get($this->tip));
             })
             ->when($this->mesto != null, function($query){

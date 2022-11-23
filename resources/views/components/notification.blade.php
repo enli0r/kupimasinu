@@ -50,7 +50,7 @@ x-cloak
 
     class="notification">
         <div class="notification-img-cont">
-            <img src="{{ asset('images/sivo.png') }}" alt="" class="h-12 w-auto">
+            <img src="{{ asset('images/sivo.png') }}" alt="">
         </div>
 
         <div class="notification-text">

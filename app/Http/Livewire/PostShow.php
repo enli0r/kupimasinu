@@ -14,6 +14,13 @@ class PostShow extends Component
         $this->post = $post;
     }
 
+    public function approvePost(){
+        $this->post->odobren = 1;
+        $this->post->save();
+
+        return redirect()->route('admin', auth()->user()->id)->with('message', 'Oglas je uspešno odobren');
+    }
+
     public function deletePost(){
 
         //Deleting images

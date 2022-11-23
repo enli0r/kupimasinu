@@ -1,5 +1,5 @@
 <x-app-layout>
     <livewire:change-password :user='$user'/>
 
-    <livewire:user-posts :user='$user' />
+    <livewire:admin-posts :user='$user' />
 </x-app-layout>

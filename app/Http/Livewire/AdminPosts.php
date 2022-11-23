@@ -7,15 +7,12 @@ use App\Models\User;
 use App\Models\Naselja;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\Auth;
 
-class UserPosts extends Component
+class AdminPosts extends Component
 {
     use WithPagination;
 
     public $user;
-    public $oglasi='svi';
-
 
     //Search
     public $search;
@@ -39,7 +36,7 @@ class UserPosts extends Component
     public $sort_by = 'created_at';
     public $sort_direction = 'desc';
 
-    public $queryString = ['oglasi', 'search', 'tip', 'cena_od', 'cena_do', 'godina_od', 'godina_do', 'koriscenost', 'ispravnost', 'zamena'];
+    public $queryString = ['search', 'tip', 'cena_od', 'cena_do', 'godina_od', 'godina_do', 'koriscenost', 'ispravnost', 'zamena'];
 
     
 
@@ -90,10 +87,6 @@ class UserPosts extends Component
         }
     }
 
-    public function setOglasi($oglasi){
-        $this->oglasi = $oglasi;
-    }
-
     public function setOrderBy($sort_by, $sort_direction){
         $this->sort_by = $sort_by;
         $this->sort_direction = $sort_direction;
@@ -124,67 +117,8 @@ class UserPosts extends Component
             'ne' => 0
         ]); 
 
-        if(Auth::check()){
-            if($this->user->id === auth()->user()->id){
-                return view('livewire.user-posts', [
-                    'posts' => Post::where('korisnik_id', $this->user->id)
-                    ->when($this->oglasi === 'svi', function($query) {
-                        return $query->where('korisnik_id', $this->user->id);
-                    })
-                    ->when($this->oglasi === 'odobreni', function ($query){
-                        return $query->where('korisnik_id', $this->user->id)->where('odobren', 1);
-                    })
-                    ->when($this->oglasi === 'na cekanju', function ($query){
-                        return $query->where('korisnik_id', $this->user->id)->where('odobren', 0);
-                    })
-                    ->when($this->tip != null, function($query) use ($tipovi) {
-                        return $query->where('kategorija_id', $tipovi->get($this->tip));
-                    })
-                    ->when($this->mesto != null, function($query){
-                        return $query->where('mesto', $this->mesto);
-                    })
-                    ->when($this->koriscenost != null, function ($query) use ($koriscenosti) {
-                        return $query->where('koriscenost', $koriscenosti->get($this->koriscenost));
-                    })
-                    ->when($this->ispravnost != null, function ($query) use ($ispravnosti) {
-                        return $query->where('ispravnost', $ispravnosti->get($this->ispravnost));
-                    })
-                    ->when($this->zamena != null, function ($query) use ($zamene) {
-                        return $query->where('zamena', $zamene->get($this->zamena));
-                    })
-                    ->when(strlen($this->search) >= 2, function($query){
-                        return $query->where('naziv', 'like', '%'.$this->search.'%');
-                    })
-                    ->when($this->cena_od != null, function($query){
-                        return $query->where('cena', '>=', $this->cena_od);
-                    })
-                    ->when($this->cena_do != null, function($query){
-                        return $query->where('cena', '<=', $this->cena_do);
-                    })
-                    ->when($this->godina_od != null, function($query){
-                        return $query->where('godina', '>=', $this->godina_od);
-                    })
-                    ->when($this->godina_do != null, function($query){
-                        return $query->where('godina', '<=', $this->godina_do);
-                    })
-                    ->orderBy($this->sort_by, $this->sort_direction)
-                    ->paginate(5),
-        
-                    'sort_by' => $this->sort_by,
-                    'sort_direction' => $this->sort_direction,
-                    'tip' => $this->tip,
-                    'koriscenost' => $this->koriscenost,
-                    'ispravnost' => $this->ispravnost,
-                    'zamena' => $this->zamena,
-                    'naselja' => Naselja::all()
-                ]);
-            }
-        }
-
-
-        return view('livewire.user-posts', [
-            'posts' => Post::where('odobren', 1)
-            ->where('korisnik_id', $this->korisnik_id)
+        return view('livewire.admin-posts', [
+            'posts' => Post::where('odobren', 0)
             ->when($this->tip != null, function($query) use ($tipovi) {
                 return $query->where('kategorija_id', $tipovi->get($this->tip));
             })

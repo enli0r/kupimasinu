@@ -23,7 +23,10 @@ Route::get('/', function(){
 
 Route::get('/oglasi/kreiraj', [PagesController::class, 'create'])->name('posts.create')->middleware('auth');
 
-Route::get('/korisnici/{user:id}',  [RegisteredUserController::class, 'userPage'])->name('user');
+Route::get('/korisnici/{user:id}',  [RegisteredUserController::class, 'userPage'])->name('user')->middleware('not.admin');
+
+Route::get('/admini/{user:id}',  [RegisteredUserController::class, 'adminPage'])->name('admin')->middleware('not.admin.owner');
+
 
 Route::get('/oglasi', [PostController::class, 'index'])->name('homepage');
 

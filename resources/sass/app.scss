@@ -638,6 +638,33 @@ body{
     }
 }
 
+.uklonite{
+    &:hover{
+        background-color: #ba1b1d;
+        color: white;
+        transition: all 0.2s ease-in-out;
+
+        svg{
+            color: white;
+            transition: all 0.2s ease-in-out
+
+        }
+    }
+}
+
+.odobrite{
+    &:hover{
+        background-color: rgb(0, 136, 0);
+        color: white;
+        transition: all 0.2s ease-in-out;
+
+        svg{
+            color: white;
+            transition: all 0.2s ease-in-out
+
+        }
+    }
+}
 
 .notification{
     position: fixed;
@@ -659,6 +686,11 @@ body{
         background-color: white;
         padding: 10px 15px;
         border-radius: 16px;
+
+        img{
+            height: 50px;
+            width: 120px;
+        }
     }
 
 
