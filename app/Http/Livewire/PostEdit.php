@@ -167,7 +167,7 @@ class PostEdit extends Component
             }
         }
 
-        return redirect()->route('posts.show', $post->slug);
+        return redirect()->route('homepage')->with('message', 'Uspešno ste izmenili sadržaj Vašeg oglasa');
     }
 
 

@@ -26,7 +26,8 @@ module.exports = {
         'footer' : '#e4e4e4',
         'redd' : '#ba1b1d',
         'whitee': '#F7F4F3',
-        'dark-gray': '#161A1D'
+        'dark-gray': '#161A1D',
+        'body-bg' : '#f4f4f4'
         
       },
 

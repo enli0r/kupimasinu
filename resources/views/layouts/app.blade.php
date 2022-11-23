@@ -27,7 +27,8 @@
 
 
     </head>
-    <body class="font-sans antialiased text-gray-900 text-sm">
+    <body class="font-sans antialiased text-gray-900 text-sm relative">
+
 
         <header class="mb-5">
             <x-navbar />
@@ -42,6 +43,18 @@
 
         <x-footer />
 
+        @if (session('message'))
+            <x-notification :redirect="true" messageToDisplay="{{ session('message') }}"/>
+        @else
+            <x-notification />
+        @endif
+
+
+
+
+
+
+
         <!-- Jquery -->
         <script
         src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -51,8 +64,6 @@
 
         <!-- Slick slider -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-
 
         <!-- Livewire scripts -->
         @livewireScripts

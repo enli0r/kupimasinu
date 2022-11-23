@@ -690,6 +690,9 @@ video {
 .h-100 {
   height: 25rem;
 }
+.h-12 {
+  height: 3rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -788,6 +791,14 @@ video {
 }
 .origin-top-right {
   transform-origin: top right;
+}
+.translate-x-10 {
+  --tw-translate-x: 2.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.translate-x-0 {
+  --tw-translate-x: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .scale-95 {
   --tw-scale-x: .95;
@@ -1047,6 +1058,10 @@ video {
 .bg-gray-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+.bg-body-bg {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 244 244 / var(--tw-bg-opacity));
 }
 .bg-indigo-50 {
   --tw-bg-opacity: 1;
@@ -1824,7 +1839,8 @@ body input[type=number] {
 }
 .checkbox input {
   -webkit-appearance: none;
-  -moz-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   position: relative;
   outline: none;
   background: var(--background);
@@ -1971,100 +1987,34 @@ body input[type=number] {
     padding: 50px 20px !important;
   }
 }
-.slider-wrapper {
+.notification {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  width: 330px;
+  background-color: #ba1b1d;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  box-shadow: 0px 5px 15px -2px rgba(0, 0, 0, 0.66);
+  z-index: 10;
+  gap: 0;
+}
+.notification-img-cont {
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 16px;
+}
+.notification-text {
   width: 100%;
-  position: relative;
+  text-align: center;
 }
-.slider-wrapper input[type=range] {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  width: 100%;
-}
-.slider-wrapper input[type=range]:focus {
-  outline: none;
-}
-.slider-wrapper input[type=range]:focus::-webkit-slider-runnable-track {
-  background: green;
-}
-.slider-wrapper input[type=range]:focus::-ms-fill-lower {
-  background: green;
-}
-.slider-wrapper input[type=range]:focus::-ms-fill-upper {
-  background: #2497e3;
-}
-.slider-wrapper input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 7px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: rgb(158, 2, 2);
-  border-radius: 5px;
-  box-shadow: none;
-  border: 0;
-}
-.slider-wrapper input[type=range]::-webkit-slider-thumb {
-  z-index: 2;
-  position: relative;
-  box-shadow: 0px 0px 0px #000;
-  height: 18px;
-  width: 18px;
-  border-radius: 25px;
-  background: rgb(68, 68, 68);
-  cursor: pointer;
-  -webkit-appearance: none;
-  appearance: none;
-  margin-top: -6px;
-}
-.slider-wrapper input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  animate: 0.2s;
-  border-radius: 1px;
-  box-shadow: none;
-  border: 0;
-}
-.slider-wrapper input[type=range]::-moz-range-thumb {
-  z-index: 2;
-  position: relative;
-  box-shadow: 0px 0px 0px #000;
-  border: 1px solid #2497e3;
-  height: 18px;
-  width: 18px;
-  border-radius: 25px;
-  background: #a1d0ff;
-  cursor: pointer;
-}
-.slider-wrapper input[type=range]::-ms-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-.slider-wrapper input[type=range]::-ms-fill-lower,
-.slider-wrapper input[type=range]::-ms-fill-upper {
-  background: #2497e3;
-  border-radius: 1px;
-  box-shadow: none;
-  border: 0;
-}
-.slider-wrapper input[type=range]::-ms-thumb {
-  z-index: 2;
-  position: relative;
-  box-shadow: 0px 0px 0px #000;
-  border: 1px solid #2497e3;
-  height: 18px;
-  width: 18px;
-  border-radius: 25px;
-  background: #a1d0ff;
-  cursor: pointer;
+.notification-text p {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
 }
 .hover\:cursor-pointer:hover {
   cursor: pointer;

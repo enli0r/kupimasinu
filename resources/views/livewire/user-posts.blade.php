@@ -612,7 +612,7 @@ x-init="window.livewire.on('gotoTop', () => {
                         <livewire:post-index :wire:key="$post->id" :post='$post' />
                     @endforeach
                 @else
-                    <p class="w-full flex rounded-xl py-3 bg-white justify-center items-center text-red-500">Trenutno nemate aktivnih oglasa!</p>
+                    <p class="w-full flex rounded-xl py-3 bg-white justify-center items-center text-red-500">Trenutno nema aktivnih oglasa!</p>
                 @endif
                 
 

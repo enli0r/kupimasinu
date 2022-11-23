@@ -25,7 +25,7 @@ class PostShow extends Component
         //Deleting post
         $this->post->delete();
 
-        return redirect('/');
+        return redirect()->route('homepage')->with('message', 'Usešno ste uklonili Vaš oglas');
 
     }
     

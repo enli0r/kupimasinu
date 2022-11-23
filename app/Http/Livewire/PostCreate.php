@@ -144,7 +144,7 @@ class PostCreate extends Component
             }
         }
 
-        return redirect()->route('homepage');
+        return redirect()->route('homepage')->with('message', 'Uspešno ste kreirali oglas');
     }
 
     public function render()
