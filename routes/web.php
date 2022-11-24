@@ -21,7 +21,7 @@ Route::get('/', function(){
     return view('homepage');
 });
 
-Route::get('/oglasi/kreiraj', [PagesController::class, 'create'])->name('posts.create')->middleware('auth');
+Route::get('/oglasi/kreiraj', [PagesController::class, 'create'])->name('posts.create')->middleware('auth', 'verified');
 
 Route::get('/korisnici/{user:id}',  [RegisteredUserController::class, 'userPage'])->name('user')->middleware('not.admin');
 

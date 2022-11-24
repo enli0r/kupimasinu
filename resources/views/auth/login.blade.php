@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
 
     <div class="max-w-main mx-auto min-h-screen flex flex-col gap-5 mt-20 lg:mt-10 mb-10">
 
@@ -81,4 +81,4 @@
 
 
         
-</x-guest-layout>
+</x-app-layout>
