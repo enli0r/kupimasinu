@@ -70,6 +70,8 @@
     
     
             <p class="text-md text-white">ID korisnika: {{ $user->id }}</p>
+
+            <p class="text-md text-white">Tip korisnika: @if($user->lice === 'fizicko lice') Fizičko lice @elseif($user->lice == 'pravno lice') Pravno lice @endif</p>
     
             <p class="text-md text-whitee">Član od: {{ date('d.m.Y', strtotime($user->created_at)) }}</p>
 
