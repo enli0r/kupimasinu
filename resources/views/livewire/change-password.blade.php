@@ -24,7 +24,7 @@
                 @csrf
                 
                 <div class="flex flex-col gap-1">
-                    <label for="old_pass" class="font-semibold text-dark-gray">Stara šifra</label>
+                    <label for="old_pass" class=" text-dark-gray"><span class="text-redd">*</span>Stara šifra</label>
                     <x-input wire:model="old_pass" type="password" name="old_pass" class="w-full"/>
                     @error('old_pass')
                         <p class="text-redd">*{{ $message }}</p>
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="flex flex-col gap-1">
-                    <label for="new_pass" class="font-semibold text-dark-gray">Nova šifra</label>
+                    <label for="new_pass" class=" text-dark-gray"><span class="text-redd">*</span>Nova šifra</label>
                     <x-input wire:model="new_pass" type="password" name="new_pass" class="w-full"/>
                     @error('new_pass')
                         <p class="text-redd">*{{ $message }}</p>
@@ -41,7 +41,7 @@
                 
 
                 <div class="flex flex-col gap-1">
-                    <label for="new_pass_confirm" class="font-semibold text-dark-gray">Ponovite novu šifru</label>
+                    <label for="new_pass_confirm" class="text-dark-gray"><span class="text-redd">*</span>Ponovite novu šifru</label>
                     <x-input wire:model="new_pass_confirm" type="password" name="new_pass_confirm" class="w-full"/>
                     @error('new_pass_confirm')
                         <p class="text-redd">*{{ $message }}</p>

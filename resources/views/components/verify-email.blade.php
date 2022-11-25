@@ -12,9 +12,9 @@
 
         <div 
         x-show="showVerify"
-        class="max-w-main mx-auto bg-white rounded-2xl flex shadow-card">
-            <div class="rounded-2xl bg-dark-gray basis-36 p-3 grow-0 shrink-0 flex justify-center items-center lg:hidden">
-                <img src="{{ asset('images/Light.png') }}" class="w-full h-auto">
+        class="max-w-main mx-auto bg-white rounded-2xl flex shadow-card sm:flex-col mb-5">
+            <div class="rounded-2xl bg-dark-gray flex justify-center smMin:basis-36 p-3 smMin:grow-0 smMin:shrink-0 items-center sm:bg-dark-gray border w-full">
+                <img src="{{ asset('images/Light.png') }}" class="w-full h-auto sm:w-36">
             </div>
 
 

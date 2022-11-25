@@ -449,7 +449,7 @@
                                     <!-- CENA -->
                                     <div>            
                                         <div class="range-slider flex flex-col">
-                                            <p class="font-semibold text-left mb-7">Cena</p>
+                                            <p class="font-semibold text-left mb-2">Cena</p>
                                             
                             
                                             <div class="flex items-center sm:justify-between gap-3">
@@ -623,11 +623,7 @@
         @endif
 
         @else
-            <div class="w-full bg-gray-500 text-whitee rounded-xl flex items-center justify-center p-2">
-                <p>Na žalost, trenutno nema oglasa za ovu pretragu.</p>
-
-            </div>
-
+            <p class="w-full flex rounded-2xl py-3 bg-white justify-center items-center text-red-500">Trenutno nema aktivnih oglasa!</p>
         @endif
     </div>
     

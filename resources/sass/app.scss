@@ -341,93 +341,101 @@ body{
 
 
 .nav-link-black{
+    color: #fff;
     position: relative;
-
-    color: #f7f4f3;
 
     &:hover{
         color: white;
     }
 
     &:focus:after{
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(1);
-        height: 2px;
-        bottom: 0;
+        width: 100%; 
         left: 0;
-        background-color: #f7f4f3;
     }
 
 
     &:hover:after{
-        transform: scaleX(1);
-        transform-origin: bottom left;
-        
+        width: 100%; 
+        left: 0; 
     }
 
     &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
+        background: none repeat scroll 0 0 transparent;
         bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
         left: 0;
-        background-color: #f7f4f3;
-        transform-origin: bottom left;
-        transition: transform 0.2s ease-out;
+        position: absolute;
+        background: #fff;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
       }
 }
 
 .nav-link{
+    color: #161A1D;
     position: relative;
 
     &:hover{
         color: black;
     }
 
+    &:focus:after{
+        width: 100%; 
+        left: 0;
+    }
+
+
     &:hover:after{
-        transform: scaleX(1);
-        transform-origin: bottom left;
+        width: 100%; 
+        left: 0; 
     }
 
     &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
+        background: none repeat scroll 0 0 transparent;
         bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
         left: 0;
-        background-color: #161A1D;
-        transform-origin: bottom left;
-        transition: transform 0.2s ease-out;
+        position: absolute;
+        background: black;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
       }
 }
 
 .nav-link-red{
+    color: #cc1d20;
     position: relative;
 
-    color: #d32023;
+    &:hover{
+        color: #cc1d20;
+    }
+
+    &:focus:after{
+        width: 100%; 
+        left: 0;
+    }
+
 
     &:hover:after{
-        transform: scaleX(1);
-        transform-origin: bottom left;
+        width: 100%; 
+        left: 0; 
     }
 
     &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
+        background: none repeat scroll 0 0 transparent;
         bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
         left: 0;
-        background-color: #d32023;
-        transform-origin: bottom left;
-        transition: transform 0.2s ease-out;
+        position: absolute;
+        background: #cc1d20;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
       }
 }
 
@@ -528,7 +536,7 @@ body{
 }
 
 .showPassword{
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
