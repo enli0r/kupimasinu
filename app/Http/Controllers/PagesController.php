@@ -18,4 +18,8 @@ class PagesController extends Controller
             'post' => $post
         ]);
     }
+
+    public function forgotPassword(){
+        return view('auth.forgot-password');
+    }
 }

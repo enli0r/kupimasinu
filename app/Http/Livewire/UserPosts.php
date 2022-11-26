@@ -184,7 +184,7 @@ class UserPosts extends Component
 
         return view('livewire.user-posts', [
             'posts' => Post::where('odobren', 1)
-            ->where('korisnik_id', $this->korisnik_id)
+            ->where('korisnik_id', $this->user->id)
             ->when($this->tip != null, function($query) use ($tipovi) {
                 return $query->where('kategorija_id', $tipovi->get($this->tip));
             })
