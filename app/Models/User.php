@@ -58,4 +58,9 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new ResetPasswordNotification($token));
     }
 
+    public function markedCategories(){
+        return $this->belongsToMany(Category::class, 'marked_categories', 'korisnik_id', 'kategorija_id');
+    }
+
+
 }

@@ -2,11 +2,15 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Naselja;
 use App\Models\Post;
+use App\Models\User;
+use App\Models\Naselja;
 use Livewire\Component;
+use App\Models\Category;
 use Livewire\WithPagination;
+use App\Models\MarkedCategory;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class PostsIndex extends Component
 {
@@ -47,6 +51,18 @@ class PostsIndex extends Component
         'search', 'tip', 'cena_od', 'cena_do', 'godina_od', 'godina_do', 'koriscenost', 'ispravnost', 'zamena'
     ];
 
+    public function updateMarkedCategory($cat_id, $user_id){
+        if(MarkedCategory::where('korisnik_id', $user_id)->where('kategorija_id', $cat_id)->count() === 0){
+            $markedCategory = new MarkedCategory();
+            $markedCategory->korisnik_id = $user_id;
+            $markedCategory->kategorija_id = $cat_id;
+            $markedCategory->save();
+        }else{
+            MarkedCategory::where('korisnik_id', $user_id)->where('kategorija_id', $cat_id)->delete();
+
+            Session::flash('message', 'This is a message!'); 
+        }   
+    }
 
     public function updateTip($tip){
         if($this->tip == $tip){
@@ -117,8 +133,7 @@ class PostsIndex extends Component
             'da' => 1,
             'ne' => 0
         ]); 
-
-
+        
 
         return view('livewire.posts-index', [
             'posts' => Post::where('odobren', 1)
@@ -161,6 +176,7 @@ class PostsIndex extends Component
             'koriscenost' => $this->koriscenost,
             'ispravnost' => $this->ispravnost,
             'zamena' => $this->zamena,
+            'markedCategories' => MarkedCategory::where('korisnik_id', auth()->user()->id)->pluck('kategorija_id')->toArray(),
             'naselja' => Naselja::all()
         ]);
     }

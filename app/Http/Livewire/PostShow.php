@@ -3,7 +3,10 @@
 namespace App\Http\Livewire;
 
 use App\Models\Post;
+use App\Mail\NoviPost;
 use Livewire\Component;
+use App\Models\Category;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class PostShow extends Component
@@ -18,6 +21,10 @@ class PostShow extends Component
         $this->post->odobren = 1;
         $this->post->save();
 
+        //Slanje mailova ljudima kojima je oznacena ova kategorija
+        $category = Category::find($this->post->kategorija_id);
+        
+        $this->emit('newPostMail', $category);
         return redirect()->route('admin', auth()->user()->id)->with('message', 'Oglas je uspešno odobren');
     }
 

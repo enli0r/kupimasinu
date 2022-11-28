@@ -4,9 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Mail\NoviPost;
 use App\Models\Naselja;
 use Livewire\Component;
+use App\Models\Category;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Mail;
 
 class AdminPosts extends Component
 {
@@ -37,9 +40,6 @@ class AdminPosts extends Component
     public $sort_direction = 'desc';
 
     public $queryString = ['search', 'tip', 'cena_od', 'cena_do', 'godina_od', 'godina_do', 'koriscenost', 'ispravnost', 'zamena'];
-
-    
-
 
     public function mount(User $user){
         $this->user = $user;

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\MarkedCategory;
 use Illuminate\Database\Seeder;
 use Database\Seeders\PostSeeder;
 use Database\Seeders\UserSeeder;
@@ -22,5 +23,17 @@ class DatabaseSeeder extends Seeder
             // PostSeeder::class,
             // PostImagesSeeder::class,
         ]);
+
+        // MarkedCategory::create([
+        //     'korisnik_id' => 1,
+        //     'kategorija_id' => 1
+        // ]);
+
+        // MarkedCategory::create([
+        //     'korisnik_id' => 2,
+        //     'kategorija_id' => 1
+        // ]);
+
+
     }
 }
