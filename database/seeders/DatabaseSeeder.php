@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\PostSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\PostImagesSeeder;
+use App\Imports\NaseljaImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,16 +26,8 @@ class DatabaseSeeder extends Seeder
             // PostImagesSeeder::class,
         ]);
 
-        // MarkedCategory::create([
-        //     'korisnik_id' => 1,
-        //     'kategorija_id' => 1
-        // ]);
 
-        // MarkedCategory::create([
-        //     'korisnik_id' => 2,
-        //     'kategorija_id' => 1
-        // ]);
-
+        Excel::import(new NaseljaImport, 'spisak_naselja.xlsx', 'import');
 
     }
 }

@@ -230,7 +230,15 @@
            <div class="flex flex-col gap-3">
                 <!-- Saglasnost -->
                 <div class="flex gap-1 items-center mt-4">
-                    <input type="radio" wire:model="saglasnost" name="saglasnost" id="saglasnost" value="1" />
+                    {{-- <input type="radio" wire:model="saglasnost" name="saglasnost" id="saglasnost" value="1" /> --}}
+                    <div class="checkbox bounce filterable">
+
+                        <input type="checkbox" wire:model="saglasnost"  name="saglasnost" id="saglasnost" value="1"/>
+
+                        <svg viewBox="0 0 21 21">
+                            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                        </svg>
+                    </div>
                     <label class=" text-dark-gray" for="saglasnost">Saglasan sam sa uslovima oglašavanja<span class="text-redd">*</span></label>
                 </div>
 
@@ -241,8 +249,17 @@
 
                 <!-- Tacnost -->
                 <div class="flex gap-1 items-center mt-2">
-                    <input type="radio" wire:model="garantovanje_tacnosti" name="garantovanje_tacnosti" id="garantovanje_tacnosti" value="1" />
+                    {{-- <input type="radio" wire:model="garantovanje_tacnosti" name="garantovanje_tacnosti" id="garantovanje_tacnosti" value="1" /> --}}
+                    <div class="checkbox bounce filterable">
+
+                        <input type="checkbox" wire:model="garantovanje_tacnosti"  name="garantovanje_tacnosti" id="garantovanje_tacnosti" value="1"/>
+
+                        <svg viewBox="0 0 21 21">
+                            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                        </svg>
+                    </div>
                     <label class="text-dark-gray" for="garantovanje_tacnosti">Garantujem tačnost oglasa<span class="text-redd">*</span></label>
+                    
                 </div>
                 @error('garantovanje_tacnosti')
                             <small class="text-red-500 font-semibold">*{{ $message }}</small>

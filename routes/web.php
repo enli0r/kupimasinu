@@ -35,8 +35,6 @@ Route::get('/oglasi/{post:slug}/edit', [PagesController::class, 'edit'])->name('
 
 Route::put('/oglasi/{post:slug}/edit', [PostController::class, 'update']);
 
-Route::get('/{user:id}/import-naselja', [NaseljaController::class, 'import'])->name('naselja.import')->middleware('admin');
-
 Route::get('/zaboravljena-sifra', [PagesController::class, 'forgotPassword'])->name('forgot-password')->middleware('guest');
 
 require __DIR__.'/auth.php';

@@ -85,7 +85,7 @@ class PostCreate extends Component
         'odobren' => 'required',
         'korisnik_id' => 'required',
         'kategorija_id' => 'required',
-        'naziv' => 'required|min:10|max:70',
+        'naziv' => 'required|min:5|max:128',
         'cena' => 'required',
         'godina' => 'required',
         'koriscenost' => 'required',
@@ -100,12 +100,6 @@ class PostCreate extends Component
         
     ];
 
-    public function updated($name)
-    {
-        $this->validateOnly($name, [
-            'naziv' => 'required|min:10|max:70',
-        ]);
-    }
 
     public function store(){
         $this->validate();
@@ -144,7 +138,7 @@ class PostCreate extends Component
             }
         }
 
-        return redirect()->route('homepage')->with('message', 'Uspešno ste kreirali oglas');
+        return redirect()->route('homepage')->with('message', 'Uspešno ste kreirali oglas. Oglas čeka na odobravanje.');
     }
 
     public function render()

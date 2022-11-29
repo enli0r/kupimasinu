@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('naziv');
             $table->string('slug')->nullable();
             $table->decimal('cena', 8,2);
-            $table->smallInteger('godina')->nullable();
+            $table->bigInteger('godina')->nullable();
             $table->boolean('koriscenost');
             $table->boolean('ispravnost');
             $table->boolean('zamena');

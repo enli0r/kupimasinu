@@ -101,7 +101,7 @@ class PostEdit extends Component
 
     protected $rules = [
         'kategorija_id' => 'required',
-        'naziv' => 'required|min:10|max:70',
+        'naziv' => 'required|min:5|max:128',
         'cena' => 'required',
         'godina' => 'required',
         'koriscenost' => 'required',
@@ -144,6 +144,7 @@ class PostEdit extends Component
             $post->kontakt = $this->kontakt;
             $post->saglasnost = $this->saglasnost;
             $post->garantovanje_tacnosti = $this->garantovanje_tacnosti;
+            $post->odobren = 0;
             $post->save();
         }
 
@@ -167,7 +168,7 @@ class PostEdit extends Component
             }
         }
 
-        return redirect()->route('homepage')->with('message', 'Uspešno ste izmenili sadržaj Vašeg oglasa');
+        return redirect()->route('homepage')->with('message', 'Uspešno ste izmenili sadržaj Vašeg oglasa. Oglas čeka na odobravanje.');
     }
 
 

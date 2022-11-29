@@ -335,7 +335,7 @@
     
             <!-- Submit -->
             <div class="w-full flex justify-center items-center">
-                <button type="submit" class="bg-redd py-2 px-8 rounded-full text-whitee hover:bg-red-600 hover:text-white">Postavite ovaj oglas</button>
+                <button type="submit" class="bg-redd py-2 px-8 rounded-full text-whitee hover:bg-red-600 hover:text-white">Potvrdite izmene</button>
             </div>
 
 

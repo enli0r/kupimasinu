@@ -17,14 +17,15 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        $user_id = $request->route('user');
-
-        $user = User::find($user_id);
-
-        if($user->is_admin == 1){
-            return $next($request);
+        if(auth()->check()){
+            if(auth()->user()->is_admin === 1){
+                return $next($request);
+            }else{
+                return abort(404); 
+            }
+        }else{
+            return abort(404);
         }
 
-        return abort(403);
     }
 }

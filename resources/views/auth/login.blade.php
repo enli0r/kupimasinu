@@ -4,17 +4,16 @@
 
         <x-auth-card>
 
-            <div class="w-2/3 bg-white rounded-xl mdMin:rounded-r-none md:rounded-b-none px-5 pt-5 pb-28 md:pb-20 md:w-full">
+            <div class="w-2/3 bg-white rounded-xl mdMin:rounded-r-none md:rounded-b-none px-5 py-24 md:pb-20 md:w-full">
                 <!-- Session Status -->
                 <x-auth-session-status class="mb-4" :status="session('status')" />
                     
                 <!-- Validation Errors -->
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                <div class="flex justify-start items-center gap-2 mb-16 md:mb-12">
-                    <img src="https://cdn.pixabay.com/photo/2014/04/02/11/16/cog-305746_1280.png" alt="" class="w-10 h-10">
-                    <h2 class="text-lg font-semibold text-dark-gray">KUPI MAŠINU</h2>
-                </div>
+                {{-- <div class="flex justify-start items-center gap-2 mb-16 md:mb-12">
+                    <img src="{{ asset('images/sivo.png') }}" alt="" style="width: 120px;">
+                </div> --}}
 
                 <h1 class="text-4xl font-bold text-redd text-center mb-4 md:text-3xl">Prijavite se na Vaš nalog</h1>
                 <p class="text-center text-dark-gray">Dobrodošli!</p>

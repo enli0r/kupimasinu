@@ -14,15 +14,15 @@ class CreateMarkedCategoriesTable extends Migration
     public function up()
     {
         Schema::create('marked_categories', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('korisnik_id');
             $table->unsignedBigInteger('kategorija_id');
             $table->timestamps();
 
-            $table->primary(['korisnik_id', 'kategorija_id']);
+            $table->primary(['korisnik_id','kategorija_id']);
 
             $table->foreign('korisnik_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('kategorija_id')->references('id')->on('categories')->onDelete('cascade');
+
         });
     }
 

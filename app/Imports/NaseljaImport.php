@@ -14,7 +14,6 @@ class NaseljaImport implements ToModel
     */
     public function model(array $row)
     {
-
         if (!isset($row[0])) {
             return null;
         }

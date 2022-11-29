@@ -48,7 +48,7 @@ class PostsIndex extends Component
 
 
     public $queryString = [
-        'search', 'tip', 'cena_od', 'cena_do', 'godina_od', 'godina_do', 'koriscenost', 'ispravnost', 'zamena'
+        'search', 'tip', 'cena_od', 'cena_do', 'godina_od', 'godina_do', 'koriscenost', 'ispravnost', 'zamena', 'mesto'
     ];
 
     public function updateMarkedCategory($cat_id, $user_id){
@@ -176,8 +176,10 @@ class PostsIndex extends Component
             'koriscenost' => $this->koriscenost,
             'ispravnost' => $this->ispravnost,
             'zamena' => $this->zamena,
-            'markedCategories' => MarkedCategory::where('korisnik_id', auth()->user()->id)->pluck('kategorija_id')->toArray(),
-            'naselja' => Naselja::all()
+            'markedCategories' => auth()->check() ? MarkedCategory::where('korisnik_id', auth()->user()->id)->pluck('kategorija_id')->toArray() : '[]',
+            'naselja' => Naselja::when(strlen($this->mesto) >= 2, function($query){
+                return $query->where('naziv', 'like', '%'.$this->mesto.'%');
+            })->get()
         ]);
     }
 }

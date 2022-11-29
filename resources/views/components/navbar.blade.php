@@ -5,7 +5,7 @@
 
         <div class="" style="width: 270px;">
             <a href="{{ route('homepage') }}" class="flex gap-2 items-center">
-                <img src="{{ asset('images/Light.png') }}" alt="" class="h-14 w-auto">
+                <img src="{{ asset('images/Light.png') }}" alt="" style="width: 120px;">
                 {{-- <h1 class="text-lg text-whitee">KUPI MAŠINU</h1> --}}
             </a>
         </div>
@@ -153,25 +153,35 @@
     <!-- Navbar phone -->
     <div 
     x-data="{showMenu:false, showBurger:true}"
-    class="container mx-auto max-w-main flex justify-cener items-center lgMin:hidden px-5 py-4">
+    class="container mx-auto max-w-main flex justify-between items-center lgMin:hidden px-5 py-4">
         <div>
             <a href="{{ route('homepage') }}" class="flex gap-2 items-center">
-                <img src="{{ asset('images/logo.png') }}" alt="" class="h-14">
+                <img src="{{ asset('images/logo.png') }}" alt="" style="height: 80px;">
             </a>
         </div>
-          
-
-        <!-- Burger -->
+        
         <div 
-        x-show="showBurger"
-        @click="showMenu = !showMenu; showBurger=false"
-        class="ml-auto"
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-7 h-7">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+        class="ml-auto flex gap-5 items-center">
+            <a href="{{ route('posts.create') }}" class="bg-redd p-3 rounded-2xl text-whitee flex items-center gap-1 ml-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-whitee">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                NOVI OGLAS
+            </a>
+    
+            <!-- Burger -->
+            <div 
+            
+            @click="showMenu = !showMenu; showBurger=false"
+            class=""
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </div>
+            <!-- -->
         </div>
-        <!-- -->
+        
 
         <!-- NAV -->
         <div
@@ -180,10 +190,10 @@
         @click.away="showMenu = false; showBurger = true;"
         class="showMenu shadow-leftDialog"
 
-        x-transition:enter="transition ease-out duration-150"
+        x-transition:enter="transition linear duration-200"
         x-transition:enter-start="origin-right scale-x-0 opacity-50"
         x-transition:enter-end="origin-right scale-x-100 opacity-100"
-        x-transition:leave="transition ease-out duration-300"
+        x-transition:leave="transition linear duration-200"
         x-transition:leave-start="origin-right scale-x-100 opacity-100"
         x-transition:leave-end="origin-right scale-x-0 opacity-50"
         >
@@ -193,7 +203,7 @@
             x-cloak
             class="nav-x"
             @click="showMenu = false; showBurger=true">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </div>
