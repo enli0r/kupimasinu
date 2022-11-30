@@ -1,5 +1,8 @@
 <x-app-layout>
-    <div class="max-w-main mx-auto min-h-screen flex flex-col gap-5 mt-12 lg:mt-10 mb-10">
+    <x-back-button />
+
+
+    <div class="max-w-main mx-auto min-h-screen flex flex-col gap-5 mt-12 lg:mt-0 mb-10">
 
         
         <x-auth-card>

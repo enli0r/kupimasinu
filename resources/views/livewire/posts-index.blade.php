@@ -20,9 +20,9 @@
 
     <!-- FILTERS -->
     <div class="lg:hidden filters-desktop shrink-0 sticky">
-        <div class="w-full mb-7" style="height: 43px;">
 
-        </div>
+        <x-back-button class="mb-7" style="width: 270px;"/>
+        
 
         <div class="w-full p-5 shadow-card rounded-2xl z-10 bg-white">
             
@@ -508,10 +508,15 @@
     <!-- Phone filters -->
     <div class="relative flex flex-col gap-5 lgMin:hidden mb-7">
 
-        
-        <div class="grow">
-            <x-search />
+        <div class="flex gap-5">
+
+            <x-back-button class="mb-0"/>
+
+            <div class="grow">
+                <x-search />
+            </div>
         </div>
+        
 
         <div class="flex gap-5 justify-between relative">
 

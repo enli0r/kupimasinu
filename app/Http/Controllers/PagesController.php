@@ -19,6 +19,18 @@ class PagesController extends Controller
         ]);
     }
 
+    public function oNama(){
+        return view('pages.o-nama');
+    }
+
+    public function usloviKoriscenja(){
+        return view('pages.pravila-i-uslovi-koriscenja');
+    }
+
+    public function politikaPrivatnosti(){
+        return view('pages.politika-privatnosti');
+    }
+
     public function forgotPassword(){
         return view('auth.forgot-password');
     }

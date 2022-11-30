@@ -68,19 +68,18 @@
                     x-transition:leave="transition ease-out duration-300"
                     x-transition:leave-start="opacity-100"
                     x-transition:leave-end="opacity-0"
-                    class="absolute py-3 z-10 rounded-xl flex flex-col gap-3 items-center bg-black shadow-dialog" style="width: 170px; bottom: -15px; right:0px; transform:translateY(100%); color:#161A1D;"
+                    class="absolute p-3 z-10 rounded-xl flex flex-col gap-3 items-center bg-black shadow-dialog" style="width: 190px; bottom: -15px; right:0px; transform:translateY(100%); color:#161A1D;"
                 >
                     <div class="text-center">
-                        <a href="#" class="nav-link-black">O nama</a>
+                        <a href="{{ route('o-nama') }}" class="nav-link-black">O nama</a>
                     </div>
                     
                     <div class="text-center">
-                        <a href="#" class="nav-link-black">Kontakt</a>
-
+                        <a href="{{ route('pravila-i-uslovi-koriscenja') }}" class="nav-link-black">Pravila i uslovi korišćenja</a>
                     </div>
 
                     <div class="text-center">
-                        <a href="#" class="nav-link-black">Uslovi oglašavanja</a>
+                        <a href="{{ route('politika-privatnosti') }}" class="nav-link-black">Politika privatnosti</a>
                     </div>
                 </div>
             </div>
@@ -113,7 +112,7 @@
                     x-transition:leave="transition ease-out duration-300"
                     x-transition:leave-start="opacity-100"
                     x-transition:leave-end="opacity-0"
-                    class="absolute right-0 py-3 px-7 z-10 rounded-xl flex flex-col gap-3 items-center shadow-dialog bg-black" style="bottom: 10px; transform:translateY(100%);"
+                    class="absolute right-0 py-3 px-7 z-10 rounded-xl flex flex-col gap-3 items-center shadow-dialog bg-black" style="bottom: 20px; transform:translateY(100%);"
                     >
                         <div class="text-center flex flex-col gap-3">
                             <div class="text-center">
@@ -263,11 +262,12 @@
 
                 @endauth
 
-                <a href="#" class="nav-link-black">O nama</a>
+                <a href="{{ route('o-nama') }}" class="nav-link-black">O nama</a>
 
-                <a href="#" class="nav-link-black">Kontakt</a>
 
-                <a href="#" class="nav-link-black">Uslovi oglašavanja</a>
+                <a href="{{ route('pravila-i-uslovi-koriscenja') }}" class="nav-link-black">Pravila i uslovi korišćenja</a>
+
+                <a href="{{ route('politika-privatnosti') }}" class="nav-link-black">Politika privatnosti</a>
 
                 @auth
                 <form action="{{ route('logout') }}" method="POST" class="logout">

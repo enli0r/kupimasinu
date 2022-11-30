@@ -12,24 +12,14 @@
 
     <div class="mb-5" style="min-height: 70vh;">
 
-        <div class="flex justify-between items-center gap-5 mb-5">
+        <div class="flex justify-between items-center gap-5">
 
-            <!-- BACK BUTTON -->
-            <form action="{{ URL::previous() }}">
-                <button class="bg-white rounded-2xl p-3 flex justify-center gap-1 items-center shadow-card w-32" type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                    </svg>
-                      
-                    Povratak
-                </button>
-            </form>
-            <!---->
+            <x-back-button />
 
             @auth
                 @if(auth()->user()->id === $post->korisnik_id)
                     <!-- Edit & delete -->
-                    <div x-data="{showDetails:false}" class="relative">
+                    <div x-data="{showDetails:false}" class="relative mb-5">
 
                         @auth
 
@@ -204,7 +194,7 @@
                 <div class="mt-8">
                     <table class="w-full">
                         <tr class="bg-gray-100  text-gray-800">
-                            <td class="py-1">Tip: <span class="font-semibold">@if ($post->kategorija_id == 1) Mašina za drvo @elseif ($post->kategorija_id == 2) Mašina za metal  @elseif($post->kategorija_id == 3) Mašina za plastiku  @elseif($post->kategorija_id == 4) Radna mašina @endif''</span></td>
+                            <td class="py-1">Tip: <span class="font-semibold">@if ($post->kategorija_id == 1) Mašina za drvo @elseif ($post->kategorija_id == 2) Mašina za metal  @elseif($post->kategorija_id == 3) Mašina za plastiku  @elseif($post->kategorija_id == 4) Radna mašina @endif</span></td>
                             <td class="py-1 ">Mesto: <span class="font-semibold">{{ $post->mesto }}</span></td>
                         </tr>
         

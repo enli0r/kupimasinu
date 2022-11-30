@@ -54,7 +54,7 @@ x-cloak
         </div>
 
         <div class="notification-text">
-            <p x-text="messageToDisplay"></p>
+            <p class="px-5" x-text="messageToDisplay"></p>
         </div>
 
         <!-- X BUTTON -->
