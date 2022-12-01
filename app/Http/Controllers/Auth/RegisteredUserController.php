@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PravnoLice;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use App\Rules\BooleanIsTrue;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,8 @@ class RegisteredUserController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+
     public function create()
     {
         return view('auth.register');
@@ -38,6 +41,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'saglasnost' => ['required', new BooleanIsTrue]
         ]);
 
         if($request->userType == 'pravno lice'){
@@ -47,12 +51,12 @@ class RegisteredUserController extends Controller
             ]);
         }
 
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'lice' => $request->userType
+            'lice' => $request->userType,
+            'saglasnost' => $request->saglasnost
         ]);
 
         if($request->userType == 'pravno lice'){

@@ -47,16 +47,22 @@
                                 name="password_confirmation" required />
             </div>
 
-            <div class="text-right mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    Već ste registrovani?
-                </a>
+            <!-- Saglasnost -->
+            <div class="flex gap-3 items-center mt-6">
+                <div class="checkbox bounce filterable">
+
+                    <input type="checkbox" name="saglasnost" id="saglasnost" value="1" required/>
+
+                    <svg viewBox="0 0 21 21">
+                        <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                    </svg>
+                </div>
+                <p class="text-dark-gray">Saglasan sam sa <a href="{{ route('politika-privatnosti') }}" class="text-redd hover:underline transition-all">Politikom privatnosti</a>, <a href="{{ route('pravila-i-uslovi-koriscenja') }}" class="text-redd hover:underline transition-all">Pravilima i uslovima korišćenja</a>  </p> 
             </div>
 
-            <div class="mt-4">
-                
 
-                <div class="text-center  mt-16">
+            <div class="mt-12">
+                <div class="text-center">
                     <button type="submit" class="py-2 px-4 bg-dark-gray text-whitee rounded-full hover:bg-black hover:text-white transition-all w-48">Registrujte se</button>
                 </div>
             </div>
@@ -105,6 +111,20 @@
                                 placeholder="Potvrdite lozinku"
                                 name="password_confirmation" required />
             </div>
+
+            <!-- Saglasnost -->
+            <div class="flex gap-1 items-center mt-4">
+                <div class="checkbox bounce filterable">
+
+                    <input type="checkbox" name="saglasnost" id="saglasnost" value="1" required/>
+
+                    <svg viewBox="0 0 21 21">
+                        <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                    </svg>
+                </div>
+                <label class="text-dark-gray" for="saglasnost">Saglasan sam sa <a href="{{ route('pravila-i-uslovi-koriscenja') }}" class="text-redd">Pravilima i uslovima korišćenja</a> i <a href="{{ route('politika-privatnosti') }}" class="text-redd">Politikom privatnosti</a> <span class="text-redd">*</span></label> 
+            </div>
+
 
             <div class="text-right mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">

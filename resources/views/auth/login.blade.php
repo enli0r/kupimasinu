@@ -44,11 +44,21 @@
                     </div>
 
                     <!-- Remember Me -->
-                    <div class="flex justify-between items-center mt-4">
-                        <label for="remember_me" class="inline-flex items-center">
-                            <input id="remember_me" type="checkbox" class=" border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                            <span class="ml-2 text-sm text-gray-600">Zapamti me</span>
-                        </label>
+                    <div class="flex justify-between items-center mt-6">
+                        <div class="flex gap-2 items-center">
+                            <div class="checkbox bounce filterable">
+            
+                                <input type="checkbox" name="remember" id="remember_me" value="1" required/>
+            
+                                <svg viewBox="0 0 21 21">
+                                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                </svg>
+                            </div>
+
+                            <label for="remember_me" class="text-sm text-dark-gray hover:cursor-pointer">Zapamti me</label>
+                        </div>
+
+
 
                         @if (Route::has('password.request'))
                             <a class="underline text-sm text-dark-gray hover:text-black" href="{{ route('password.request') }}">

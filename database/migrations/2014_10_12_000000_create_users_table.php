@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('is_admin')->default(0);
             $table->string('lice');
+            $table->boolean('saglasnost');
             $table->rememberToken();
             $table->timestamps();
         });

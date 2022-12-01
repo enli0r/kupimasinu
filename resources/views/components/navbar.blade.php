@@ -152,34 +152,38 @@
     <!-- Navbar phone -->
     <div 
     x-data="{showMenu:false, showBurger:true}"
-    class="container mx-auto max-w-main flex justify-between items-center lgMin:hidden px-5 py-4">
-        <div>
+    class="w-full flex items-center lgMin:hidden px-5 py-4">
+
+        <div class="flex justify-start mr-auto" style="width: 50px;">
+            <a href="{{ route('posts.create') }}" class="bg-redd p-3 rounded-2xl text-whitee flex items-center gap-1 mr-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-whitee">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+            </a>
+        </div>
+        
+        
+
+        <div class="self-center">
             <a href="{{ route('homepage') }}" class="flex gap-2 items-center">
                 <img src="{{ asset('images/logo.png') }}" alt="" style="height: 80px;">
             </a>
         </div>
         
-        <div 
-        class="ml-auto flex gap-5 items-center">
-            <a href="{{ route('posts.create') }}" class="bg-redd p-3 rounded-2xl text-whitee flex items-center gap-1 ml-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-whitee">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-                NOVI OGLAS
-            </a>
-    
+
+        
+        <div class="flex justify-end ml-auto" style="width: 50px;">
             <!-- Burger -->
             <div 
-            
             @click="showMenu = !showMenu; showBurger=false"
-            class=""
             >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-8 h-8">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-9 h-9">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </div>
             <!-- -->
         </div>
+        
         
 
         <!-- NAV -->
@@ -234,8 +238,6 @@
 
             <div class="link flex flex-col gap-5 justify-top items-center">
                 
-
-
                 @guest
                     <a href="{{ route('login') }}" class="nav-link-black">Prijava</a>
 
@@ -278,22 +280,7 @@
                 @endauth
 
             </div>
-
-
-                
-            
-            
-                  
-                
-
-
-
-
         </div>
         <!-- -->
-
-
     </div>
-
-    
 </div>

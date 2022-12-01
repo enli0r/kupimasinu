@@ -28,8 +28,6 @@ class CreatePostsTable extends Migration
             $table->text('opis');
             $table->string('mesto');
             $table->string('kontakt');
-            $table->boolean('garantovanje_tacnosti');
-            $table->boolean('saglasnost');
             $table->boolean('odobren')->default(0);
             $table->timestamps();
 

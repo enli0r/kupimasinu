@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'KupiMasinu') }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
@@ -20,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
         <!-- Favicon.ico bug -->
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('images/Light.png') }}">
 
         <!-- Livewire styles -->
         @livewireStyles

@@ -4,7 +4,6 @@
 
     <div class="max-w-main mx-auto min-h-screen flex flex-col gap-5 mt-12 lg:mt-0 mb-10">
 
-        
         <x-auth-card>
 
             <div class="w-2/3 bg-white rounded-xl mdMin:rounded-r-none md:rounded-b-none px-5 py-20 md:pb-20 md:w-full">

@@ -28,8 +28,6 @@ class PostEdit extends Component
     public $opis;
     public $mesto;
     public $kontakt;
-    public $saglasnost;
-    public $garantovanje_tacnosti;
     public $hiddenImages = [];
 
     //post_images
@@ -55,7 +53,6 @@ class PostEdit extends Component
         $this->opis = $post->opis;
         $this->mesto = $post->mesto;
         $this->kontakt = $post->kontakt;
-
         $this->post_images = $post->images;
     }
 
@@ -111,8 +108,6 @@ class PostEdit extends Component
         'opis' => 'required|min:25|max:255',
         'mesto' => 'required',
         'kontakt' => 'required',
-        'saglasnost' => 'required',
-        'garantovanje_tacnosti' => 'required',
         'hiddenImages' => 'required',
         'images.*' => 'mimes:jpg,jpeg,png|max:4096'
     ];
@@ -142,8 +137,6 @@ class PostEdit extends Component
             $post->opis = $this->opis;
             $post->mesto = $this->mesto;
             $post->kontakt = $this->kontakt;
-            $post->saglasnost = $this->saglasnost;
-            $post->garantovanje_tacnosti = $this->garantovanje_tacnosti;
             $post->odobren = 0;
             $post->save();
         }
