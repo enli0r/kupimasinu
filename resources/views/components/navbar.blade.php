@@ -15,9 +15,9 @@
             @auth
                 @if(auth()->user()->is_admin === 0)
                     <form action="{{ route('posts.create') }}" class="">
-                        <button type="submit" class="flex gap-1 items-center bg-red-700 text-whitee justify-center uppercase rounded-xl py-2 px-5 hover:bg-red-600 hover:text-white transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        <button type="submit" class="flex gap-1 items-center bg-red-700 text-whitee justify-center rounded-xl py-2 px-5 hover:bg-red-600 hover:text-white transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             Novi oglas
                         </button>
@@ -27,9 +27,9 @@
                     
             @guest
                 <form action="{{ route('posts.create') }}" class="">
-                    <button type="submit" class="flex gap-1 items-center bg-red-700 text-whitee justify-center uppercase rounded-xl py-2 px-5 hover:bg-red-600 hover:text-white transition-all">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <button type="submit" class="flex gap-1 items-center bg-red-700 text-whitee justify-center rounded-xl py-2 px-5 hover:bg-red-600 hover:text-white transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Novi oglas
                     </button>
@@ -38,7 +38,7 @@
                 
 
             <div class="flex items-center gap-5">
-                <a href="{{ route('homepage') }}" class="nav-link-black">Početna</a>
+                <a href="{{ route('pocetna') }}" class="nav-link-black">Početna</a>
 
                 <a href="{{ route('homepage') }}" class="nav-link-black">Svi oglasi</a>
             </div>
@@ -155,9 +155,9 @@
     class="w-full flex items-center lgMin:hidden px-5 py-4">
 
         <div class="flex justify-start mr-auto" style="width: 50px;">
-            <a href="{{ route('posts.create') }}" class="bg-redd p-3 rounded-2xl text-whitee flex items-center gap-1 mr-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-whitee">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            <a href="{{ route('posts.create') }}" class="bg-redd p-2 rounded-2xl text-whitee flex items-center gap-1 mr-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             </a>
         </div>
@@ -215,22 +215,22 @@
             @auth
                 @if (auth()->user()->is_admin === 0)
                     <a href="{{ route('posts.create') }}" class="flex gap-1 bg-redd text-whitee p-3 justify-center items-center mb-7">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         
-                        NOVI OGLAS
+                        Novi oglas
                     </a>
                 @endif
             @endauth
                 
             @guest
                 <a href="{{ route('posts.create') }}" class="flex gap-1 bg-redd text-whitee p-3 justify-center items-center mb-7">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     
-                    NOVI OGLAS
+                    Novi oglas
                 </a>
             @endguest
 
@@ -243,14 +243,14 @@
 
                     <a href="{{ route('register') }}" class="nav-link-black">Registracija</a>
 
-                    <a href="{{ route('homepage') }}" class="nav-link-black">Početna</a>
+                    <a href="{{ route('pocetna') }}" class="nav-link-black">Početna</a>
 
                     <a href="{{ route('homepage') }}" class="nav-link-black">Svi oglasi</a>
                 @endguest
 
 
                 @auth
-                    
+                <a href="{{ route('pocetna') }}" class="nav-link-black">Početna</a>
 
                 @if (auth()->user()->is_admin === 0)
                     <a href="{{ route('user', auth()->user()->id) }}" class="nav-link-black">Profil</a>

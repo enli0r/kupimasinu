@@ -1028,7 +1028,6 @@
 
         @else
             <div class="w-full flex flex-col gap-4 rounded-2xl p-5 bg-white justify-center items-center shadow-card">
-                <img src="{{ asset('images/sad-gearwheel.png') }}" alt="" class="w-48">
                 
                 <p class="text-red-500">Trenutno nema aktivnih oglasa. Pogledajte ponovo kasnije.</p>
 

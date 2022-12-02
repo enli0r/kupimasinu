@@ -15,7 +15,6 @@ module.exports = {
       'lg': {'max': '1023px'},
 
       'xl': {'max': '1279px'},
-
   },
 
 
@@ -28,7 +27,6 @@ module.exports = {
         'whitee': '#F7F4F3',
         'dark-gray': '#161A1D',
         'body-bg' : '#f4f4f4'
-        
       },
 
       maxWidth: {
@@ -56,7 +54,6 @@ module.exports = {
           card: '4px 4px 15px 0 rgba(36, 37, 38, 0.08)',
           dialog: '0px 5px 15px -2px rgba(0,0,0,0.66)',
           leftDialog: '-10px 3px 20px -8px rgba(0,0,0,0.50)'
-
       },
 
       fontFamily: {

@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function(){
     return view('homepage');
-});
+})->name('pocetna');
 
 Route::get('/o-nama', [PagesController::class, 'oNama'])->name('o-nama');
 

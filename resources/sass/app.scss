@@ -757,4 +757,171 @@ body{
             }
         }
     }
+
+    .pocetna{
+        header{
+            padding: 25px 20px !important;
+
+            .dobrodosli{
+                font-size: 26px !important;
+                margin-bottom: 20px !important;
+                color: #161A1D !important;
+            }
+
+            .km-text{
+                margin-bottom: 30px !important;
+            }
+
+            .km-text{
+                font-size: 30px !important;
+                font-weight: 900;
+            }
+        }
+
+        .pocetna-body{
+            flex-direction: column-reverse !important;
+            gap: 1.5rem !important;
+
+            .categories-container{
+
+                .sve-masine{
+                    font-size: 16px !important;
+                }
+    
+                .row-1, .row-2{
+                    // flex-direction: column !important;
+                }
+    
+                .category{
+                    font-size: 16px !important;
+                }
+            }
+        }
+    }
+}
+
+
+.pocetna{
+    min-height: 60vh;
+
+    header{
+        background-color: white;
+        padding: 30px 20px;
+        border-radius: 0.75rem;
+        box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.08);
+
+        h1{
+            font-size: 32px;
+            color: #161A1D;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .km-text{
+            font-size: 44px;
+            text-transform: uppercase;
+            color: #ba1b1d;
+            margin-bottom: 40px;
+        }
+
+        p{
+            color: #161A1D;
+            font-size: 13px;
+            max-width: 500px; 
+        }
+    }
+
+
+    .pocetna-body{
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 20px;
+        justify-content: space-between;
+
+        .categories-container{
+            background-color: white;
+            padding: 20px;
+            border-radius: 0.75rem;
+            box-shadow: 10px 4px 15px 0 rgba(36, 37, 38, 0.08);
+            flex: 1;
+    
+            .homepage-categories{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 20px;
+    
+                .sve-masine{
+                    width: 100%;
+                    padding: 20px;
+                    background-color: #161A1D;
+                    color: #f7f4f3;
+                    border-radius: 0.75rem;
+                    font-size: 16px;
+                    text-align: center;
+                    transition: all 0.2s linear;
+                    font-weight: 600;
+    
+                    &:hover{
+                        background-color: black;
+                        color: white;
+                    }
+                }
+    
+                .row-1, .row-2{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 20px;
+                }
+        
+        
+                .category{
+                    background-color: #161A1D;
+                    color: #f7f4f3;
+                    font-weight: 600;
+                    border-radius: 0.75rem;
+                    padding: 20px;
+                    flex: 1;
+                    text-align: center;
+                    transition: all 0.2s linear;
+                    cursor: pointer;
+                    box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.08);
+                    font-size: 16px;
+        
+        
+                    &:hover{
+                        background-color: black;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .body-right{
+            flex: 1;
+            background-color: #161A1D;
+            border-radius: 0.75rem;
+            box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.08);
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+
+            h1{
+                margin-bottom: 5px;
+            }
+
+            p{
+                margin-bottom: 10px;
+            }
+
+        }
+    }
+
+    
+    
+
+        
 }
