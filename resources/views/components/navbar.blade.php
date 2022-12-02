@@ -4,7 +4,7 @@
     <div class="container mx-auto max-w-main flex lgMin:gap-5 justify-between items-center lg:px-5 py-3 lg:hidden lgMin:relative">
 
         <div class="" style="width: 270px;">
-            <a href="{{ route('homepage') }}" class="flex gap-2 items-center">
+            <a href="{{ route('pocetna') }}" class="flex gap-2 items-center">
                 <img src="{{ asset('images/Light.png') }}" alt="" style="width: 120px;">
                 {{-- <h1 class="text-lg text-whitee">KUPI MAŠINU</h1> --}}
             </a>
@@ -165,7 +165,7 @@
         
 
         <div class="self-center">
-            <a href="{{ route('homepage') }}" class="flex gap-2 items-center">
+            <a href="{{ route('pocetna') }}" class="flex gap-2 items-center">
                 <img src="{{ asset('images/logo.png') }}" alt="" style="height: 80px;">
             </a>
         </div>

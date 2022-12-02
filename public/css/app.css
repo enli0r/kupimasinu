@@ -2230,10 +2230,42 @@ body input[type=number] {
   flex-direction: column;
 }
 .pocetna .pocetna-body .body-right h1 {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  color: #ba1b1d;
+  font-size: 18px;
+  font-weight: 600;
 }
 .pocetna .pocetna-body .body-right p {
   margin-bottom: 10px;
+  color: #f7f4f3;
+}
+.pocetna .pocetna-body .body-right .linkovi {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+.pocetna .pocetna-body .body-right .linkovi .register {
+  background-color: black;
+  color: #f7f4f3;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+}
+.pocetna .pocetna-body .body-right .novi-oglas {
+  color: #f7f4f3;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  background-color: #ba1b1d;
+  border-radius: 0.75rem;
+  gap: 5px;
+  transition: all 0.2s linear;
+}
+.pocetna .pocetna-body .body-right .novi-oglas:hover {
+  background-color: rgb(226, 1, 1);
+  color: white;
 }
 .hover\:cursor-pointer:hover {
   cursor: pointer;
