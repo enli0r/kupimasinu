@@ -29,6 +29,7 @@ class PostEdit extends Component
     public $mesto;
     public $kontakt;
     public $hiddenImages = [];
+    public $model;
 
     //post_images
     public $post_images = [];
@@ -50,6 +51,7 @@ class PostEdit extends Component
         $this->ispravnost = $post->ispravnost;
         $this->zamena = $post->zamena;
         $this->proizvodjac = $post->proizvodjac;
+        $this->model = $post->model;
         $this->opis = $post->opis;
         $this->mesto = $post->mesto;
         $this->kontakt = $post->kontakt;
@@ -104,7 +106,8 @@ class PostEdit extends Component
         'koriscenost' => 'required',
         'ispravnost' => 'required',
         'zamena' => 'required',
-        'proizvodjac' => 'max:25',
+        'proizvodjac' => 'max:30',
+        'model' => 'max:30',
         'opis' => 'required|min:25|max:255',
         'mesto' => 'required',
         'kontakt' => 'required',
@@ -134,6 +137,7 @@ class PostEdit extends Component
             $post->ispravnost = $this->ispravnost;
             $post->zamena = $this->zamena;
             $post->proizvodjac = $this->proizvodjac;
+            $post->model = $this->model;
             $post->opis = $this->opis;
             $post->mesto = $this->mesto;
             $post->kontakt = $this->kontakt;

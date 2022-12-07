@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->route('homepage')->with('message', 'Uspešno ste se prijavili');
+        return redirect()->route('pocetna')->with('message', 'Uspešno ste se prijavili');
     }
 
     /**
@@ -49,6 +49,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('homepage')->with('message', 'Uspešno ste se odjavili');
+        return redirect()->route('pocetna')->with('message', 'Uspešno ste se odjavili');
     }
 }

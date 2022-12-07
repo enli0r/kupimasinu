@@ -25,6 +25,7 @@ class CreatePostsTable extends Migration
             $table->boolean('ispravnost');
             $table->boolean('zamena');
             $table->string('proizvodjac')->nullable();
+            $table->string('model')->nullable();
             $table->text('opis');
             $table->string('mesto');
             $table->string('kontakt');

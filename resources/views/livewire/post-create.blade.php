@@ -20,6 +20,32 @@
             </div>
             <!---->
 
+            <div class="flex gap-10 lg:flex-col w-full">
+                <!-- Proizvodjac -->
+                <div class="flex flex-col gap-2 w-1/2 lg:w-full">
+                    <label class="font-semibold text-dark-gray" for="proizvodjac">Proizvodjač</label>
+                    <x-input wire:model="proizvodjac" type="text" name="proizvodjac" id="proizvodjac" value="{{old('proizvodjac')}}"/>
+
+                    @error('proizvodjac')
+                            <small class="text-red-500 font-semibold">*{{ $message }}</small>
+                    @enderror
+                </div>
+                <!---->
+
+                <!-- Kontakt -->
+                <div class="flex flex-col gap-2 w-1/2 lg:w-full">
+                    <label class="font-semibold text-dark-gray" for="model">Model</label>
+                    <x-input  wire:model="model" type="text" name="model" id="model" value="{{old('model')}}"/>
+            
+                    @error('kontakt')
+                            <small class="text-red-500 font-semibold">*{{ $message }}</small>
+                    @enderror
+                </div>
+                <!---->
+            
+
+            </div>
+
 
             <div class="flex justify-between items-center w-full lg:gap-10 lg:justify-start">
                 <!--Cena -->
@@ -189,16 +215,6 @@
             </div>
 
             <div class="flex gap-10 lg:flex-col w-full">
-                <!-- Proizvodjac -->
-                <div class="flex flex-col gap-2 w-1/2 lg:w-full">
-                    <label class="font-semibold text-dark-gray" for="proizvodjac">Proizvodjač</label>
-                    <x-input wire:model="proizvodjac" type="text" name="proizvodjac" id="proizvodjac" value="{{old('proizvodjac')}}"/>
-
-                    @error('proizvodjac')
-                            <small class="text-red-500 font-semibold">*{{ $message }}</small>
-                    @enderror
-                </div>
-                <!---->
 
                 <!-- Kontakt -->
                 <div class="flex flex-col gap-2 w-1/2 lg:w-full">

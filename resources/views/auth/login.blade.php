@@ -48,7 +48,7 @@
                         <div class="flex gap-2 items-center">
                             <div class="checkbox bounce filterable">
             
-                                <input type="checkbox" name="remember" id="remember_me" value="1" required/>
+                                <input type="checkbox" name="remember" id="remember_me" value="1"/>
             
                                 <svg viewBox="0 0 21 21">
                                     <polyline points="5 10.75 8.5 14.25 16 6"></polyline>

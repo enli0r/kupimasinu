@@ -45,6 +45,7 @@
 
                     <tr class="text-gray-800">
                         <td class="py-1 w-1/2">Proizvođač: <span class="font-semibold">@if ($post->proizvodjac != null) {{ $post->proizvodjac }}  @else / @endif</span></td>
+                        <td class="py-1 w-1/2">Model: <span class="font-semibold">@if ($post->model != null) {{ $post->model }}  @else / @endif</span></td>
                     </tr>
                 </table>
                     
@@ -97,6 +98,7 @@
 
                 <tr class="text-gray-800">
                     <td class="py-1">Proizvođač: <span class="font-semibold">@if ($post->proizvodjac != null) {{ $post->proizvodjac }}  @else / @endif</span></td>
+                    <td class="py-1">Model: <span class="font-semibold">@if ($post->model != null) {{ $post->model }}  @else / @endif</span></td>
                 </tr>
             </table>
         </div>

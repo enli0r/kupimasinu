@@ -72,7 +72,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('homepage')->with('message', 'Uspešno ste se registrovali');
+        return redirect()->route('pocetna')->with('message', 'Uspešno ste se registrovali');
     }
 
     public function userPage($id){

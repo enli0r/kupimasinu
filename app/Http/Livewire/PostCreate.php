@@ -34,6 +34,7 @@ class PostCreate extends Component
     public $opis;
     public $mesto;
     public $kontakt;
+    public $model;
 
     public $queryString = [
         'mesto'
@@ -89,11 +90,12 @@ class PostCreate extends Component
         'koriscenost' => 'required',
         'ispravnost' => 'required',
         'zamena' => 'required',
-        'proizvodjac' => 'max:25',
+        'proizvodjac' => 'max:30',
+        'model' => 'max:30',
         'opis' => 'required|min:25|max:255',
         'mesto' => 'required',
         'kontakt' => 'required',
-
+        
         
     ];
 
@@ -116,6 +118,7 @@ class PostCreate extends Component
         $post->opis = $this->opis;
         $post->mesto = $this->mesto;
         $post->kontakt = $this->kontakt;
+        $post->model = $this->model;
         $post->save();
 
 

@@ -2218,7 +2218,7 @@ body input[type=number] {
   background-color: black;
   color: white;
 }
-.pocetna .pocetna-body .body-right {
+.pocetna .pocetna-body .body-right-guest {
   flex: 1;
   background-color: #161A1D;
   border-radius: 0.75rem;
@@ -2229,29 +2229,29 @@ body input[type=number] {
   justify-content: space-between;
   flex-direction: column;
 }
-.pocetna .pocetna-body .body-right h1 {
+.pocetna .pocetna-body .body-right-guest h1 {
   margin-bottom: 10px;
   color: #ba1b1d;
   font-size: 18px;
   font-weight: 600;
 }
-.pocetna .pocetna-body .body-right p {
+.pocetna .pocetna-body .body-right-guest p {
   margin-bottom: 10px;
   color: #f7f4f3;
 }
-.pocetna .pocetna-body .body-right .linkovi {
+.pocetna .pocetna-body .body-right-guest .linkovi {
   display: flex;
   gap: 1.25rem;
   align-items: center;
   margin-bottom: 1.25rem;
 }
-.pocetna .pocetna-body .body-right .linkovi .register {
+.pocetna .pocetna-body .body-right-guest .linkovi .register {
   background-color: black;
   color: #f7f4f3;
   padding: 0.75rem;
   border-radius: 0.75rem;
 }
-.pocetna .pocetna-body .body-right .novi-oglas {
+.pocetna .pocetna-body .body-right-guest .novi-oglas {
   color: #f7f4f3;
   padding: 0.75rem 1rem;
   display: flex;
@@ -2263,7 +2263,62 @@ body input[type=number] {
   gap: 5px;
   transition: all 0.2s linear;
 }
-.pocetna .pocetna-body .body-right .novi-oglas:hover {
+.pocetna .pocetna-body .body-right-guest .novi-oglas:hover {
+  background-color: rgb(226, 1, 1);
+  color: white;
+}
+.pocetna .pocetna-body .body-right-auth {
+  flex: 1;
+  background-color: #161A1D;
+  border-radius: 0.75rem;
+  box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.08);
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.pocetna .pocetna-body .body-right-auth h2 {
+  margin-bottom: 10px;
+  color: #f7f4f3;
+  font-size: 18px;
+  font-weight: 600;
+}
+.pocetna .pocetna-body .body-right-auth h1 {
+  margin-bottom: 10px;
+  color: #ba1b1d;
+  font-size: 32px;
+  font-weight: 600;
+}
+.pocetna .pocetna-body .body-right-auth p {
+  margin-bottom: 10px;
+  color: #f7f4f3;
+}
+.pocetna .pocetna-body .body-right-auth .linkovi {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+.pocetna .pocetna-body .body-right-auth .linkovi .profil {
+  background-color: black;
+  color: #f7f4f3;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+}
+.pocetna .pocetna-body .body-right-auth .novi-oglas {
+  color: #f7f4f3;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  background-color: #ba1b1d;
+  border-radius: 0.75rem;
+  gap: 5px;
+  transition: all 0.2s linear;
+}
+.pocetna .pocetna-body .body-right-auth .novi-oglas:hover {
   background-color: rgb(226, 1, 1);
   color: white;
 }
