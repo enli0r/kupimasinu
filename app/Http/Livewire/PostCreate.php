@@ -9,6 +9,7 @@ use App\Models\PostImages;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 class PostCreate extends Component
 {
@@ -95,12 +96,12 @@ class PostCreate extends Component
         'opis' => 'required|min:25|max:255',
         'mesto' => 'required',
         'kontakt' => 'required',
-        
-        
+        'images' => 'required',
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
     ];
 
 
-    public function store(){
+    public function store(Request $request){
         $this->validate();
 
         $post = new Post;

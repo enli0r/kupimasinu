@@ -166,7 +166,7 @@
 
         <div class="self-center">
             <a href="{{ route('pocetna') }}" class="flex gap-2 items-center">
-                <img src="{{ asset('images/logo.png') }}" alt="" style="height: 80px;">
+                <img src="{{ asset('images/Light.png') }}" alt="" style="height: 80px;">
             </a>
         </div>
         

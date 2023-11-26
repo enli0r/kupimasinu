@@ -112,7 +112,7 @@ class PostEdit extends Component
         'mesto' => 'required',
         'kontakt' => 'required',
         'hiddenImages' => 'required',
-        'images.*' => 'mimes:jpg,jpeg,png|max:4096'
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
     ];
 
     public function editPost(Post $post){
